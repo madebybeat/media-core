@@ -1,9 +1,11 @@
 package com.beatstreaming.media.entity;
 
+import com.beatstreaming.core.entity.ItemEntity;
+
 import lombok.Getter;
 
 @Getter
-public class AppSourceEntity {
+public class AppSourceEntity extends ItemEntity {
     private String url;
     private String description;
     private String name;
