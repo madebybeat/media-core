@@ -1,4 +1,4 @@
-package com.beatstreaming.core.entity;
+package com.beatstreaming.media.entity;
 
 import lombok.Getter;
 
