@@ -38,4 +38,5 @@ dependencies {
     compileOnly libs.lombok
     annotationProcessor libs.lombok
     implementation libs.volley
+    implementation libs.gson
 }

@@ -7,8 +7,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
-import java.util.function.Consumer;
-
 public class HttpRequest {
     protected final Context context;
 
@@ -26,9 +24,17 @@ public class HttpRequest {
         this.requestQueue = Volley.newRequestQueue(this.context);
     }
 
-    public void load(Consumer<String> consumer, Consumer<VolleyError> error) {
-        StringRequest stringRequest = new StringRequest(this.method, this.url, consumer::accept, error::accept);
+    public void load() {
+        StringRequest stringRequest = new StringRequest(this.method, this.url, this::onLoad, this::onError);
 
         this.requestQueue.add(stringRequest);
+    }
+
+    public void onLoad(String data) {
+
+    }
+
+    public void onError(VolleyError volleyError) {
+
     }
 }
