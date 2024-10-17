@@ -1,11 +1,11 @@
 package com.beatstreaming.core.entity;
 
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 public class AppSourceEntity {
-    private final String url;
-    private final String description;
-    private final String name;
-    private final String website;
+    private String url;
+    private String description;
+    private String name;
+    private String website;
 }
