@@ -14,8 +14,8 @@ public class TypedHttpRequest<T> extends HttpRequest {
     @Setter
     private HttpRequestCallback<T> httpRequestCallback;
 
-    public TypedHttpRequest(Context context, Class<T> clazz, int method, String url) {
-        super(context, method, url);
+    public TypedHttpRequest(Context context, Class<T> clazz, int method) {
+        super(context, method);
 
         this.clazz = clazz;
     }
