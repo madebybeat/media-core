@@ -14,8 +14,8 @@ public class HttpRequestPage<T> extends Fragment {
     private HttpRequestStatusBinding httpRequestStatusBinding;
     private ViewBinding viewBinding;
 
-    public HttpRequestPage(Context context, Class<T> clazz, int method, String url) {
-        this.typedHttpRequest = new TypedHttpRequest<>(context, clazz, method, url);
+    public HttpRequestPage(Class<T> clazz, int method, String url) {
+        this.typedHttpRequest = new TypedHttpRequest<>(this.getContext(), clazz, method, url);
     }
 
     public void load(HttpRequestStatusBinding httpRequestStatusBinding, ViewBinding viewBinding) {
