@@ -33,6 +33,9 @@ android {
 }
 
 dependencies {
+    implementation project(':media')
+    implementation project(':core')
+
     implementation libs.appcompat
     implementation libs.material
     testImplementation libs.junit
