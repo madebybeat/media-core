@@ -1,7 +1,8 @@
 package com.beatstreaming.media.storage;
 
-import com.beatstreaming.core.entity.AppSourceEntity;
+
 import com.beatstreaming.core.entity.IdItemEntity;
+import com.beatstreaming.media.entity.AppSourceEntity;
 
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
