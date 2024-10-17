@@ -40,8 +40,12 @@ public class HttpRequestPage<T> extends Fragment {
 
             @Override
             public void onLoad(T data) {
-                httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.VISIBLE);
+                HttpRequestPage.this.onLoad(data);
             }
         });
+    }
+
+    public void onLoad(T data) {
+        httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.VISIBLE);
     }
 }
