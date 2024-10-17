@@ -28,6 +28,12 @@ public class HttpRequest {
         StringRequest stringRequest = new StringRequest(this.method, this.url, this::onLoad, this::onError);
 
         this.requestQueue.add(stringRequest);
+
+        this.onLoading();
+    }
+
+    public void onLoading() {
+
     }
 
     public void onLoad(String data) {
