@@ -43,4 +43,6 @@ dependencies {
     annotationProcessor libs.lombok
     implementation libs.volley
     implementation libs.gson
+    implementation libs.hilt.android
+    annotationProcessor libs.hilt.compiler
 }
