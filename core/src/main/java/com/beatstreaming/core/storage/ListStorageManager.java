@@ -7,7 +7,7 @@ import com.beatstreaming.core.entity.IdItemEntity;
 import java.util.Optional;
 
 public class ListStorageManager<T extends IdItemEntity> extends StorageManager<ListStorage<T>> {
-    public ListStorageManager(Class<ListStorage<T>> clazz, String name) {
+    public ListStorageManager(Class<? extends ListStorage<T>> clazz, String name) {
         super(clazz, name);
     }
 

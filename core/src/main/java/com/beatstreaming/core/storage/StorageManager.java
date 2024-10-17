@@ -12,12 +12,12 @@ import java.io.InputStreamReader;
 import lombok.SneakyThrows;
 
 public class StorageManager<T> {
-    private final Class<T> clazz;
+    private final Class<? extends T> clazz;
     private final String name;
 
     private final Gson gson;
 
-    public StorageManager(Class<T> clazz, String name) {
+    public StorageManager(Class<? extends T> clazz, String name) {
         this.clazz = clazz;
         this.name = name;
 
