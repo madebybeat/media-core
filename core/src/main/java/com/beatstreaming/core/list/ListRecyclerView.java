@@ -1,40 +1,35 @@
 package com.beatstreaming.core.list;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.content.Context;
+import android.util.AttributeSet;
 
-import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.List;
+import com.beatstreaming.core.view.ViewInit;
 
-public class ListRecyclerView<T extends ListContext, V extends ListBinder<T, V>> extends RecyclerView.Adapter<ListViewHolder<V>> {
-    public final T context;
-    public final List<V> list;
-    public final ListBinder<T, V> itemBinder;
+public class ListRecyclerView extends RecyclerView implements ViewInit<Context> {
+    public ListRecyclerView(Context context) {
+        super(context);
 
-    public ListRecyclerView(T context, List<V> list, ListBinder<T, V> itemBinder) {
-        this.context = context;
-        this.list = list;
-        this.itemBinder = itemBinder;
+        this.init(context);
     }
 
-    @NonNull
-    @Override
-    public ListViewHolder<V> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(this.itemBinder.getItemLayout(), parent, false);
+    public ListRecyclerView(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
 
-        return new ListViewHolder<>(view);
+        this.init(context);
     }
 
-    @Override
-    public void onBindViewHolder(@NonNull ListViewHolder holder, int position) {
+    public ListRecyclerView(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
+        super(context, attributeSet, defaultStyleAttributes);
 
+        this.init(context);
     }
 
     @Override
-    public int getItemCount() {
-        return this.list.size();
+    public void init(Context context) {
+        this.setLayoutManager(new LinearLayoutManager(this.getContext()));
+        this.setNestedScrollingEnabled(false);
     }
 }
