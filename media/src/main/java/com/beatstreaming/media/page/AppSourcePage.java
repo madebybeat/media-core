@@ -21,12 +21,12 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class SourceAppPage extends HttpRequestPage<AppSourceListEntity> {
+public class AppSourcePage extends HttpRequestPage<AppSourceListEntity> {
     private SourceAppPageBinding sourceAppPageBinding;
 
     @Inject AppSourceBinder appSourceItemBinder;
 
-    public SourceAppPage() {
+    public AppSourcePage() {
         super(AppSourceListEntity.class, Request.Method.GET);
     }
 
