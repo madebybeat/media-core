@@ -9,19 +9,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class ListRecyclerView<T> extends RecyclerView.Adapter<ListViewHolder<T>> {
-    public final List<T> list;
-    public final ListBinder<T> binder;
+public class ListRecyclerView<T extends ListContext, V extends ListBinder<T, V>> extends RecyclerView.Adapter<ListViewHolder<V>> {
+    public final T context;
+    public final List<V> list;
+    public final ListBinder<T, V> itemBinder;
 
-    public ListRecyclerView(List<T> list, ListBinder<T> itemBinder) {
+    public ListRecyclerView(T context, List<V> list, ListBinder<T, V> itemBinder) {
+        this.context = context;
         this.list = list;
-        this.binder = itemBinder;
+        this.itemBinder = itemBinder;
     }
 
     @NonNull
     @Override
-    public ListViewHolder<T> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(this.binder.getItemLayout(), parent, false);
+    public ListViewHolder<V> onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(this.itemBinder.getItemLayout(), parent, false);
 
         return new ListViewHolder<>(view);
     }
