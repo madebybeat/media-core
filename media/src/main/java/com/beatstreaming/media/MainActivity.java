@@ -4,8 +4,10 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.databinding.MainActivityBinding;
-import com.beatstreaming.media.page.AppSourcePage;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import lombok.Getter;
@@ -17,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private MainActivityBinding mainActivityBinding;
 
+    @Inject HomePage homePage;
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -27,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         this.setContentView(this.mainActivityBinding.getRoot());
 
         this.getSupportFragmentManager().beginTransaction()
-                .replace(mainActivityBinding.fragment.getId(), new AppSourcePage())
+                .replace(mainActivityBinding.fragment.getId(), this.homePage)
                 .addToBackStack(null)
                 .commit();
     }
