@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.http.AppSourceListRequest;
-import com.beatstreaming.media.list.AppSourceSetBinder;
+import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.server.AppServerManager;
 
 import javax.inject.Inject;
@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class AppSourcePage extends Fragment {
     private AppSourcePageBinding appSourcePageBinding;
 
-    @Inject AppSourceSetBinder appSourceBinder;
+    @Inject AppSourcePageItemBinder appSourceBinder;
     @Inject AppServerManager appServerManager;
 
     @Override

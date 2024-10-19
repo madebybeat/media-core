@@ -3,8 +3,6 @@ package com.beatstreaming.media.http;
 import android.content.Context;
 
 import com.android.volley.Request;
-import com.beatstreaming.core.databinding.SectionListBinding;
-import com.beatstreaming.core.http.HttpRequestFragment;
 import com.beatstreaming.core.http.HttpRequestSection;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;

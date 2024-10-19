@@ -13,7 +13,7 @@ import lombok.Getter;
 @AndroidEntryPoint
 @Getter
 public class MainActivity extends AppCompatActivity {
-    private static MainActivity mainActivity;
+    public static MainActivity mainActivity;
 
     private MainActivityBinding mainActivityBinding;
 
