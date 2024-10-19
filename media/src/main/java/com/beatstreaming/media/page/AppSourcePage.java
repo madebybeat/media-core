@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.beatstreaming.core.databinding.SectionListBinding;
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.databinding.PaddedListBinding;
 import com.beatstreaming.media.list.AppSourceBinder;
@@ -29,7 +30,7 @@ public class AppSourcePage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
 
-        new AppSourceListRequest(this.getContext(), this.appSourcePageBinding, PaddedListBinding.inflate(this.getLayoutInflater()), this.appServerManager.getAppServer(), this.appSourceBinder);
+        new AppSourceListRequest(this.getContext(), this.appSourcePageBinding, SectionListBinding.inflate(this.getLayoutInflater()), this.appServerManager.getAppServer(), this.appSourceBinder);
 
         return this.appSourcePageBinding.getRoot();
     }

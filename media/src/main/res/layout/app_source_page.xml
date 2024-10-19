@@ -5,5 +5,5 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include android:id="@+id/http_request_status" layout="@layout/http_request_status" />
+    <include android:id="@+id/recommended_app_list" layout="@layout/http_request_status" />
 </LinearLayout>

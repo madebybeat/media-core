@@ -8,14 +8,12 @@ import android.widget.LinearLayout;
 import com.beatstreaming.core.databinding.SectionListBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
+import com.beatstreaming.core.view.ViewInit;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
-public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout {
+public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout implements ViewInit<SectionContext<T, V>> {
     private SectionListBinding sectionListBinding;
 
     @Inject Gson gson;
@@ -42,10 +40,9 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
         this.sectionListBinding = SectionListBinding.inflate(LayoutInflater.from(context), this, true);
     }
 
-    public Section<T, V> setup(SectionContext<T, V> sectionContext) {
+    @Override
+    public void init(SectionContext<T, V> sectionContext) {
         this.sectionListBinding.toolbar.setTitle(sectionContext.getTitle());
         this.sectionListBinding.sectionList.setAdapter(sectionContext.getListRecyclerViewAdapter());
-
-        return this;
     }
 }
