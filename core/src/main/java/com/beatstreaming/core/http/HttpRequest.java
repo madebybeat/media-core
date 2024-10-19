@@ -21,10 +21,20 @@ public class HttpRequest {
     private final RequestQueue requestQueue;
 
     public HttpRequest(Context context, int method) {
+        this(context, method, null);
+    }
+
+    public HttpRequest(Context context, int method, URI url) {
         this.context = context;
         this.method = method;
 
         this.requestQueue = Volley.newRequestQueue(this.context);
+    }
+
+    protected void load(URI url) {
+        this.url = url;
+
+        this.load();
     }
 
     public void load() {

@@ -6,13 +6,13 @@ import lombok.Data;
 
 @Data
 public class AppServer {
-    private final URI uri;
+    private final URI url;
 
     public AppServer() {
-        this.uri = this.getUri();
+        this.url = this.getUrl();
     }
 
-    public URI getUri() {
+    public URI getUrl() {
         return null;
     }
 }

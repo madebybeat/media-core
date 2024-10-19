@@ -49,4 +49,5 @@ dependencies {
     annotationProcessor libs.lombok
     implementation libs.hilt.android
     implementation libs.volley
+    implementation libs.httpclient
 }

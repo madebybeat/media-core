@@ -12,6 +12,7 @@ import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.databinding.PaddedListBinding;
 import com.beatstreaming.media.list.AppSourceBinder;
 import com.beatstreaming.media.http.AppSourceListRequest;
+import com.beatstreaming.media.server.AppServerManager;
 
 import javax.inject.Inject;
 
@@ -22,12 +23,13 @@ public class AppSourcePage extends Fragment {
     private AppSourcePageBinding appSourcePageBinding;
 
     @Inject AppSourceBinder appSourceBinder;
+    @Inject AppServerManager appServerManager;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
 
-        new AppSourceListRequest(this.getContext(), this.appSourcePageBinding, PaddedListBinding.inflate(this.getLayoutInflater())).init(this.appSourceBinder);
+        new AppSourceListRequest(this.getContext(), this.appSourcePageBinding, PaddedListBinding.inflate(this.getLayoutInflater()), this.appServerManager.getAppServer(), this.appSourceBinder);
 
         return this.appSourcePageBinding.getRoot();
     }
