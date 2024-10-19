@@ -1,6 +1,8 @@
 package com.beatstreaming.media.module;
 
+import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
+import com.beatstreaming.media.storage.AppSourceStorageManager;
 
 import javax.inject.Singleton;
 
@@ -14,7 +16,13 @@ import dagger.hilt.components.SingletonComponent;
 public class BindModule {
     @Provides
     @Singleton
-    public AppSourcePageItemBinder provideAppSourceSetBinder() {
-        return new AppSourcePageItemBinder();
+    public AppSourcePageItemBinder provideAppSourcePageItemBinder(AppSourceStorageManager appSourceStorageManager, HomePage homePage) {
+        return new AppSourcePageItemBinder(appSourceStorageManager, homePage);
+    }
+
+    @Provides
+    @Singleton
+    public AppSourceStorageManager provideAppSourceStorageManager() {
+        return new AppSourceStorageManager();
     }
 }

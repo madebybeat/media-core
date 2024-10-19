@@ -10,11 +10,12 @@ import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
 
-import javax.inject.Inject;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 public class AppSourcePageItemBinder extends AppSourceBinder {
-    @Inject AppSourceStorageManager appSourceStorageManager;
-    @Inject HomePage homePage;
+    private final AppSourceStorageManager appSourceStorageManager;
+    private final HomePage homePage;
 
     @Override
     public void bind(ListContext context, ListViewHolder<AppSourceEntity> holder, AppSourceEntity item) {
