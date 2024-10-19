@@ -13,8 +13,12 @@ import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
+import lombok.Getter;
+
+@Getter
 public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout implements ViewInit<SectionContext<T, V>> {
     private SectionListBinding sectionListBinding;
+    private SectionContext<T, V> sectionContext;
 
     @Inject Gson gson;
 
@@ -42,6 +46,8 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
 
     @Override
     public void init(SectionContext<T, V> sectionContext) {
+        this.sectionContext = sectionContext;
+
         this.sectionListBinding.toolbar.setTitle(sectionContext.getTitle());
         this.sectionListBinding.sectionList.setAdapter(sectionContext.getListRecyclerViewAdapter());
     }

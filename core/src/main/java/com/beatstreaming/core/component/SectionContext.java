@@ -5,11 +5,11 @@ import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 
 @Builder
-@Getter
+@Data
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
-    private final int title;
-    private final ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
+    private int title;
+    private ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
 }
