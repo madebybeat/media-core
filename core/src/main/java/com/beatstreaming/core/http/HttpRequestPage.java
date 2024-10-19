@@ -47,7 +47,7 @@ public class HttpRequestPage<T extends View, V extends Fragment> extends Fragmen
             public void onLoad(String data) {
                 httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.GONE);
 
-                httpRequestStatusBinding.fragment.addView(clazz.newInstance());
+                httpRequestStatusBinding.view.addView(clazz.newInstance());
             }
 
             @Override

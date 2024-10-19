@@ -7,6 +7,7 @@ import com.beatstreaming.core.component.Section;
 import com.beatstreaming.core.component.SectionContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
+import com.beatstreaming.media.R;
 
 public class AppSourceListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V> {
     public AppSourceListSection(Context context) {
@@ -30,6 +31,6 @@ public class AppSourceListSection<T extends ListContext, V extends ItemEntity> e
     public void init(Context context) {
         super.init(context);
 
-        this.init(SectionContext.<T, V>builder().title(0).build());
+        this.init(SectionContext.<T, V>builder().title(R.string.section_app_list_recommend_title).build());
     }
 }

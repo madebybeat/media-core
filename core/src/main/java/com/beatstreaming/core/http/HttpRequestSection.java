@@ -1,7 +1,7 @@
 package com.beatstreaming.core.http;
 
 import android.content.Context;
-import android.view.View;
+import android.view.ViewGroup;
 
 import com.beatstreaming.core.component.Section;
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
@@ -19,7 +19,9 @@ public class HttpRequestSection<T, V extends Section<?, ?>> extends TypedHttpReq
 
     @Override
     public void onLoad(T data) {
-        this.httpRequestStatusBinding.fragment.addView(this.section.getSectionListBinding().getRoot());
-        this.httpRequestStatusBinding.fragment.setVisibility(View.VISIBLE);
+        ViewGroup viewGroup = (ViewGroup) this.section.getSectionListBinding().getRoot().getParent();
+        viewGroup.removeAllViews();
+
+        this.httpRequestStatusBinding.view.addView(this.section.getSectionListBinding().getRoot());
     }
 }

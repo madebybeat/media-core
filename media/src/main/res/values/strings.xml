@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">media</string>
+    <string name="section_app_list_recommend_title">Recommended apps</string>
 </resources>
