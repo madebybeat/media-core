@@ -31,6 +31,6 @@ public class AppSourceListSection<T extends ListContext, V extends ItemEntity> e
     public void init(Context context) {
         super.init(context);
 
-        this.init(SectionContext.<T, V>builder().title(R.string.section_app_list_recommend_title).build());
+        this.init(SectionContext.<T, V>builder().title(R.string.section_app_list_recommend_title).menu(R.menu.app_recommend_menu).build());
     }
 }

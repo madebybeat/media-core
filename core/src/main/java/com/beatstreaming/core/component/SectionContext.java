@@ -13,5 +13,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
     private int title;
+    private int menu;
     private ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
 }
