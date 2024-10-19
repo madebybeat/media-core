@@ -34,9 +34,6 @@ public class AppSourcePage extends HttpRequestPage<AppSourceListEntity> {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
 
-        System.out.println(this);
-        System.out.println(this.getContext());
-
         return this.appSourcePageBinding.getRoot();
     }
 
