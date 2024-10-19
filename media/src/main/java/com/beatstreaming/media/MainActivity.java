@@ -1,11 +1,17 @@
 package com.beatstreaming.media;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.beatstreaming.core.pages.HomePage;
+import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.databinding.MainActivityBinding;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Arrays;
 
 import javax.inject.Inject;
 
@@ -20,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityBinding mainActivityBinding;
 
     @Inject HomePage homePage;
+    @Inject Pages[] pages;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -34,5 +41,19 @@ public class MainActivity extends AppCompatActivity {
                 .replace(mainActivityBinding.fragment.getId(), this.homePage)
                 .addToBackStack(null)
                 .commit();
+
+        this.mainActivityBinding.navMenu.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                Arrays.stream(pages)
+                        .filter((target) -> target.getLayout() == menuItem.getItemId()).findAny()
+                        .ifPresent(page -> getSupportFragmentManager().beginTransaction()
+                                .replace(mainActivityBinding.fragment.getId(), page.getFragment())
+                                .addToBackStack(null)
+                                .commit());
+
+                return true;
+            }
+        });
     }
 }
