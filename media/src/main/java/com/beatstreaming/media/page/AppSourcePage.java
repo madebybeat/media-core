@@ -29,6 +29,7 @@ public class AppSourcePage extends Fragment {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
 
+        System.out.println(appServerManager);
         new AppSourceListRequest(this.getContext(), this.appSourcePageBinding, PaddedListBinding.inflate(this.getLayoutInflater()), this.appServerManager.getAppServer(), this.appSourceBinder);
 
         return this.appSourcePageBinding.getRoot();
