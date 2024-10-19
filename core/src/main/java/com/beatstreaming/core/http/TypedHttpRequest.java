@@ -42,6 +42,5 @@ public class TypedHttpRequest<T> extends HttpRequest {
     }
 
     public void onLoad(T data) {
-
     }
 }

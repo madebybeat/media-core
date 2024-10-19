@@ -9,7 +9,6 @@ import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.databinding.PaddedListBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.media.entity.AppSourceListEntity;
 import com.beatstreaming.media.list.AppSourceBinder;
 import com.beatstreaming.media.server.AppServer;
 
@@ -17,12 +16,12 @@ import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class AppSourceListRequest extends HttpRequestFragment<AppSourceListEntity, PaddedListBinding> {
+public class AppSourceListRequest extends HttpRequestFragment<AppSourceEntity[], PaddedListBinding> {
     private final AppSourceBinder appSourceBinder;
 
     @SneakyThrows
     public AppSourceListRequest(Context context, AppSourcePageBinding appSourcePageBinding, PaddedListBinding paddedListBinding, AppServer appServer, AppSourceBinder appSourceBinder) {
-        super(context, appSourcePageBinding.httpRequestStatus, paddedListBinding, AppSourceListEntity.class, Request.Method.GET);
+        super(context, appSourcePageBinding.httpRequestStatus, paddedListBinding, AppSourceEntity[].class, Request.Method.GET);
 
         this.appSourceBinder = appSourceBinder;
 
@@ -30,7 +29,9 @@ public class AppSourceListRequest extends HttpRequestFragment<AppSourceListEntit
     }
 
     @Override
-    public void onLoad(AppSourceListEntity appSourceListEntity) {
+    public void onLoad(AppSourceEntity[] appSourceListEntity) {
+        super.onLoad(appSourceListEntity);
+
         this.binding.list.setAdapter(new ListRecyclerViewAdapter<ListContext, AppSourceEntity>(null, appSourceListEntity, this.appSourceBinder));
     }
 }

@@ -5,13 +5,12 @@ import android.view.View;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
-import com.beatstreaming.core.entity.ItemEntity;
 
 import java.net.URI;
 
 import lombok.SneakyThrows;
 
-public class HttpRequestPage<T extends ItemEntity, V extends Fragment> extends Fragment {
+public class HttpRequestPage<T extends View, V extends Fragment> extends Fragment {
     private final Class<T> clazz;
     private final int method;
 
@@ -48,10 +47,7 @@ public class HttpRequestPage<T extends ItemEntity, V extends Fragment> extends F
             public void onLoad(String data) {
                 httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.GONE);
 
-                httpRequestStatusBinding.fragment.getFragment().getParentFragmentManager().beginTransaction()
-                        .replace(httpRequestStatusBinding.fragment.getId(), fragment.newInstance())
-                        .addToBackStack(null)
-                        .commit();
+                httpRequestStatusBinding.fragment.addView(clazz.newInstance());
             }
 
             @Override

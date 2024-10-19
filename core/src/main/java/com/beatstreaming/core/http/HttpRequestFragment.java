@@ -1,6 +1,7 @@
 package com.beatstreaming.core.http;
 
 import android.content.Context;
+import android.view.View;
 
 import androidx.viewbinding.ViewBinding;
 
@@ -20,5 +21,6 @@ public class HttpRequestFragment<T, V extends ViewBinding> extends TypedHttpRequ
     @Override
     public void onLoad(T data) {
         this.httpRequestStatusBinding.fragment.addView(this.binding.getRoot());
+        this.httpRequestStatusBinding.fragment.setVisibility(View.VISIBLE);
     }
 }
