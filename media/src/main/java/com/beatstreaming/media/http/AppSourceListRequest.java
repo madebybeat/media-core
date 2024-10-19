@@ -26,7 +26,7 @@ public class AppSourceListRequest extends HttpRequestFragment<AppSourceListEntit
 
         this.appSourceBinder = appSourceBinder;
 
-        this.load(new URIBuilder(appServer.getUrl()).setPathSegments("app", "featured").build());
+        this.load(new URIBuilder(appServer.getUrl()).setPathSegments("api", "v1", "app", "featured").build());
     }
 
     @Override

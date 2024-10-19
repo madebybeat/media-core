@@ -18,6 +18,20 @@ public class TypedHttpRequest<T> extends HttpRequest {
         super(context, method);
 
         this.clazz = clazz;
+
+        this.httpRequestCallback = new HttpRequestCallback<T>() {
+            @Override
+            public void onLoad(String data) {
+                super.onLoad(data);
+            }
+
+            @Override
+            public void onLoad(T data) {
+                super.onLoad(data);
+
+                TypedHttpRequest.this.onLoad(data);
+            }
+        };
     }
 
     @Override
@@ -28,6 +42,6 @@ public class TypedHttpRequest<T> extends HttpRequest {
     }
 
     public void onLoad(T data) {
-        this.httpRequestCallback.onLoad(data);
+
     }
 }
