@@ -10,24 +10,33 @@ import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
 import java.net.URI;
 
 public class HttpRequestPage<T> extends Fragment {
-    private final TypedHttpRequest<T> typedHttpRequest;
+    private final Class<T> clazz;
+    private final int method;
+
+    private TypedHttpRequest<T> typedHttpRequest;
 
     private HttpRequestStatusBinding httpRequestStatusBinding;
     private ViewBinding viewBinding;
 
     public HttpRequestPage(Class<T> clazz, int method) {
-        this.typedHttpRequest = new TypedHttpRequest<>(this.getContext(), clazz, method);
-
-        this.typedHttpRequest.setUrl(this.getUri());
+        this.clazz = clazz;
+        this.method = method;
     }
 
     public URI getUri() {
         return null;
     }
 
+    public void init() {
+        this.typedHttpRequest = new TypedHttpRequest<>(this.getContext(), this.clazz, this.method);
+        this.typedHttpRequest.setUrl(this.getUri());
+    }
+
     public void load(HttpRequestStatusBinding httpRequestStatusBinding, ViewBinding viewBinding) {
         this.httpRequestStatusBinding = httpRequestStatusBinding;
         this.viewBinding = viewBinding;
+
+        this.init();
 
         this.typedHttpRequest.load();
 
