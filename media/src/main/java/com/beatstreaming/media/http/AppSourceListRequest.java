@@ -18,7 +18,7 @@ import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class AppSourceListRequest extends HttpRequestSection<AppSourceEntity[], AppSourceListSection<ListContext, AppSourceEntity>> {
+public class AppSourceListRequest extends HttpRequestSection<AppSourceEntity[], AppSourceListSection<ListContext, AppSourceEntity>, ListContext, AppSourceEntity> {
     private final AppSourceBinder appSourceBinder;
 
     @SneakyThrows
@@ -32,8 +32,8 @@ public class AppSourceListRequest extends HttpRequestSection<AppSourceEntity[], 
 
     @Override
     public void onLoad(AppSourceEntity[] appSourceListEntity) {
-        super.onLoad(appSourceListEntity);
-
         this.section.getSectionContext().setListRecyclerViewAdapter(new ListRecyclerViewAdapter<ListContext, AppSourceEntity>(null, appSourceListEntity, this.appSourceBinder));
+
+        super.onLoad(appSourceListEntity);
     }
 }

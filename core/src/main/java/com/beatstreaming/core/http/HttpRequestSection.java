@@ -5,8 +5,10 @@ import android.view.ViewGroup;
 
 import com.beatstreaming.core.component.Section;
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
+import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.core.list.ListContext;
 
-public class HttpRequestSection<T, V extends Section<?, ?>> extends TypedHttpRequest<T> {
+public class HttpRequestSection<T, V extends Section<L, A>, L extends ListContext, A extends ItemEntity> extends TypedHttpRequest<T> {
     protected final HttpRequestStatusBinding httpRequestStatusBinding;
     protected final V section;
 
@@ -19,6 +21,8 @@ public class HttpRequestSection<T, V extends Section<?, ?>> extends TypedHttpReq
 
     @Override
     public void onLoad(T data) {
+        this.section.init(this.section.getSectionContext());
+
         ViewGroup viewGroup = (ViewGroup) this.section.getSectionListBinding().getRoot().getParent();
         viewGroup.removeAllViews();
 
