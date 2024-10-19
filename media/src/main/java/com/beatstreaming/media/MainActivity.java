@@ -1,8 +1,11 @@
+package com.beatstreaming.media;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.beatstreaming.media.databinding.MainActivityBinding;
+import com.beatstreaming.media.page.AppSourcePage;
 
 import dagger.hilt.android.AndroidEntryPoint;
 import lombok.Getter;
@@ -22,5 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         this.mainActivityBinding = MainActivityBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.mainActivityBinding.getRoot());
+
+        this.getSupportFragmentManager().beginTransaction()
+                .replace(mainActivityBinding.fragment.getId(), new AppSourcePage())
+                .addToBackStack(null)
+                .commit();
     }
 }

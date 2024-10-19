@@ -3,20 +3,22 @@ package com.beatstreaming.core.http;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
-import androidx.viewbinding.ViewBinding;
 
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
+import com.beatstreaming.core.entity.ItemEntity;
 
 import java.net.URI;
 
-public class HttpRequestPage<T> extends Fragment {
+import lombok.SneakyThrows;
+
+public class HttpRequestPage<T extends ItemEntity, V extends Fragment> extends Fragment {
     private final Class<T> clazz;
     private final int method;
 
     private TypedHttpRequest<T> typedHttpRequest;
 
     private HttpRequestStatusBinding httpRequestStatusBinding;
-    private ViewBinding viewBinding;
+    private Class<V> fragment;
 
     public HttpRequestPage(Class<T> clazz, int method) {
         this.clazz = clazz;
@@ -32,9 +34,9 @@ public class HttpRequestPage<T> extends Fragment {
         this.typedHttpRequest.setUrl(this.getUri());
     }
 
-    public void load(HttpRequestStatusBinding httpRequestStatusBinding, ViewBinding viewBinding) {
+    public void load(HttpRequestStatusBinding httpRequestStatusBinding, Class<V> fragment) {
         this.httpRequestStatusBinding = httpRequestStatusBinding;
-        this.viewBinding = viewBinding;
+        this.fragment = fragment;
 
         this.init();
 
@@ -42,9 +44,14 @@ public class HttpRequestPage<T> extends Fragment {
 
         this.typedHttpRequest.setHttpRequestCallback(new HttpRequestCallback<T>() {
             @Override
+            @SneakyThrows
             public void onLoad(String data) {
                 httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.GONE);
-                httpRequestStatusBinding.fragment.addView(viewBinding.getRoot());
+
+                httpRequestStatusBinding.fragment.getFragment().getParentFragmentManager().beginTransaction()
+                        .replace(httpRequestStatusBinding.fragment.getId(), fragment.newInstance())
+                        .addToBackStack(null)
+                        .commit();
             }
 
             @Override
