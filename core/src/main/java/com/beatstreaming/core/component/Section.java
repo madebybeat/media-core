@@ -18,7 +18,7 @@ import lombok.Getter;
 @Getter
 public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout implements ViewInit<SectionContext<T, V>> {
     private SectionListBinding sectionListBinding;
-    private SectionContext<T, V> sectionContext;
+    protected SectionContext<T, V> sectionContext;
 
     @Inject Gson gson;
 
