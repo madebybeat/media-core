@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">music</string>
+    <string name="section_search_track_title">Tracks</string>
 </resources>

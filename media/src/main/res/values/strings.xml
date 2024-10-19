@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">media</string>
-    <string name="section_app_list_recommend_title">Recommended apps</string>
-    <string name="section_app_menu_info">Open</string>
-    <string name="menu_search_name">Search</string>
-    <string name="menu_home_name">Home</string>
-    <string name="menu_library_name">Library</string>
-    <string name="page_search_bar_hint">Search…</string>
-</resources>
