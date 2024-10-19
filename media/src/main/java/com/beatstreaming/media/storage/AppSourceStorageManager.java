@@ -1,9 +1,9 @@
 package com.beatstreaming.media.storage;
 
-import com.beatstreaming.core.storage.ListStorageManager;
+import com.beatstreaming.core.storage.StorageManager;
 
-public class AppSourceStorageManager extends ListStorageManager<AppSourceStorageItem> {
+public class AppSourceStorageManager extends StorageManager<AppSourceStorageItem> {
     public AppSourceStorageManager() {
-        super(AppSourceListStorage.class, "app");
+        super(AppSourceStorageItem.class, "app");
     }
 }

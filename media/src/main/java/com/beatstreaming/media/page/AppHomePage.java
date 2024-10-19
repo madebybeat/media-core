@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.page;
+package com.beatstreaming.media.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

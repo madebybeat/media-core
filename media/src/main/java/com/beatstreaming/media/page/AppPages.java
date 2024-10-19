@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.page;
+package com.beatstreaming.media.page;
 
 import androidx.fragment.app.Fragment;
 
