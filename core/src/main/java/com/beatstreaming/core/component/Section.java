@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
-import com.beatstreaming.core.databinding.SectionListBinding;
+import com.beatstreaming.core.databinding.ListSectionBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.view.ViewInit;
@@ -17,7 +17,7 @@ import lombok.Getter;
 
 @Getter
 public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout implements ViewInit<SectionContext<T, V>> {
-    private SectionListBinding sectionListBinding;
+    private ListSectionBinding listSectionBinding;
     protected SectionContext<T, V> sectionContext;
 
     @Inject Gson gson;
@@ -41,15 +41,15 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
     }
 
     public void init(Context context) {
-        this.sectionListBinding = SectionListBinding.inflate(LayoutInflater.from(context), this, true);
+        this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(context), this, true);
     }
 
     @Override
     public void init(SectionContext<T, V> sectionContext) {
         this.sectionContext = sectionContext;
 
-        this.sectionListBinding.toolbar.setTitle(sectionContext.getTitle());
-        this.sectionListBinding.toolbar.inflateMenu(sectionContext.getMenu());
-        this.sectionListBinding.sectionList.setAdapter(sectionContext.getListRecyclerViewAdapter());
+        this.listSectionBinding.toolbar.setTitle(sectionContext.getTitle());
+        this.listSectionBinding.toolbar.inflateMenu(sectionContext.getMenu());
+        this.listSectionBinding.sectionList.setAdapter(sectionContext.getListRecyclerViewAdapter());
     }
 }
