@@ -41,7 +41,7 @@
                     android:text="@string/page_artist_play" />
             </LinearLayout>
 
-            <include android:id="@+id/artist_tracks_list" layout="@layout/http_request_status" />
+            <include android:id="@+id/artist_track_list" layout="@layout/http_request_status" />
         </LinearLayout>
     </com.beatstreaming.core.component.ListNestedScrollView>
 </LinearLayout>
