@@ -8,11 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.Accessors;
 
 @Builder
 @Getter
 @Setter
 @AllArgsConstructor
+@Accessors(chain = true)
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
     private final int title;
     private int menu;
