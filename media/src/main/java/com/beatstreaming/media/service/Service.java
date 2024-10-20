@@ -7,4 +7,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class Service {
     protected final Context context;
+
+    public void start() {
+
+    }
 }

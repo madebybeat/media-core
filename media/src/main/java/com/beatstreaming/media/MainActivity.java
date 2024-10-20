@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.databinding.MainActivityBinding;
+import com.beatstreaming.media.service.AppSourceService;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.Arrays;
@@ -28,11 +29,15 @@ public class MainActivity extends AppCompatActivity {
     @Inject HomePage homePage;
     @Inject Pages[] pages;
 
+    @Inject AppSourceService appSourceService;
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
         mainActivity = this;
+
+        this.appSourceService.start();
 
         this.mainActivityBinding = MainActivityBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.mainActivityBinding.getRoot());

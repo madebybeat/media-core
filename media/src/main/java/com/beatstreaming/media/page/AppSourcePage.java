@@ -1,7 +1,8 @@
 package com.beatstreaming.media.page;
 
-import android.app.Activity;
 import android.os.Bundle;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.http.AppSourceListRequest;
@@ -13,7 +14,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AppSourcePage extends Activity {
+public class AppSourcePage extends AppCompatActivity {
     private AppSourcePageBinding appSourcePageBinding;
 
     @Inject AppSourcePageItemBinder appSourceBinder;
@@ -24,6 +25,7 @@ public class AppSourcePage extends Activity {
         super.onCreate(bundle);
 
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
+        this.setContentView(this.appSourcePageBinding.getRoot());
 
         new AppSourceListRequest(this.getBaseContext(), this.appSourcePageBinding, this.appServerManager.getAppServer(), this.appSourceBinder);
     }
