@@ -1,4 +1,4 @@
-package com.beatstreaming.music.entity;
+package com.beatstreaming.media.entity;
 
 import com.beatstreaming.core.entity.TypedItemEntity;
 
