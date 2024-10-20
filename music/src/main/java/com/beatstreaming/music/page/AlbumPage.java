@@ -13,9 +13,6 @@ import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.music.entity.AlbumEntity;
 import com.squareup.picasso.Picasso;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class AlbumPage extends Fragment {
     protected CollectionPageBinding collectionPageBinding;
 
