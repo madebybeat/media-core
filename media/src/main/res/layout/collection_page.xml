@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.beatstreaming.core.component.ListNestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <include android:id="@+id/collection_cover" layout="@layout/media_image" />
+
+                <TextView
+                    android:id="@+id/collection_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/text_normal"
+                    android:padding="@dimen/space_medium"
+                    android:textColor="@color/m3_sys_dark_on_surface"
+                    tools:ignore="SpUsage" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/play_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:text="@string/page_artist_play" />
+
+            <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
+        </LinearLayout>
+
+    </com.beatstreaming.core.component.ListNestedScrollView>
+</LinearLayout>
