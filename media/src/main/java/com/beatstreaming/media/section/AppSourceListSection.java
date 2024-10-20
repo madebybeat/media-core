@@ -9,7 +9,7 @@ import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.media.R;
 
-public class AppSourceListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V> {
+public class AppSourceListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V, SectionContext<T, V>> {
     public AppSourceListSection(Context context) {
         super(context);
 

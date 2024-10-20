@@ -1,22 +1,30 @@
 package com.beatstreaming.core.component;
 
+import android.content.Context;
+
+import com.beatstreaming.core.databinding.ListSectionBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.experimental.Accessors;
+import lombok.experimental.SuperBuilder;
 
-@Builder
+@SuperBuilder
 @Getter
 @Setter
-@AllArgsConstructor
-@Accessors(chain = true)
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
-    private final int title;
-    private int menu;
-    private ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
+    protected final Context context;
+    protected final int title;
+    protected int menu;
+    protected ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
+    protected ListSectionBinding listSectionBinding;
+
+    public SectionContext(Context context, int title, int menu, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
+        this.context = context;
+        this.title = title;
+        this.menu = menu;
+        this.listRecyclerViewAdapter = listRecyclerViewAdapter;
+    }
 }
