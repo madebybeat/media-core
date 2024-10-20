@@ -1,4 +1,4 @@
-package com.beatstreaming.beat.page;
+package com.beatstreaming.music.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,23 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
-import com.beatstreaming.beat.databinding.ArtistPageBinding;
-import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.squareup.picasso.Picasso;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AppArtistPage extends HomePage {
+public class ArtistPage extends Fragment {
     private ArtistPageBinding artistPageBinding;
 
     private final AppSourceContext appSourceContext;
     private final ArtistEntity artistEntity;
 
-    public AppArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
+    public ArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
         this.appSourceContext = appSourceContext;
         this.artistEntity = artistEntity;
     }
