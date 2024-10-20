@@ -17,6 +17,7 @@ public class ListRecyclerViewAdapter<T extends ListContext, V extends ItemEntity
     public ListRecyclerViewAdapter(T context, V[] list, ListBinder<T, V> itemBinder) {
         this.context = context;
         this.list = list;
+
         this.itemBinder = itemBinder;
     }
 
