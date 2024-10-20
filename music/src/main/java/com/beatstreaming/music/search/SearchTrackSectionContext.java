@@ -1,5 +1,6 @@
 package com.beatstreaming.music.search;
 
+import com.beatstreaming.core.component.ListSectionContext;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.R;
