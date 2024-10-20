@@ -4,11 +4,12 @@ import android.content.Context;
 import android.view.ViewGroup;
 
 import com.beatstreaming.core.component.Section;
+import com.beatstreaming.core.component.SectionContext;
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 
-public class HttpRequestSection<T, V extends Section<L, A>, L extends ListContext, A extends ItemEntity> extends TypedHttpRequest<T> {
+public class HttpRequestSection<T extends ListContext, V extends Section<L, A, SectionContext>, L extends ListContext, A extends ItemEntity> extends TypedHttpRequest<T> {
     protected final HttpRequestStatusBinding httpRequestStatusBinding;
     protected final V section;
 

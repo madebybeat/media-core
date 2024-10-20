@@ -15,8 +15,14 @@ import lombok.experimental.Accessors;
 @Setter
 @AllArgsConstructor
 @Accessors(chain = true)
-public class SectionContext<T extends ListContext, V extends ItemEntity> {
+public class SectionContext<C extends SectionContext<C, T, V>, T extends ListContext, V extends ItemEntity> {
     private final int title;
     private int menu;
     private ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
+
+    public C setMenu(int menu) {
+        this.menu = menu;
+
+        return (C) this;
+    }
 }

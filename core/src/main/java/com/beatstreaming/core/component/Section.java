@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import lombok.Getter;
 
 @Getter
-public class Section<T extends ListContext, V extends ItemEntity> extends LinearLayout implements ViewInit<SectionContext<T, V>> {
+public class Section<T extends ListContext, V extends ItemEntity, B extends SectionContext<T, V>> extends LinearLayout implements ViewInit<B> {
     private ListSectionBinding listSectionBinding;
     protected SectionContext<T, V> sectionContext;
 
@@ -45,7 +45,7 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
     }
 
     @Override
-    public void init(SectionContext<T, V> sectionContext) {
+    public void init(B sectionContext) {
         this.sectionContext = sectionContext;
 
         this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
