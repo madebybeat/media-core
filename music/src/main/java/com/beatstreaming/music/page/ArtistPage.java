@@ -17,10 +17,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class ArtistPage extends Fragment {
-    private ArtistPageBinding artistPageBinding;
+    protected ArtistPageBinding artistPageBinding;
 
-    private final AppSourceContext appSourceContext;
-    private final ArtistEntity artistEntity;
+    protected final AppSourceContext appSourceContext;
+    protected final ArtistEntity artistEntity;
 
     public ArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
         this.appSourceContext = appSourceContext;
@@ -33,8 +33,6 @@ public class ArtistPage extends Fragment {
 
         this.artistPageBinding.artistName.setText(this.artistEntity.getName());
         Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.mediaImage);
-
-
 
         return this.artistPageBinding.getRoot();
     }
