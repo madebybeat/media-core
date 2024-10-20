@@ -17,10 +17,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AlbumPage extends Fragment {
-    private CollectionPageBinding collectionPageBinding;
+    protected CollectionPageBinding collectionPageBinding;
 
-    private final AppSourceContext appSourceContext;
-    private final AlbumEntity albumEntity;
+    protected final AppSourceContext appSourceContext;
+    protected final AlbumEntity albumEntity;
 
     public AlbumPage(AppSourceContext appSourceContext, AlbumEntity albumEntity) {
         this.appSourceContext = appSourceContext;
