@@ -15,8 +15,6 @@ public class ListSectionContext<T extends ListContext, V extends ItemEntity> ext
     }
 
     public SectionContext<T, V> getPageContext() {
-        this.listSectionBinding.sectionList.setLayoutManager(new GridLayoutManager(this.context, 2));
-
         return SectionContext.<T, V>builder()
                 .context(this.context)
                 .title(this.title)
