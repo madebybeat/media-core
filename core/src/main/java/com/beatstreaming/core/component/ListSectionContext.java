@@ -12,7 +12,7 @@ public class ListSectionContext<T extends ListContext, V extends ItemEntity> ext
         super(context, title, R.menu.list_section_menu, listRecyclerViewAdapter);
     }
 
-    public ListSectionContext<T, V> getPageContext() {
+    public SectionContext<T, V> getPageContext() {
         return null;
     }
 }

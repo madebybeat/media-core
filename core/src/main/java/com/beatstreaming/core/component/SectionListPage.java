@@ -16,9 +16,9 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class SectionListPage extends Fragment {
     private SectionListPageBinding sectionListPageBinding;
 
-    private final ListSectionContext<?, ?> sectionContext;
+    private final SectionContext<?, ?> sectionContext;
 
-    public SectionListPage(ListSectionContext<?, ?> sectionContext) {
+    public SectionListPage(SectionContext<?, ?> sectionContext) {
         this.sectionContext = sectionContext;
     }
 

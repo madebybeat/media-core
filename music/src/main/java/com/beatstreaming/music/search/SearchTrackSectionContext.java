@@ -5,6 +5,7 @@ import android.content.Context;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.beatstreaming.core.component.ListSectionContext;
+import com.beatstreaming.core.component.SectionContext;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.R;
@@ -17,9 +18,9 @@ public class SearchTrackSectionContext extends ListSectionContext<AppSourceConte
     }
 
     @Override
-    public ListSectionContext<AppSourceContext, TrackEntity> getPageContext() {
+    public SectionContext<AppSourceContext, TrackEntity> getPageContext() {
         this.listSectionBinding.sectionList.setLayoutManager(new GridLayoutManager(this.context, 2));
 
-        return this;
+        return SectionContext.<AppSourceContext, TrackEntity>builder().context(this.context).title(this.title).listRecyclerViewAdapter(this.listRecyclerViewAdapter).build();
     }
 }

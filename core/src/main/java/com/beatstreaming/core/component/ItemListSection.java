@@ -43,7 +43,7 @@ public class ItemListSection<T extends ListContext, V extends ItemEntity> extend
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new SectionListPage(sectionContext))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new SectionListPage(sectionContext.getPageContext()))
                         .addToBackStack(null)
                         .commit();
 

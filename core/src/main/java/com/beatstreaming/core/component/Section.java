@@ -52,7 +52,10 @@ public class Section<T extends ListContext, V extends ItemEntity, C extends Sect
         this.sectionContext.setListSectionBinding(this.listSectionBinding);
 
         this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
-        this.listSectionBinding.toolbar.inflateMenu(this.sectionContext.getMenu());
         this.listSectionBinding.sectionList.setAdapter(this.sectionContext.getListRecyclerViewAdapter());
+
+        if (this.sectionContext.getMenu() > 0) {
+            this.listSectionBinding.toolbar.inflateMenu(this.sectionContext.getMenu());
+        }
     }
 }
