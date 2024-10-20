@@ -7,4 +7,5 @@
     <string name="menu_home_name">Home</string>
     <string name="menu_library_name">Library</string>
     <string name="page_artist_section_tracks_title">Tracks</string>
+    <string name="page_album_section_tracks_title">Tracks</string>
 </resources>
