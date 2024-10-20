@@ -1,6 +1,5 @@
 package com.beatstreaming.media.http;
 
-import android.app.appsearch.SearchResult;
 import android.content.Context;
 
 import com.android.volley.Request;

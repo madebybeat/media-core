@@ -2,6 +2,7 @@ package com.beatstreaming.core.component;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
@@ -37,17 +38,16 @@ public class BindingSection<T extends ListContext, V extends ItemEntity> extends
         this.init(context);
     }
 
-    @Override
-    public void init(Context context) {
-
-    }
 
     @Override
     public void init(BindingSectionContext<T, V> sectionContext) {
+        super.init(sectionContext);
+
         this.sectionContext = sectionContext;
 
-        this.sectionContext.getViewBinding().toolbar.setTitle(this.sectionContext.getTitle());
-        this.sectionContext.getViewBinding().toolbar.inflateMenu(this.sectionContext.getMenu());
-        this.sectionContext.getViewBinding().sectionList.setAdapter(this.sectionContext.getListRecyclerViewAdapter());
+        ViewGroup viewGroup = (ViewGroup) this.getListSectionBinding().getRoot().getParent();
+        viewGroup.removeAllViews();
+
+        this.sectionContext.getViewBinding().getRoot().addView(this.getListSectionBinding().getRoot());
     }
 }
