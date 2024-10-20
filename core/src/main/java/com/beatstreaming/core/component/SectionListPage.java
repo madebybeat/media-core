@@ -1,4 +1,4 @@
-package com.beatstreaming.media.page;
+package com.beatstreaming.core.component;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.beatstreaming.core.component.ListSectionContext;
 import com.beatstreaming.core.databinding.SectionListPageBinding;
 
 import dagger.hilt.android.AndroidEntryPoint;

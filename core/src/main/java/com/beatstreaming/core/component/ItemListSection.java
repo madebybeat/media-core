@@ -38,5 +38,17 @@ public class ItemListSection<T extends ListContext, V extends ItemEntity> extend
         super.init(sectionContext);
 
         this.sectionContext.setMenu(R.menu.list_section_menu);
+
+        this.listSectionBinding.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new SectionListPage(sectionContext))
+                        .addToBackStack(null)
+                        .commit();
+
+                return true;
+            }
+        });
     }
 }
