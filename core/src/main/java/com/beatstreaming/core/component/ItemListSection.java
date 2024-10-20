@@ -33,6 +33,6 @@ public class ItemListSection<T extends ListContext, V extends ItemEntity> extend
 
     @Override
     public void init(SectionContext<T, V> sectionContext) {
-        super.init(sectionContext.setMenu(R.menu.list_section_menu));
+        super.init(SectionContext.<T, V>builder().menu(R.menu.list_section_menu).build());
     }
 }

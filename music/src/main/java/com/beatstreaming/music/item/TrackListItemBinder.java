@@ -8,8 +8,6 @@ import com.beatstreaming.music.entity.TrackEntity;
 public class TrackListItemBinder extends MediaListItemBinder<TrackEntity> {
     @Override
     public void bind(AppSourceContext context, ListViewHolder<TrackEntity> holder, TrackEntity item) {
-        super.bind(context, holder, item);
-
         this.mediaTitle.setText(item.getName());
     }
 }
