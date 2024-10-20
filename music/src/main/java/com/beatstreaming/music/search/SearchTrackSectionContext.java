@@ -9,6 +9,6 @@ import com.beatstreaming.music.item.TrackListItemBinder;
 
 public class SearchTrackSectionContext extends ListSectionContext<AppSourceContext, TrackEntity> {
     public SearchTrackSectionContext(AppSourceContext appSourceContext, TrackEntity[] trackEntities, TrackListItemBinder trackListItemBinder) {
-        super( R.string.section_search_track_title, new ListRecyclerViewAdapter<AppSourceContext, TrackEntity>(appSourceContext, trackEntities, trackListItemBinder));
+        super(R.string.section_search_track_title, new ListRecyclerViewAdapter<AppSourceContext, TrackEntity>(appSourceContext, trackEntities, trackListItemBinder));
     }
 }

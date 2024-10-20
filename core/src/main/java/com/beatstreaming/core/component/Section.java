@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 import com.beatstreaming.core.databinding.ListSectionBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
@@ -41,12 +43,13 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
     }
 
     public void init(Context context) {
-        this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(context), this, true);
     }
 
     @Override
     public void init(SectionContext<T, V> sectionContext) {
         this.sectionContext = sectionContext;
+
+        this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(this.getContext()), this, true);
 
         this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
         this.listSectionBinding.toolbar.inflateMenu(this.sectionContext.getMenu());
