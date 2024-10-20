@@ -14,7 +14,7 @@ public class CardImageItemBinder<T extends ImageItemEntity> extends CardNameItem
         super.bind(context, holder, item);
 
         MediaImageBinding mediaImageBinding = MediaImageBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
-        Picasso.get().load(item.getImage().getUrl()).into(mediaImageBinding.trackImage);
+        Picasso.get().load(item.getImage().getUrl()).into(mediaImageBinding.mediaImage);
 
         this.mediaCover.addView(mediaImageBinding.getRoot());
     }

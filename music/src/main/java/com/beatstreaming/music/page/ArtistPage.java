@@ -33,7 +33,7 @@ public class ArtistPage extends Fragment {
 
         this.artistPageBinding.artistName.setText(this.artistEntity.getName());
 
-        Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.trackImage);
+        Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.mediaImage);
 
         return this.artistPageBinding.getRoot();
     }
