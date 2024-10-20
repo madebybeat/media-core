@@ -22,7 +22,7 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal">
 
-                <include android:id="@+id/collection_cover" layout="@layout/media_image" />
+                <include android:id="@+id/collection_cover" layout="@layout/media_cover_image" />
 
                 <TextView
                     android:id="@+id/collection_name"
