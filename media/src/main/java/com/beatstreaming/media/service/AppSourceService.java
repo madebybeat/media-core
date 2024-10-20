@@ -3,7 +3,7 @@ package com.beatstreaming.media.service;
 import android.content.Context;
 import android.content.Intent;
 
-import com.beatstreaming.media.MainActivity;
+import com.beatstreaming.media.AppMainActivity;
 import com.beatstreaming.media.page.AppSourcePage;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
@@ -20,7 +20,7 @@ public class AppSourceService extends Service {
     @Override
     public void start() {
         if (this.appSourceStorageItem.getAppSourceEntity() == null) {
-            MainActivity.mainActivity.startActivity(new Intent(this.context, AppSourcePage.class));
+            AppMainActivity.mainActivity.startActivity(new Intent(this.context, AppSourcePage.class));
         }
     }
 }

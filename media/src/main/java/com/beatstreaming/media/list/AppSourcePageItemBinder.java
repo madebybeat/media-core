@@ -5,7 +5,7 @@ import android.view.View;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.core.pages.HomePage;
-import com.beatstreaming.media.MainActivity;
+import com.beatstreaming.media.AppMainActivity;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.storage.AppSourceStorageItem;
 import com.beatstreaming.media.storage.AppSourceStorageManager;
@@ -26,8 +26,8 @@ public class AppSourcePageItemBinder extends AppSourceBinder {
             public void onClick(View view) {
                 appSourceStorageManager.save(view.getContext(), AppSourceStorageItem.builder().appSourceEntity(item).build());
 
-                MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), homePage)
+                AppMainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
+                        .replace(AppMainActivity.mainActivity.getMainActivityBinding().fragment.getId(), homePage)
                         .addToBackStack(null)
                         .commit();
             }
