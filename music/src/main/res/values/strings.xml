@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">music</string>
     <string name="section_search_track_title">Tracks</string>
+    <string name="menu_search_name">Search</string>
+    <string name="menu_home_name">Home</string>
+    <string name="menu_library_name">Library</string>
 </resources>

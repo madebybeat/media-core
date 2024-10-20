@@ -1,9 +1,9 @@
-package com.beatstreaming.media.page;
+package com.beatstreaming.beat.page;
 
 import androidx.fragment.app.Fragment;
 
-import com.beatstreaming.beat.R;
 import com.beatstreaming.core.pages.Pages;
+import com.beatstreaming.media.R;
 
 import lombok.Getter;
 

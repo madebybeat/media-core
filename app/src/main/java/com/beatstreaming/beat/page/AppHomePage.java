@@ -1,4 +1,4 @@
-package com.beatstreaming.media.page;
+package com.beatstreaming.beat.page;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,14 +6,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.beat.databinding.HomePageBinding;
-import com.beatstreaming.core.pages.HomePage;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class AppHomePage extends HomePage {
+public class AppHomePage extends Fragment {
     private HomePageBinding homePageBinding;
 
     @Override

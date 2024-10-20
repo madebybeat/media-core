@@ -16,11 +16,5 @@
             android:hint="@string/page_search_bar_hint" />
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/app_selector"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:name="com.beatstreaming.beat.app.AppSelector" />
-
     <include android:id="@+id/search_result_list" layout="@layout/http_request_status" />
 </LinearLayout>
