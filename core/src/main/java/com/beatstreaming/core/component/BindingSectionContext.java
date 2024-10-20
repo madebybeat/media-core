@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BindingSectionContext<T extends ListContext, V extends ItemEntity> extends SectionContext<BindingSectionContext<T, V>, T, V> {
+public class BindingSectionContext<T extends ListContext, V extends ItemEntity> extends BaseSectionContext<BindingSectionContext<T, V>, T, V> {
     protected final ListSectionBinding viewBinding;
 
     public BindingSectionContext(ListSectionBinding viewBinding, int title, int menu, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {

@@ -16,9 +16,9 @@ import javax.inject.Inject;
 import lombok.Getter;
 
 @Getter
-public class Section<T extends ListContext, V extends ItemEntity, B extends SectionContext<T, V>> extends LinearLayout implements ViewInit<B> {
+public class Section<T extends ListContext, V extends ItemEntity, B extends BaseSectionContext<?, T, V>> extends LinearLayout implements ViewInit<B> {
     private ListSectionBinding listSectionBinding;
-    protected SectionContext<T, V> sectionContext;
+    protected BaseSectionContext<?, T, V> sectionContext;
 
     @Inject Gson gson;
 
