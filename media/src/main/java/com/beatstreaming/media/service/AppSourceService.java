@@ -20,7 +20,7 @@ public class AppSourceService extends Service {
     @Override
     public void start() {
         if (this.appSourceStorageItem.getAppSourceEntity() == null) {
-            MainActivity.mainActivity.startActivity(new Intent(context, AppSourcePage.class));
+            MainActivity.mainActivity.startActivity(new Intent(this.context, AppSourcePage.class));
         }
     }
 }

@@ -27,6 +27,6 @@ public class AppSourcePage extends AppCompatActivity {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.appSourcePageBinding.getRoot());
 
-        new AppSourceListRequest(this.getBaseContext(), this.appSourcePageBinding, this.appServerManager.getAppServer(), this.appSourceBinder);
+        new AppSourceListRequest(getLayoutInflater().getContext(), this.appSourcePageBinding, this.appServerManager.getAppServer(), this.appSourceBinder);
     }
 }

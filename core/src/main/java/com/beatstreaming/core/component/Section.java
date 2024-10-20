@@ -48,8 +48,8 @@ public class Section<T extends ListContext, V extends ItemEntity> extends Linear
     public void init(SectionContext<T, V> sectionContext) {
         this.sectionContext = sectionContext;
 
-        this.listSectionBinding.toolbar.setTitle(sectionContext.getTitle());
-        this.listSectionBinding.toolbar.inflateMenu(sectionContext.getMenu());
-        this.listSectionBinding.sectionList.setAdapter(sectionContext.getListRecyclerViewAdapter());
+        this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
+        this.listSectionBinding.toolbar.inflateMenu(this.sectionContext.getMenu());
+        this.listSectionBinding.sectionList.setAdapter(this.sectionContext.getListRecyclerViewAdapter());
     }
 }
