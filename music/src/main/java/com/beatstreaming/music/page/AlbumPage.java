@@ -26,8 +26,6 @@ public class AlbumPage extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
-
         this.collectionPageBinding.collectionName.setText(this.albumEntity.getName());
         Picasso.get().load(this.albumEntity.getImage().getUrl()).into(this.collectionPageBinding.collectionCover.mediaImage);
 
