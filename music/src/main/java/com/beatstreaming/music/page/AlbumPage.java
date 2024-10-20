@@ -32,7 +32,6 @@ public class AlbumPage extends Fragment {
         this.collectionPageBinding = CollectionPageBinding.inflate(this.getLayoutInflater());
 
         this.collectionPageBinding.collectionName.setText(this.albumEntity.getName());
-
         Picasso.get().load(this.albumEntity.getImage().getUrl()).into(this.collectionPageBinding.collectionCover.mediaImage);
 
         return this.collectionPageBinding.getRoot();
