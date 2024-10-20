@@ -1,4 +1,4 @@
-package com.beatstreaming.music.item;
+package com.beatstreaming.beat.item;
 
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.AppSourceContext;

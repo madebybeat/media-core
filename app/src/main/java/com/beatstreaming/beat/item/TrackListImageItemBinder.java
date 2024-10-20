@@ -1,4 +1,4 @@
-package com.beatstreaming.music.item;
+package com.beatstreaming.beat.item;
 
 import android.view.LayoutInflater;
 
