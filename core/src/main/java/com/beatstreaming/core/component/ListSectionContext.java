@@ -2,6 +2,8 @@ package com.beatstreaming.core.component;
 
 import android.content.Context;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+
 import com.beatstreaming.core.R;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
@@ -13,6 +15,13 @@ public class ListSectionContext<T extends ListContext, V extends ItemEntity> ext
     }
 
     public SectionContext<T, V> getPageContext() {
-        return null;
+        this.listSectionBinding.sectionList.setLayoutManager(new GridLayoutManager(this.context, 2));
+
+        return SectionContext.<T, V>builder()
+                .context(this.context)
+                .title(this.title)
+                .listRecyclerViewAdapter(this.listRecyclerViewAdapter)
+                .listSectionBinding(this.listSectionBinding)
+                .build();
     }
 }
