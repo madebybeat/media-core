@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 
 import com.beatstreaming.core.R;
-import com.beatstreaming.core.databinding.ListSectionBinding;
+import com.beatstreaming.core.databinding.SectionListBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 
@@ -13,7 +13,7 @@ import lombok.Getter;
 
 @Getter
 public class ItemListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V> {
-    private ListSectionBinding listSectionBinding;
+    private SectionListBinding sectionListBinding;
     protected SectionContext<T, V> sectionContext;
 
     public ItemListSection(Context context) {
@@ -35,7 +35,7 @@ public class ItemListSection<T extends ListContext, V extends ItemEntity> extend
     }
 
     public void init(Context context) {
-        this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(context), this, true);
+        this.sectionListBinding = SectionListBinding.inflate(LayoutInflater.from(context), this, true);
     }
 
     @Override

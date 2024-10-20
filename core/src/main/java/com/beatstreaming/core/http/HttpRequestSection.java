@@ -23,9 +23,9 @@ public class HttpRequestSection<T, V extends Section<L, A>, L extends ListContex
     public void onLoad(T data) {
         this.section.init(this.section.getSectionContext());
 
-        ViewGroup viewGroup = (ViewGroup) this.section.getListSectionBinding().getRoot().getParent();
+        ViewGroup viewGroup = (ViewGroup) this.section.getSectionListBinding().getRoot().getParent();
         viewGroup.removeAllViews();
 
-        this.httpRequestStatusBinding.view.addView(this.section.getListSectionBinding().getRoot());
+        this.httpRequestStatusBinding.view.addView(this.section.getSectionListBinding().getRoot());
     }
 }
