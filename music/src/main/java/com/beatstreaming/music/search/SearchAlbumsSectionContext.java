@@ -8,13 +8,16 @@ import com.beatstreaming.core.component.ListSectionContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.music.R;
-import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.TrackListItemBinder;
+import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.item.AlbumCardItemBinder;
 
-public class SearchAlbumsSectionContext extends ListSectionContext<AppSourceContext, TrackEntity> {
-    public SearchAlbumsSectionContext(Context context, AppSourceContext appSourceContext, TrackEntity[] trackEntities, TrackListItemBinder trackListItemBinder) {
-        super(context, R.string.section_search_album_title, new ListRecyclerViewAdapter<AppSourceContext, TrackEntity>(appSourceContext, trackEntities, trackListItemBinder));
+public class SearchAlbumsSectionContext extends ListSectionContext<AppSourceContext, AlbumEntity> {
+    public SearchAlbumsSectionContext(Context context, AppSourceContext appSourceContext, AlbumEntity[] entities, AlbumCardItemBinder binder) {
+        super(context, R.string.section_search_album_title, new ListRecyclerViewAdapter<AppSourceContext, AlbumEntity>(appSourceContext, entities, binder));
+    }
 
-        this.listSectionBinding.sectionList.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+    @Override
+    public void onBind() {
+        this.listSectionBinding.sectionList.setLayoutManager(new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false));
     }
 }

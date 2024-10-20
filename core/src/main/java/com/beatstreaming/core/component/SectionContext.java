@@ -27,4 +27,8 @@ public class SectionContext<T extends ListContext, V extends ItemEntity> {
         this.menu = menu;
         this.listRecyclerViewAdapter = listRecyclerViewAdapter;
     }
+
+    public void onBind() {
+
+    }
 }

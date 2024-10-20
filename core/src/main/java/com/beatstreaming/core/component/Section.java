@@ -48,8 +48,8 @@ public class Section<T extends ListContext, V extends ItemEntity, C extends Sect
         this.sectionContext = sectionContext;
 
         this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(this.getContext()), this, true);
-
         this.sectionContext.setListSectionBinding(this.listSectionBinding);
+        this.sectionContext.onBind();
 
         this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
         this.listSectionBinding.sectionList.setAdapter(this.sectionContext.getListRecyclerViewAdapter());
