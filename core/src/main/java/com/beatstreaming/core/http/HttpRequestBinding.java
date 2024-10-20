@@ -1,7 +1,6 @@
 package com.beatstreaming.core.http;
 
 import android.content.Context;
-import android.view.ViewGroup;
 
 import androidx.viewbinding.ViewBinding;
 
@@ -20,9 +19,6 @@ public class HttpRequestBinding<T, V extends ViewBinding> extends TypedHttpReque
 
     @Override
     public void onLoad(T data) {
-        ViewGroup viewGroup = (ViewGroup) this.binding.getRoot().getParent();
-        viewGroup.removeAllViews();
-
         this.httpRequestStatusBinding.view.addView(this.binding.getRoot());
     }
 }
