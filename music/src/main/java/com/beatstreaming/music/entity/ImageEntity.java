@@ -5,7 +5,6 @@ import com.beatstreaming.core.entity.TypedItemEntity;
 import lombok.Getter;
 
 @Getter
-public class AlbumEntity extends TypedItemEntity {
-    private String name;
-    private ImageEntity image;
+public class ImageEntity extends TypedItemEntity {
+    private String url;
 }

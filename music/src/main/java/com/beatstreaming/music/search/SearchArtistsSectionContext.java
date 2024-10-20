@@ -9,10 +9,10 @@ import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.ArtistEntity;
-import com.beatstreaming.music.item.ArtistCardItemBinder;
+import com.beatstreaming.music.item.ArtistCardImageItemBinder;
 
 public class SearchArtistsSectionContext extends ListSectionContext<AppSourceContext, ArtistEntity> {
-    public SearchArtistsSectionContext(Context context, AppSourceContext appSourceContext, ArtistEntity[] entities, ArtistCardItemBinder binder) {
+    public SearchArtistsSectionContext(Context context, AppSourceContext appSourceContext, ArtistEntity[] entities, ArtistCardImageItemBinder binder) {
         super(context, R.string.section_search_artist_title, new ListRecyclerViewAdapter<AppSourceContext, ArtistEntity>(appSourceContext, entities, binder));
     }
 

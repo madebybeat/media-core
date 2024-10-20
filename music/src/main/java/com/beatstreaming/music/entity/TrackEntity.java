@@ -7,4 +7,7 @@ import lombok.Getter;
 @Getter
 public class TrackEntity extends TypedItemEntity {
     private String name;
+    private ArtistEntity[] artists;
+    private ArtistEntity artist;
+    private AlbumEntity album;
 }
