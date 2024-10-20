@@ -6,19 +6,21 @@ import androidx.viewbinding.ViewBinding;
 
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
 
-public class HttpRequestBinding<T, V extends ViewBinding> extends TypedHttpRequest<T> {
+public class HttpRequestBinding<T, B extends ViewBinding, V extends ViewBinding> extends TypedHttpRequest<T> {
     protected final HttpRequestStatusBinding httpRequestStatusBinding;
-    protected final V binding;
+    protected final B pageBinding;
+    protected final V resultBinding;
 
-    public HttpRequestBinding(Context context, HttpRequestStatusBinding httpRequestStatusBinding, V binding, Class<T> clazz, int method) {
+    public HttpRequestBinding(Context context, HttpRequestStatusBinding httpRequestStatusBinding, B pageBinding, V resultBinding, Class<T> clazz, int method) {
         super(context, clazz, method);
 
         this.httpRequestStatusBinding = httpRequestStatusBinding;
-        this.binding = binding;
+        this.pageBinding = pageBinding;
+        this.resultBinding = resultBinding;
     }
 
     @Override
     public void onLoad(T data) {
-        this.httpRequestStatusBinding.view.addView(this.binding.getRoot());
+        this.httpRequestStatusBinding.view.addView(this.resultBinding.getRoot());
     }
 }

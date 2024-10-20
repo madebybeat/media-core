@@ -27,7 +27,10 @@ public class ArtistPage extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.artistPageBinding.artistName.setText(this.artistEntity.getName());
-        Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.mediaImage);
+
+        if (this.artistEntity.getImage() != null) {
+            Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.mediaImage);
+        }
 
         return this.artistPageBinding.getRoot();
     }
