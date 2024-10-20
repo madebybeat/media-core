@@ -10,8 +10,8 @@ import com.beatstreaming.core.list.ListContext;
 import lombok.Getter;
 
 @Getter
-public class ItemListSection<T extends ListContext, V extends ItemEntity> extends BindingSection<T, V> {
-    protected BindingSectionContext<T, V> sectionContext;
+public class ItemListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V> {
+    protected SectionContext<T, V> sectionContext;
 
     public ItemListSection(Context context) {
         super(context);
@@ -32,7 +32,7 @@ public class ItemListSection<T extends ListContext, V extends ItemEntity> extend
     }
 
     @Override
-    public void init(BindingSectionContext<T, V> sectionContext) {
+    public void init(SectionContext<T, V> sectionContext) {
         super.init(sectionContext.setMenu(R.menu.list_section_menu));
     }
 }

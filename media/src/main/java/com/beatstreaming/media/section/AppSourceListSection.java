@@ -3,14 +3,13 @@ package com.beatstreaming.media.section;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.beatstreaming.core.component.BaseSectionContext;
 import com.beatstreaming.core.component.Section;
 import com.beatstreaming.core.component.SectionContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.media.R;
 
-public class AppSourceListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V, BaseSectionContext<?, T, V>> {
+public class AppSourceListSection<T extends ListContext, V extends ItemEntity> extends Section<T, V> {
     public AppSourceListSection(Context context) {
         super(context);
 
@@ -32,6 +31,6 @@ public class AppSourceListSection<T extends ListContext, V extends ItemEntity> e
     public void init(Context context) {
         super.init(context);
 
-        this.sectionContext = (com.beatstreaming.core.component.BaseSectionContext<?, T, V>) SectionContext.builder().title(R.string.section_app_list_recommend_title).menu(R.menu.app_recommend_menu).build();
+        this.sectionContext = SectionContext.<T, V>builder().title(R.string.section_app_list_recommend_title).menu(R.menu.app_recommend_menu).build();
     }
 }
