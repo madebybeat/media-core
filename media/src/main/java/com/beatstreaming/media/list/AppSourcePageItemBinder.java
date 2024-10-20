@@ -24,7 +24,7 @@ public class AppSourcePageItemBinder extends AppSourceBinder {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                appSourceStorageManager.add(view.getContext(), AppSourceStorageItem.builder().appSourceEntity(item).build());
+                appSourceStorageManager.save(view.getContext(), AppSourceStorageItem.builder().appSourceEntity(item).build());
 
                 MainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
                         .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), homePage)

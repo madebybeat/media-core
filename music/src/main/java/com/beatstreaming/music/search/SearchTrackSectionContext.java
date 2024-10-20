@@ -1,7 +1,7 @@
 package com.beatstreaming.music.search;
 
 import com.beatstreaming.core.component.SectionContext;
-import com.beatstreaming.core.context.AppSourceContext;
+import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
