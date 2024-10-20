@@ -20,6 +20,6 @@ public class SearchTrackSectionContext extends ListSectionContext<AppSourceConte
     public ListSectionContext<AppSourceContext, TrackEntity> getPageContext() {
         this.listSectionBinding.sectionList.setLayoutManager(new GridLayoutManager(this.context, 2));
 
-        return null;
+        return this;
     }
 }
