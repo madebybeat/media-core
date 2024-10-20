@@ -11,11 +11,13 @@ import com.beatstreaming.media.R;
 
 public class MediaListItemBinder<T extends ItemEntity> extends ListBinder<AppSourceContext, T> {
     protected TextView mediaTitle;
+    protected TextView mediaSubtitle;
     protected LinearLayout mediaCover;
 
     @Override
     public void bind(AppSourceContext context, ListViewHolder<T> holder, T item) {
         this.mediaTitle = holder.itemView.findViewById(R.id.media_title);
+        this.mediaSubtitle = holder.itemView.findViewById(R.id.media_subtitle);
         this.mediaCover = holder.itemView.findViewById(R.id.media_cover);
     }
 
