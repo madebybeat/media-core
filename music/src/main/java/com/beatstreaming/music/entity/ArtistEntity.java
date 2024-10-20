@@ -6,4 +6,5 @@ import lombok.Getter;
 
 @Getter
 public class ArtistEntity extends ImageItemEntity {
+    private TrackEntity[] tracks;
 }
