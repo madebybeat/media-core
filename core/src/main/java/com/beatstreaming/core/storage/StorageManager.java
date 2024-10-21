@@ -13,16 +13,14 @@ import java.io.InputStreamReader;
 import lombok.SneakyThrows;
 
 public class StorageManager<T> {
+    private final Gson gson;
     private final Class<? extends T> clazz;
     private final String name;
 
-    private final Gson gson;
-
-    public StorageManager(Class<? extends T> clazz, String name) {
+    public StorageManager(Gson gson, Class<? extends T> clazz, String name) {
+        this.gson = gson;
         this.clazz = clazz;
         this.name = name;
-
-        this.gson = new Gson();
     }
 
     private String getName() {

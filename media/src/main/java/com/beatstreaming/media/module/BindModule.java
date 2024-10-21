@@ -9,6 +9,7 @@ import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
+import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 
@@ -29,8 +30,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppSourceStorageManager provideAppSourceStorageManager() {
-        return new AppSourceStorageManager();
+    public AppSourceStorageManager provideAppSourceStorageManager(Gson gson) {
+        return new AppSourceStorageManager(gson);
     }
 
     @Provides
@@ -41,7 +42,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public LibraryListStorageManager provideLibraryListStorageManager() {
-        return new LibraryListStorageManager();
+    public LibraryListStorageManager provideLibraryListStorageManager(Gson gson) {
+        return new LibraryListStorageManager(gson);
     }
 }
