@@ -13,7 +13,7 @@ import com.beatstreaming.music.entity.AlbumEntity;
 
 public class AlbumPage extends CollectionPage<AlbumEntity> {
     public AlbumPage(AppSourceContext appSourceContext, AlbumEntity albumEntity) {
-        super(appSourceContext, ItemType.ALBUM, albumEntity);
+        super(appSourceContext, albumEntity);
     }
 
     @Override

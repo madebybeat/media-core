@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.ImageItemEntity;
-import com.beatstreaming.media.storage.library.ItemType;
+import com.beatstreaming.media.item.AlbumItemType;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -23,14 +23,13 @@ public class CollectionPage<T extends ImageItemEntity> extends Fragment {
     protected CollectionPageBinding collectionPageBinding;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
+    @Inject AlbumItemType<?> albumItemType;
 
     protected final AppSourceContext appSourceContext;
-    protected final ItemType itemType;
     protected final T imageItemEntity;
 
-    public CollectionPage(AppSourceContext appSourceContext, ItemType itemType, T imageItemEntity) {
+    public CollectionPage(AppSourceContext appSourceContext, T imageItemEntity) {
         this.appSourceContext = appSourceContext;
-        this.itemType = itemType;
         this.imageItemEntity = imageItemEntity;
     }
 
@@ -44,7 +43,7 @@ public class CollectionPage<T extends ImageItemEntity> extends Fragment {
         this.collectionPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.list.add(new LibraryItemEntity<T>(appSourceContext, itemType, imageItemEntity));
+                libraryListStorage.list.add(new LibraryItemEntity<T>(appSourceContext, albumItemType, imageItemEntity));
             }
         });
 
