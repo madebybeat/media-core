@@ -46,10 +46,10 @@ public class StorageManager<T> {
             return this.gson.fromJson(stringBuilder.toString(), this.clazz);
         } catch (Exception exception) {
             if (exception instanceof FileNotFoundException) {
-                return this.clazz.newInstance();
+                exception.printStackTrace();
             }
 
-            throw new RuntimeException(exception);
+            return this.clazz.newInstance();
         }
     }
 
