@@ -9,27 +9,12 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.page.CollectionPage;
-import com.beatstreaming.media.storage.library.LibraryListStorage;
-import com.beatstreaming.media.storage.library.LibraryListStorageManager;
+import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.music.entity.AlbumEntity;
-import com.beatstreaming.music.storage.AlbumLibraryItemEntity;
-
-import javax.inject.Inject;
 
 public class AlbumPage extends CollectionPage<AlbumEntity> {
-    @Inject LibraryListStorageManager libraryListStorageManager;
-
     public AlbumPage(AppSourceContext appSourceContext, AlbumEntity albumEntity) {
-        super(appSourceContext, albumEntity);
-
-        LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
-
-        this.collectionPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                libraryListStorage.list.add(new AlbumLibraryItemEntity(imageItemEntity));
-            }
-        });
+        super(appSourceContext, ItemType.ALBUM, albumEntity);
     }
 
     @Override

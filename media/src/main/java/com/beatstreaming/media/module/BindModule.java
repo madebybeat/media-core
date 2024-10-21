@@ -6,6 +6,7 @@ import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 
 import javax.inject.Singleton;
 
@@ -34,5 +35,11 @@ public class BindModule {
     @Singleton
     public AppSourceService provideAppSourceService(@ApplicationContext Context context, AppSourceStorageManager appSourceStorageManager) {
         return new AppSourceService(context, appSourceStorageManager);
+    }
+
+    @Provides
+    @Singleton
+    public LibraryListStorageManager provideLibraryListStorageManager() {
+        return new LibraryListStorageManager();
     }
 }
