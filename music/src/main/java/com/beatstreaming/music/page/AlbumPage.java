@@ -18,6 +18,6 @@ public class AlbumPage extends CollectionPage<AlbumEntity> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        return this.collectionPageBinding.getRoot();
+        return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
 }
