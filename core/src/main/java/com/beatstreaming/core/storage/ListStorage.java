@@ -33,10 +33,4 @@ public class ListStorage<T extends ItemEntity> {
 
         return optional.isPresent();
     }
-
-    public T[] getArray(Class<com.beatstreaming.media.storage.library.LibraryItemEntity> clazz) {
-        T[] array = (T[]) Array.newInstance(clazz, this.list.size());
-
-        return this.list.toArray(array);
-    }
 }
