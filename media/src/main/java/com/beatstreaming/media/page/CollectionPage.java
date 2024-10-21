@@ -23,7 +23,7 @@ public class CollectionPage<T extends ImageItemEntity> extends Fragment {
     protected CollectionPageBinding collectionPageBinding;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
-    @Inject AlbumItemType albumItemType;
+    @Inject AlbumItemType<?> albumItemType;
 
     protected final AppSourceContext appSourceContext;
     protected final T imageItemEntity;
