@@ -1,7 +1,8 @@
-package com.beatstreaming.music.module;
+package com.beatstreaming.core.module;
 
 import com.beatstreaming.core.serialize.ClassNameTypeAdapter;
-import com.beatstreaming.music.item.AbstractLibraryItemBinder;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
@@ -15,7 +16,7 @@ import dagger.hilt.components.SingletonComponent;
 public class BindModule {
     @Provides
     @Singleton
-    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
-        return new AbstractLibraryItemBinder();
+    public Gson provideGson() {
+        return new GsonBuilder().registerTypeAdapter(Class.class, new ClassNameTypeAdapter()).create();
     }
 }
