@@ -6,7 +6,6 @@ import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.InputStreamReader;
 
@@ -43,9 +42,7 @@ public class StorageManager<T> {
 
             return this.gson.fromJson(stringBuilder.toString(), this.clazz);
         } catch (Exception exception) {
-            if (exception instanceof FileNotFoundException) {
-                exception.printStackTrace();
-            }
+            exception.printStackTrace();
 
             return this.clazz.newInstance();
         }
@@ -55,6 +52,8 @@ public class StorageManager<T> {
     public void save(Context context, T object) {
         try (FileOutputStream fileOutputStream = context.openFileOutput(this.getName(), Context.MODE_PRIVATE)) {
             fileOutputStream.write(this.gson.toJson(object).getBytes());
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }
