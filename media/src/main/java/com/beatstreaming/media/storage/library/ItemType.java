@@ -1,7 +1,7 @@
 package com.beatstreaming.media.storage.library;
 
-public enum ItemType {
-    TRACK,
-    ARTIST,
-    ALBUM;
+import com.beatstreaming.core.list.ListBinder;
+
+public interface ItemType {
+    Class<ListBinder<?, ?>> getBinder();
 }
