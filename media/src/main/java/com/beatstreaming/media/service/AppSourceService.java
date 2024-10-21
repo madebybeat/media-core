@@ -5,8 +5,8 @@ import android.content.Intent;
 
 import com.beatstreaming.media.AppMainActivity;
 import com.beatstreaming.media.page.AppSourcePage;
-import com.beatstreaming.media.storage.AppSourceStorageItem;
-import com.beatstreaming.media.storage.AppSourceStorageManager;
+import com.beatstreaming.media.storage.app.AppSourceStorageItem;
+import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 public class AppSourceService extends Service {
     private final AppSourceStorageItem appSourceStorageItem;

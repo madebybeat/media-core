@@ -1,4 +1,4 @@
-package com.beatstreaming.media.storage;
+package com.beatstreaming.media.storage.app;
 
 
 import com.beatstreaming.core.entity.IdItemEntity;

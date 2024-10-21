@@ -5,7 +5,7 @@ import android.content.Context;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.service.AppSourceService;
-import com.beatstreaming.media.storage.AppSourceStorageManager;
+import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 import javax.inject.Singleton;
 

@@ -7,8 +7,8 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.AppMainActivity;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.media.storage.AppSourceStorageItem;
-import com.beatstreaming.media.storage.AppSourceStorageManager;
+import com.beatstreaming.media.storage.app.AppSourceStorageItem;
+import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 import lombok.AllArgsConstructor;
 
