@@ -8,16 +8,26 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
+import com.beatstreaming.media.storage.library.LibraryListStorage;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
+import com.beatstreaming.music.item.ArtistItemType;
 import com.squareup.picasso.Picasso;
+
+import javax.inject.Inject;
 
 public class ArtistPage extends Fragment {
     protected ArtistPageBinding artistPageBinding;
 
     protected final AppSourceContext appSourceContext;
     protected final ArtistEntity artistEntity;
+
+    @Inject LibraryListStorageManager libraryListStorageManager;
+    @Inject ArtistItemType artistItemType;
 
     public ArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
         this.appSourceContext = appSourceContext;
@@ -31,6 +41,16 @@ public class ArtistPage extends Fragment {
         if (this.artistEntity.getImage() != null) {
             Picasso.get().load(this.artistEntity.getImage().getUrl()).into(this.artistPageBinding.artistImage.mediaImage);
         }
+
+        LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
+
+        this.artistPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                libraryListStorage.list.add(new LibraryItemEntity<ArtistEntity>(appSourceContext, artistItemType, new SerializableItemEntity<>(artistItemType.getClazz(), artistEntity)));
+                libraryListStorageManager.save(view.getContext(), libraryListStorage);
+            }
+        });
 
         return this.artistPageBinding.getRoot();
     }

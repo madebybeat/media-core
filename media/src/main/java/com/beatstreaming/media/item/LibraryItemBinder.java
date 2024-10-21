@@ -15,7 +15,7 @@ public class LibraryItemBinder<T extends ItemEntity, V extends LibraryItemEntity
     public void bind(AppSourceContext context, ListViewHolder<V> holder, V item) {
         super.bind(context, holder, item);
 
-        ListBinder<AppSourceContext, T> listBinder = item.getItemType().getBinder().getConstructor().newInstance();
+        ListBinder<AppSourceContext, T> listBinder = (ListBinder<AppSourceContext, T>) item.getItemType().getBinder().getConstructor().newInstance();
 
         listBinder.bind(item.getAppSourceContext(), (ListViewHolder<T>) holder, item.getSerializableItemEntity().get());
     }

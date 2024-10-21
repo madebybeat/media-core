@@ -9,12 +9,12 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.media.AppSourceContext;
-import com.beatstreaming.media.item.AlbumItemType;
 import com.beatstreaming.media.page.CollectionPage;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.AlbumEntity;
+import com.beatstreaming.music.item.AlbumItemType;
 
 import javax.inject.Inject;
 
