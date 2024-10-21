@@ -44,7 +44,7 @@ public class CollectionPage<T extends ImageItemEntity> extends Fragment {
         this.collectionPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.list.add(new LibraryItemEntity<T>(itemType, imageItemEntity));
+                libraryListStorage.list.add(new LibraryItemEntity<T>(appSourceContext, itemType, imageItemEntity));
             }
         });
 

@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.page.CollectionPage;
-import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.music.entity.AlbumEntity;
 
 public class AlbumPage extends CollectionPage<AlbumEntity> {
