@@ -6,8 +6,8 @@ import lombok.Getter;
 import lombok.SneakyThrows;
 
 @Getter
-public class SerializableItemEntity<T> {
-    private final Gson gson;
+public class SerializableItemEntity<T extends ItemEntity> {
+    transient private final Gson gson;
     private final String clazz;
     private final String serialize;
 

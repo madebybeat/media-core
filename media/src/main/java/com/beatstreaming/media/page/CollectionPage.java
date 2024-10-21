@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.media.AppSourceContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.ImageItemEntity;
@@ -43,7 +44,7 @@ public class CollectionPage<T extends ImageItemEntity> extends Fragment {
         this.collectionPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.list.add(new LibraryItemEntity<T>(appSourceContext, albumItemType, imageItemEntity));
+                libraryListStorage.list.add(new LibraryItemEntity<T>(appSourceContext, albumItemType, new SerializableItemEntity<>(albumItemType.getBinder(), imageItemEntity)));
                 libraryListStorageManager.save(view.getContext(), libraryListStorage);
             }
         });

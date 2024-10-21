@@ -3,8 +3,6 @@ package com.beatstreaming.media.module;
 import android.content.Context;
 
 import com.beatstreaming.core.pages.HomePage;
-import com.beatstreaming.core.serialize.ClassNameTypeAdapter;
-import com.beatstreaming.media.item.LibraryItemBinder;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
