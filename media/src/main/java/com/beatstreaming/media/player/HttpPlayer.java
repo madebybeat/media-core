@@ -2,6 +2,8 @@ package com.beatstreaming.media.player;
 
 import android.content.Context;
 
+import androidx.media3.exoplayer.ExoPlayer;
+
 import com.beatstreaming.core.entity.ItemEntity;
 
 import lombok.Getter;
@@ -10,6 +12,13 @@ import lombok.Getter;
 public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
     public HttpPlayer(Context context) {
         super(context);
+    }
+
+    @Override
+    public void onInit() {
+        this.player = new ExoPlayer.Builder(this.context).build();
+
+        super.onInit();
     }
 
     @Override
