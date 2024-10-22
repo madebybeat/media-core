@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.media.databinding.PlayerBarBinding;
-import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.music.databinding.TrackItemBinding;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.player.MusicPlayer;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class TrackPlayerBar extends PlayerBar<TrackEntity> {
-    public TrackPlayerBar(Player<TrackEntity> player) {
+    public TrackPlayerBar(MusicPlayer player) {
         super(player);
     }
 

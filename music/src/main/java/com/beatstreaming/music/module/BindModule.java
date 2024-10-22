@@ -1,6 +1,9 @@
 package com.beatstreaming.music.module;
 
+import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.music.item.AbstractLibraryItemBinder;
+import com.beatstreaming.music.player.MusicPlayer;
+import com.beatstreaming.music.player.ui.TrackPlayerBar;
 
 import javax.inject.Singleton;
 
@@ -16,5 +19,11 @@ public class BindModule {
     @Singleton
     public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
         return new AbstractLibraryItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public PlayerBar providePlayerBar(MusicPlayer player) {
+        return new TrackPlayerBar(player);
     }
 }
