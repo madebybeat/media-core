@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @Getter
 public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
-    private final PlayContext<T> playContext;
+    protected PlayContext<T> playContext;
 
     public ContextualPlayer(Context context, PlayContext<T> playerContext) {
         super(context);
