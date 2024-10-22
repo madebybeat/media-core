@@ -16,13 +16,13 @@ public class ImageButton extends AppCompatImageButton implements ItemInit<Contex
         this.init(context);
     }
 
-    private ImageButton(Context context, AttributeSet attributeSet) {
+    public ImageButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
 
         this.init(context);
     }
 
-    private ImageButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
+    public ImageButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
         super(context, attributeSet, defaultStyleAttributes);
 
         this.init(context);

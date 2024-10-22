@@ -9,39 +9,27 @@ import androidx.core.content.ContextCompat;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.R;
-import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 
-import javax.inject.Inject;
-
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
-public class PlayButton extends androidx.appcompat.widget.AppCompatImageButton implements ItemInit<Context>, ItemRefresh {
+public class PlayButton extends PlayerButton implements ItemInit<Context>, ItemRefresh {
     private Context context;
-
-    @Inject Player<?> player;
 
     public PlayButton(Context context) {
         super(context);
-
-        this.init(context);
     }
 
     public PlayButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-
-        this.init(context);
     }
 
     public PlayButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
         super(context, attributeSet, defaultStyleAttributes);
-
-        this.init(context);
     }
 
     public void init(Context context) {
-        this.context = context;
+        super.init(context);
+
+        System.out.println(player);
 
         this.refresh();
 

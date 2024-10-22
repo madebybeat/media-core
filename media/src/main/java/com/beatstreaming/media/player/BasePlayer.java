@@ -8,6 +8,7 @@ import androidx.media3.session.MediaSession;
 import com.beatstreaming.core.event.Listener;
 
 import java.net.URI;
+import java.util.UUID;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,14 +27,10 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
         super(BasePlayer.class, PlayerCallback.class);
 
         this.context = context;
-
-        this.onInit();
     }
 
     public void onInit() {
-        this.mediaSession = new MediaSession.Builder(this.context, this.player).build();
-
-        this.callEvent(PlayerCallback::onInit);
+        this.mediaSession = new MediaSession.Builder(this.context, this.player).setId(UUID.randomUUID().toString()).build();
     }
 
     public void load() {

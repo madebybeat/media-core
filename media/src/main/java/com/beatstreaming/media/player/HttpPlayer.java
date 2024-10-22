@@ -12,6 +12,8 @@ import lombok.Getter;
 public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
     public HttpPlayer(Context context) {
         super(context);
+
+        this.onInit();
     }
 
     @Override

@@ -1,6 +1,7 @@
 package com.beatstreaming.media.player.ui;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
@@ -15,6 +16,14 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class PlayerRepeatButton extends PlayerButton implements ItemRefresh {
     public PlayerRepeatButton(Context context) {
         super(context);
+    }
+
+    public PlayerRepeatButton(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
+    }
+
+    public PlayerRepeatButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
+        super(context, attributeSet, defaultStyleAttributes);
     }
 
     @Override
