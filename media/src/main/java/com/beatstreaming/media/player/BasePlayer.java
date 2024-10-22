@@ -22,12 +22,10 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
     @Setter
     private boolean isLoading;
 
-    public BasePlayer(Context context, PlayerContext playerContext) {
+    public BasePlayer(Context context) {
         super(BasePlayer.class, PlayerCallback.class);
 
         this.context = context;
-
-        this.playerContext = playerContext;
     }
 
     public void onInit() {

@@ -24,6 +24,10 @@ public class Listener<T, V extends Callback<T>> {
         }
     }
 
+    public Listener(Class<T> clazz, Class<V> callback) {
+        this (clazz, callback, null);
+    }
+
     public void callEvent(Consumer<V> consumer) {
         this.listeners.forEach(consumer);
     }

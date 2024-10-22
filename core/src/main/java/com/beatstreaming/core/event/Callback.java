@@ -1,8 +1,8 @@
 package com.beatstreaming.core.event;
 
-import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
-@Data
+@RequiredArgsConstructor
 public class Callback<T> {
-    protected final T item;
+    public final T item;
 }
