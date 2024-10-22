@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/close" />
+        <include layout="@layout/player_close_button" />
         <LinearLayout
             android:id="@+id/player_source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" />
-        <include android:id="@+id/player_track_options" layout="@layout/player_options" />
+        <include android:id="@+id/player_menu_button" layout="@layout/player_menu_button" />
     </LinearLayout>
 
     <LinearLayout
