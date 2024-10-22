@@ -35,8 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/space_normal">
 
-            <include layout="@layout/quality" />
-            <include layout="@layout/share" />
+            <include layout="@layout/quality_button" />
+            <include layout="@layout/share_button" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

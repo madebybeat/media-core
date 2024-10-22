@@ -16,20 +16,16 @@ import com.beatstreaming.media.page.PlayerPage;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 
-import javax.inject.Inject;
+import lombok.RequiredArgsConstructor;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
+@RequiredArgsConstructor
 public class PlayerBar<T extends ItemEntity> extends Fragment implements RefreshableItem {
-    private PlayerBarBinding playerBarBinding;
+    protected PlayerBarBinding playerBarBinding;
 
-    @Inject protected Player<T> player;
+    protected final Player<T> player;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.playerBarBinding = PlayerBarBinding.inflate(this.getLayoutInflater());
-
         this.refresh();
 
         this.player.addListener(new PlayerCallback(this.player) {

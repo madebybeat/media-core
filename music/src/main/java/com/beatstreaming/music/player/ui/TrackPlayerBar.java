@@ -1,11 +1,15 @@
 package com.beatstreaming.music.player.ui;
 
-import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+
+import com.beatstreaming.media.databinding.PlayerBarBinding;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.ui.PlayerBar;
-import com.beatstreaming.media.R;
 import com.beatstreaming.music.databinding.TrackItemBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 
@@ -13,19 +17,20 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class TrackPlayerBar extends PlayerBar<TrackEntity> {
-    public TrackPlayerBar(Context context) {
-        super(context);
+    public TrackPlayerBar(Player<TrackEntity> player) {
+        super(player);
     }
 
     @Override
-    public void init(Context context) {
-        super.init(context);
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.playerBarBinding = PlayerBarBinding.inflate(this.getLayoutInflater());
 
-        LinearLayout linearLayout = this.findViewById(R.id.player_media_item);
-        TrackItemBinding trackItemBinding = TrackItemBinding.inflate(LayoutInflater.from(this.context));
+        TrackItemBinding trackItemBinding = TrackItemBinding.inflate(LayoutInflater.from(this.getContext()));
 
         trackItemBinding.trackTitle.setText(this.player.getCurrent().getItem().getName());
 
-        linearLayout.addView(trackItemBinding.getRoot());
+        this.playerBarBinding.playerMediaItem.addView(trackItemBinding.getRoot());
+
+        return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
 }
