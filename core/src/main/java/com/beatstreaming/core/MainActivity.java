@@ -15,10 +15,8 @@ import java.util.Arrays;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.AndroidEntryPoint;
 import lombok.Getter;
 
-@AndroidEntryPoint
 @Getter
 public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;

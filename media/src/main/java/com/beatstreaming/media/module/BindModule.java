@@ -4,6 +4,8 @@ import android.content.Context;
 
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
+import com.beatstreaming.media.player.Player;
+import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -42,5 +44,17 @@ public class BindModule {
     @Singleton
     public LibraryListStorageManager provideLibraryListStorageManager(Gson gson) {
         return new LibraryListStorageManager(gson);
+    }
+
+    @Provides
+    @Singleton
+    public Player<?> providePlayerBar(@ApplicationContext Context context) {
+        return new Player<>(context);
+    }
+
+    @Provides
+    @Singleton
+    public PlayerBar<?> providePlayerBar(Player<?> player) {
+        return new PlayerBar<>(player);
     }
 }

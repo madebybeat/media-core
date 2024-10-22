@@ -13,10 +13,13 @@ import com.beatstreaming.music.databinding.TrackItemBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.player.MusicPlayer;
 
+import javax.inject.Inject;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class TrackPlayerBar extends PlayerBar<TrackEntity> {
+    @Inject
     public TrackPlayerBar(MusicPlayer player) {
         super(player);
     }
