@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.beatstreaming.beat.components.player.button.PlayNextButton
+<com.beatstreaming.media.player.ui.PlayerNextButton
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="40dp"
-    android:layout_width="40dp"
+    android:layout_height="@dimen/space_normal"
+    android:layout_width="@dimen/space_normal"
     android:src="@drawable/play_next"
     android:background="@android:color/transparent" />
