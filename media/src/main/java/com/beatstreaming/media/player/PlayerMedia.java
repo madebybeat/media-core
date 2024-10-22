@@ -14,6 +14,6 @@ public class PlayerMedia<T> {
     private final MediaSource mediaSource;
 
     public MediaItem getMediaItem() {
-        return MediaItem.fromUri(this.mediaSource.getUri().toString());
+        return MediaItem.fromUri(this.mediaSource.getAppSourceContext().getAppSourceEntity().getUrl());
     }
 }

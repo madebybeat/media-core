@@ -1,6 +1,6 @@
 package com.beatstreaming.media.player;
 
-import java.net.URI;
+import com.beatstreaming.media.AppSourceContext;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -8,5 +8,5 @@ import lombok.Getter;
 @Builder
 @Getter
 public class MediaSource {
-    private final URI uri;
+    private final AppSourceContext appSourceContext;
 }
