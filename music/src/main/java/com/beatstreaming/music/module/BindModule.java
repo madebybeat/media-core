@@ -1,6 +1,5 @@
 package com.beatstreaming.music.module;
 
-import com.beatstreaming.core.serialize.ClassNameTypeAdapter;
 import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 
 import javax.inject.Singleton;
