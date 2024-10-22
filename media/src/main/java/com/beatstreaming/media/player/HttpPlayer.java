@@ -22,7 +22,7 @@ public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
     }
 
     @Override
-    public void queue(PlayerContext<T> playContext) {
+    public void queue(PlayerContext<?, ?> playContext) {
         this.playContext = playContext;
 
         this.player.clearMediaItems();

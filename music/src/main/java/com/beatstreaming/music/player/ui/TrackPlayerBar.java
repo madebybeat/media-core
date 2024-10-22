@@ -27,7 +27,7 @@ public class TrackPlayerBar extends PlayerBar<TrackEntity> {
 
         TrackItemBinding trackItemBinding = TrackItemBinding.inflate(LayoutInflater.from(this.getContext()));
 
-        trackItemBinding.trackTitle.setText(this.player.getCurrent().getItem().getName());
+        trackItemBinding.trackTitle.setText(this.player.getCurrent().getName());
 
         this.playerBarBinding.playerMediaItem.addView(trackItemBinding.getRoot());
 

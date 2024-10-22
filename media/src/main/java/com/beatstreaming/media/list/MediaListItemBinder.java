@@ -16,14 +16,14 @@ import com.beatstreaming.media.player.Player;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class MediaListItemBinder<T extends ItemEntity, V extends ItemEntity> extends ListBinder<AppSourceContext, T> implements ItemSetup<MediaListItemBinder<T, V>, PlayerContext<V>> {
+public class MediaListItemBinder<T extends ItemEntity, V extends ItemEntity> extends ListBinder<AppSourceContext, T> implements ItemSetup<MediaListItemBinder<T, V>, PlayerContext<V, T>> {
     protected TextView mediaTitle;
     protected TextView mediaSubtitle;
     protected LinearLayout mediaCover;
 
     protected final Player<T> player;
 
-    protected PlayerContext<V> playContext;
+    protected PlayerContext<V, T> playContext;
 
     @Override
     public void bind(AppSourceContext context, ListViewHolder<T> holder, T item) {
@@ -32,7 +32,7 @@ public class MediaListItemBinder<T extends ItemEntity, V extends ItemEntity> ext
         this.mediaCover = holder.itemView.findViewById(R.id.media_cover);
 
         holder.itemView.setOnClickListener((View view) -> {
-            player.queue(PlayerContext.<T>builder().build());
+            player.queue(playContext);
         });
     }
 
@@ -41,7 +41,7 @@ public class MediaListItemBinder<T extends ItemEntity, V extends ItemEntity> ext
     }
 
     @Override
-    public MediaListItemBinder<T, V> setup(PlayerContext<V> playContext) {
+    public MediaListItemBinder<T, V> setup(PlayerContext<V, T> playContext) {
         this.playContext = playContext;
 
         return this;

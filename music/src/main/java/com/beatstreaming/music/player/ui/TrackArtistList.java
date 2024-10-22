@@ -53,7 +53,7 @@ public class TrackArtistList extends TextView implements ItemRefresh {
             return;
         }
 
-        this.setText(Arrays.stream(this.player.getCurrent().getItem().getArtists()).map(NameItemEntity::getName)
+        this.setText(Arrays.stream(this.player.getCurrent().getArtists()).map(NameItemEntity::getName)
                 .collect(Collectors.joining(", ")));
 
         this.setOnClickListener(new OnClickListener() {
@@ -61,7 +61,7 @@ public class TrackArtistList extends TextView implements ItemRefresh {
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getCurrent().getMediaSource().getAppSourceContext(), player.getCurrent().getItem().getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getPlayContext().getAppSourceContext(), player.getCurrent().getArtist()))
                         .addToBackStack(null)
                         .commit();
             }

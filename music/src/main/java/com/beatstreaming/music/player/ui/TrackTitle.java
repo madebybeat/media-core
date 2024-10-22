@@ -46,6 +46,6 @@ public class TrackTitle extends TextView implements ItemRefresh {
             return;
         }
 
-        this.appCompatTextView.setText(this.player.getCurrent().getItem().getName());
+        this.appCompatTextView.setText(this.player.getCurrent().getName());
     }
 }
