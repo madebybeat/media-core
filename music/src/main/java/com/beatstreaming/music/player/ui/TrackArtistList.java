@@ -10,9 +10,10 @@ import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.ui.TextView;
 import com.beatstreaming.core.view.RefreshableItem;
 import com.beatstreaming.media.entity.NameItemEntity;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
+import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.page.ArtistPage;
-import com.beatstreaming.music.player.MusicPlayer;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class TrackArtistList extends TextView implements RefreshableItem {
     private AppCompatTextView appCompatTextView;
 
-    @Inject MusicPlayer musicPlayer;
+    @Inject Player<TrackEntity> player;
 
     public TrackArtistList(Context context) {
         super(context);
@@ -38,7 +39,7 @@ public class TrackArtistList extends TextView implements RefreshableItem {
 
         this.refresh();
 
-        this.musicPlayer.addListener(new PlayerCallback(this.musicPlayer) {
+        this.player.addListener(new PlayerCallback(this.player) {
             @Override
             public void onMediaItemTransition(MediaItem mediaItem, int reason) {
                 refresh();
@@ -48,11 +49,11 @@ public class TrackArtistList extends TextView implements RefreshableItem {
 
     @Override
     public void refresh() {
-        if (!this.musicPlayer.isReady()) {
+        if (!this.player.isReady()) {
             return;
         }
 
-        this.setText(Arrays.stream(this.musicPlayer.getCurrent().getItem().getArtists()).map(NameItemEntity::getName)
+        this.setText(Arrays.stream(this.player.getCurrent().getItem().getArtists()).map(NameItemEntity::getName)
                 .collect(Collectors.joining(", ")));
 
         this.setOnClickListener(new OnClickListener() {
@@ -60,7 +61,7 @@ public class TrackArtistList extends TextView implements RefreshableItem {
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(musicPlayer.getCurrent().getMediaSource().getAppSourceContext(), musicPlayer.getCurrent().getItem().getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getCurrent().getMediaSource().getAppSourceContext(), player.getCurrent().getItem().getArtist()))
                         .addToBackStack(null)
                         .commit();
             }
