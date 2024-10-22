@@ -30,4 +30,10 @@ public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
 
         this.play();
     }
+
+    @Override
+    public void load() {
+        this.player.prepare();
+        this.player.play();
+    }
 }
