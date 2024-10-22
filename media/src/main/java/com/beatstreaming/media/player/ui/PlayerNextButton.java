@@ -1,14 +1,13 @@
 package com.beatstreaming.media.player.ui;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayerCloseButton extends PlayerButton {
-    public PlayerCloseButton(Context context) {
+public class PlayerNextButton extends PlayerButton {
+    public PlayerNextButton(Context context) {
         super(context);
     }
 
@@ -19,7 +18,7 @@ public class PlayerCloseButton extends PlayerButton {
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                ((Activity) context).finish();
+                player.getPlayer().seekToNext();
             }
         });
     }
