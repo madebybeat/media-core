@@ -3,23 +3,24 @@ package com.beatstreaming.media.player;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.media.AppSourceContext;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
-@Builder
-public class PlayerContext<T extends ItemEntity> {
-    private final PlayerSource<T> playerSource;
+@RequiredArgsConstructor
+public class PlayerContext<T extends ItemEntity, V extends ItemEntity> {
+    protected final AppSourceContext appSourceContext;
+    protected final PlayerSource<T> playerSource;
 
     public List<MediaItem> getMediaItemList() {
-        return this.getPlayerMediaList().stream().map(PlayerMedia::getMediaItem).collect(Collectors.toList());
+        return null;
     }
 
-    public List<PlayerMedia<T>> getPlayerMediaList() {
+    public List<V> getItemList() {
         return null;
     }
 }
