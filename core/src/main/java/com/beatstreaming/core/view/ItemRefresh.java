@@ -1,5 +1,5 @@
 package com.beatstreaming.core.view;
 
-public interface RefreshableItem {
+public interface ItemRefresh {
     void refresh();
 }

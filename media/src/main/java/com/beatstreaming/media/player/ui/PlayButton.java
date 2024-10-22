@@ -6,8 +6,8 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-import com.beatstreaming.core.view.RefreshableItem;
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemRefresh;
+import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.R;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
@@ -17,7 +17,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayButton extends androidx.appcompat.widget.AppCompatImageButton implements ViewInit<Context>, RefreshableItem {
+public class PlayButton extends androidx.appcompat.widget.AppCompatImageButton implements ItemInit<Context>, ItemRefresh {
     private Context context;
 
     @Inject Player<?> player;

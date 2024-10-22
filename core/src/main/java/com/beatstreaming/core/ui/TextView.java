@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemInit;
 
-public class TextView extends AppCompatTextView implements ViewInit<Context> {
+public class TextView extends AppCompatTextView implements ItemInit<Context> {
     protected Context context;
 
     public TextView(Context context) {

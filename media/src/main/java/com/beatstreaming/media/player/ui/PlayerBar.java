@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.core.entity.ItemEntity;
-import com.beatstreaming.core.view.RefreshableItem;
+import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.media.databinding.PlayerBarBinding;
 import com.beatstreaming.media.page.PlayerPage;
 import com.beatstreaming.media.player.Player;
@@ -19,7 +19,7 @@ import com.beatstreaming.media.player.PlayerCallback;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class PlayerBar<T extends ItemEntity> extends Fragment implements RefreshableItem {
+public class PlayerBar<T extends ItemEntity> extends Fragment implements ItemRefresh {
     protected PlayerBarBinding playerBarBinding;
 
     protected final Player<T> player;

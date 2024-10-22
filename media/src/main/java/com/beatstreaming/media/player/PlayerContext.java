@@ -12,11 +12,14 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class PlayContext<T extends ItemEntity> {
-    private final PlayerSource<?> playerSource;
-    private final List<PlayerMedia<T>> playerMediaList;
+public class PlayerContext<T extends ItemEntity> {
+    private final PlayerSource<T> playerSource;
 
     public List<MediaItem> getMediaItemList() {
-        return this.playerMediaList.stream().map(PlayerMedia::getMediaItem).collect(Collectors.toList());
+        return this.getPlayerMediaList().stream().map(PlayerMedia::getMediaItem).collect(Collectors.toList());
+    }
+
+    public List<PlayerMedia<T>> getPlayerMediaList() {
+        return null;
     }
 }

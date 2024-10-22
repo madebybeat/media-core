@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import androidx.media3.common.util.UnstableApi;
 
-import com.beatstreaming.core.view.RefreshableItem;
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemRefresh;
+import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 import com.google.android.exoplayer2.ui.DefaultTimeBar;
@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @UnstableApi
 @AndroidEntryPoint
-public class PlayerSeekBar extends DefaultTimeBar implements ViewInit<Context>, RefreshableItem {
+public class PlayerSeekBar extends DefaultTimeBar implements ItemInit<Context>, ItemRefresh {
     private Handler handler;
 
     @Inject Player<?> player;

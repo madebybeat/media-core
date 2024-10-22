@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatImageButton;
 
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemInit;
 
-public class ImageButton extends AppCompatImageButton implements ViewInit<Context> {
+public class ImageButton extends AppCompatImageButton implements ItemInit<Context> {
     protected Context context;
 
     public ImageButton(Context context) {

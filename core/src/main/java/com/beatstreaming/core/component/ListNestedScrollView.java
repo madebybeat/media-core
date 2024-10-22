@@ -5,9 +5,9 @@ import android.util.AttributeSet;
 
 import androidx.core.widget.NestedScrollView;
 
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemInit;
 
-public class ListNestedScrollView extends NestedScrollView implements ViewInit<Context> {
+public class ListNestedScrollView extends NestedScrollView implements ItemInit<Context> {
     public ListNestedScrollView(Context context) {
         super(context);
 

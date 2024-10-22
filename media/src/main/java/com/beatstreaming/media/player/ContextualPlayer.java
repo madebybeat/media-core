@@ -8,7 +8,7 @@ import lombok.Getter;
 
 @Getter
 public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
-    protected PlayContext<T> playContext;
+    protected PlayerContext<T> playContext;
 
     public ContextualPlayer(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
         return this.player.isPlaying() || this.player.isLoading();
     }
 
-    public void queue(PlayContext<T> playContext) {
+    public void queue(PlayerContext<T> playContext) {
 
     }
 

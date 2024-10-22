@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.beatstreaming.core.databinding.ListSectionBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemInit;
 import com.google.gson.Gson;
 
 import javax.inject.Inject;
@@ -16,7 +16,7 @@ import javax.inject.Inject;
 import lombok.Getter;
 
 @Getter
-public class Section<T extends ListContext, V extends ItemEntity, C extends SectionContext<T, V>> extends LinearLayout implements ViewInit<C> {
+public class Section<T extends ListContext, V extends ItemEntity, C extends SectionContext<T, V>> extends LinearLayout implements ItemInit<C> {
     protected ListSectionBinding listSectionBinding;
     protected C sectionContext;
 

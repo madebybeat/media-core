@@ -5,14 +5,14 @@ import android.view.View;
 
 import androidx.core.content.ContextCompat;
 
-import com.beatstreaming.core.view.RefreshableItem;
+import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.media.player.PlayerCallback;
 import com.beatstreaming.media.player.RepeatMode;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayerRepeatButton extends PlayerButton implements RefreshableItem {
+public class PlayerRepeatButton extends PlayerButton implements ItemRefresh {
     public PlayerRepeatButton(Context context) {
         super(context);
     }

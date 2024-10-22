@@ -6,9 +6,9 @@ import android.util.AttributeSet;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.core.view.ItemInit;
 
-public class ListRecyclerView extends RecyclerView implements ViewInit<Context> {
+public class ListRecyclerView extends RecyclerView implements ItemInit<Context> {
     public ListRecyclerView(Context context) {
         super(context);
 

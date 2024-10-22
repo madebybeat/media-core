@@ -1,5 +1,5 @@
 package com.beatstreaming.core.view;
 
-public interface ViewInit<T> {
+public interface ItemInit<T> {
     void init(T item);
 }
