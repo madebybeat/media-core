@@ -7,7 +7,7 @@ import java.util.List;
 import lombok.Data;
 
 @Data
-public class PlayContext<T extends ItemEntity, V extends ItemEntity> {
-    private final PlayerSource<V> playerSource;
+public class PlayContext<T extends ItemEntity> {
+    private final PlayerSource<?> playerSource;
     private final List<PlayerMedia<T>> playerMediaList;
 }

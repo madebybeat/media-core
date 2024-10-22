@@ -2,19 +2,21 @@ package com.beatstreaming.media.player;
 
 import android.content.Context;
 
+import com.beatstreaming.core.entity.ItemEntity;
+
 import lombok.Getter;
 
 @Getter
-public class ContextualPlayer extends BasePlayer {
-    private final PlayerContext playerContext;
+public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
+    private final PlayContext<T> playContext;
 
-    public ContextualPlayer(Context context, PlayerContext playerContext) {
+    public ContextualPlayer(Context context, PlayContext<T> playerContext) {
         super(context);
 
-        this.playerContext = playerContext;
+        this.playContext = playerContext;
     }
 
-    public MediaItem getCurrent() {
+    public PlayerMedia<T> getCurrent() {
         return null;
     }
 
@@ -22,7 +24,7 @@ public class ContextualPlayer extends BasePlayer {
         return this.player.isPlaying() || this.player.isLoading();
     }
 
-    public void queue(PlayerContext playerContext) {
+    public void queue(PlayContext<T> playContext) {
 
     }
 
