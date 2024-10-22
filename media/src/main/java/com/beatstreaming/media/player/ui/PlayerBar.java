@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.view.RefreshableItem;
 import com.beatstreaming.core.view.ViewInit;
 import com.beatstreaming.media.page.PlayerPage;
@@ -17,10 +18,10 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayerBar extends FrameLayout implements ViewInit<Context>, RefreshableItem {
+public class PlayerBar<T extends ItemEntity> extends FrameLayout implements ViewInit<Context>, RefreshableItem {
     protected Context context;
 
-    @Inject Player<?> player;
+    @Inject protected Player<T> player;
 
     public PlayerBar(Context context) {
         super(context);
