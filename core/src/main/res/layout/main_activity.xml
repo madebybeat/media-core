@@ -20,8 +20,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
-                android:layout_margin="14dp"
-                app:cardCornerRadius="10dp">
+                android:layout_margin="@dimen/space_normal"
+                app:cardCornerRadius="@dimen/space_normal">
+
+                <androidx.fragment.app.FragmentContainerView
+                    android:id="@+id/footer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </androidx.cardview.widget.CardView>
         </FrameLayout>
 

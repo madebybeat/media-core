@@ -23,7 +23,7 @@ import lombok.Getter;
 public class MainActivity extends AppCompatActivity {
     public static MainActivity mainActivity;
 
-    private MainActivityBinding mainActivityBinding;
+    protected MainActivityBinding mainActivityBinding;
 
     @Inject HomePage homePage;
     @Inject Pages[] pages;

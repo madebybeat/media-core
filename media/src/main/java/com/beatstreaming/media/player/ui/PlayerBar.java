@@ -1,14 +1,17 @@
 package com.beatstreaming.media.player.ui;
 
-import android.content.Context;
 import android.content.Intent;
-import android.util.AttributeSet;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.FrameLayout;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.view.RefreshableItem;
-import com.beatstreaming.core.view.ViewInit;
+import com.beatstreaming.media.databinding.PlayerBarBinding;
 import com.beatstreaming.media.page.PlayerPage;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
@@ -18,34 +21,16 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayerBar<T extends ItemEntity> extends FrameLayout implements ViewInit<Context>, RefreshableItem {
-    protected Context context;
+public class PlayerBar<T extends ItemEntity> extends Fragment implements RefreshableItem {
+    private PlayerBarBinding playerBarBinding;
 
     @Inject protected Player<T> player;
 
-    public PlayerBar(Context context) {
-        super(context);
-
-        this.init(context);
-    }
-
-    public PlayerBar(Context context, AttributeSet attributeSet) {
-        super(context, attributeSet);
-
-        this.init(context);
-    }
-
-    public PlayerBar(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
-        super(context, attributeSet, defaultStyleAttributes);
-
-        this.init(context);
-    }
-
     @Override
-    public void init(Context context) {
-        this.context = context;
+    public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.playerBarBinding = PlayerBarBinding.inflate(this.getLayoutInflater());
 
-        refresh();
+        this.refresh();
 
         this.player.addListener(new PlayerCallback(this.player) {
             @Override
@@ -54,18 +39,20 @@ public class PlayerBar<T extends ItemEntity> extends FrameLayout implements View
             }
         });
 
-        this.setOnClickListener(new View.OnClickListener() {
+        this.playerBarBinding.playerBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                context.startActivity(new Intent(context, PlayerPage.class));
+                view.getContext().startActivity(new Intent(view.getContext(), PlayerPage.class));
             }
         });
+
+        return this.playerBarBinding.getRoot();
     }
 
     @Override
     public void refresh() {
         if (this.player.isPlaying()) {
-            this.setVisibility(View.VISIBLE);
+            this.playerBarBinding.playerBar.setVisibility(View.VISIBLE);
         }
     }
 }
