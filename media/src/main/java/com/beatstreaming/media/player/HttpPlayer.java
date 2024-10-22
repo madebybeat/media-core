@@ -8,8 +8,8 @@ import lombok.Getter;
 
 @Getter
 public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
-    public HttpPlayer(Context context, PlayContext<T> playerContext) {
-        super(context, playerContext);
+    public HttpPlayer(Context context) {
+        super(context);
     }
 
     @Override

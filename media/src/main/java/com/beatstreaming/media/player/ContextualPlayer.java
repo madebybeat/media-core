@@ -10,10 +10,8 @@ import lombok.Getter;
 public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
     protected PlayContext<T> playContext;
 
-    public ContextualPlayer(Context context, PlayContext<T> playerContext) {
+    public ContextualPlayer(Context context) {
         super(context);
-
-        this.playContext = playerContext;
     }
 
     public PlayerMedia<T> getCurrent() {
