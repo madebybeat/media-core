@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.beatstreaming.beat.components.PlayerBar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/m3_sys_dark_surface_variant"
+    android:padding="@dimen/space_small"
+    android:visibility="gone">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:baselineAligned="false">
+
+        <include
+            layout="@layout/track_image"
+            android:layout_width="50dp"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1">
+
+            <include layout="@layout/track_title" />
+            <include layout="@layout/player_track_artist_text" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <include layout="@layout/play_previous_button" />
+            <include layout="@layout/play_status" />
+            <include layout="@layout/play_next_button" />
+        </LinearLayout>
+    </LinearLayout>
+</com.beatstreaming.beat.components.PlayerBar>
