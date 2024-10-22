@@ -18,6 +18,10 @@ public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
         return null;
     }
 
+    public boolean isReady() {
+        return this.playContext != null;
+    }
+
     public boolean isPlaying() {
         return this.player.isPlaying() || this.player.isLoading();
     }
