@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 public class PlayerBar<T extends ItemEntity> extends Fragment implements ItemRefresh {
     protected PlayerBarBinding playerBarBinding;
 
-    protected final Player<T> player;
+    protected final Player<?> player;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {

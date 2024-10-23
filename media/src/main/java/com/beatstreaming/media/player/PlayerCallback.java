@@ -4,8 +4,4 @@ public class PlayerCallback extends ExoPlayerCallback {
     public PlayerCallback(BasePlayer item) {
         super(item);
     }
-
-    public void onInit() {
-
-    }
 }

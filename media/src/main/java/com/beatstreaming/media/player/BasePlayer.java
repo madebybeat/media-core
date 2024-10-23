@@ -27,12 +27,12 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
         super(BasePlayer.class, PlayerCallback.class);
 
         this.context = context;
-
-        this.addListener(new BasePlayerCallback(this));
     }
 
     public void onInit() {
         this.mediaSession = new MediaSession.Builder(this.context, this.player).setId(UUID.randomUUID().toString()).build();
+
+        this.player.addListener(new BasePlayerListener(this));
     }
 
     public void load() {

@@ -18,9 +18,9 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class TrackPlayerBar extends PlayerBar<TrackEntity> {
+public class TrackPlayerBar extends PlayerBar {
     @Inject
-    public TrackPlayerBar(Player<TrackEntity> player) {
+    public TrackPlayerBar(Player<?> player) {
         super(player);
     }
 
