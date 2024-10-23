@@ -1,6 +1,7 @@
 package com.beatstreaming.music.player.ui;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
@@ -24,8 +25,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView implements ItemRefresh {
-    private AppCompatTextView appCompatTextView;
-
     @Inject Player<TrackEntity> player;
 
     public TrackArtistList(Context context) {
@@ -34,9 +33,19 @@ public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView
         this.init(context);
     }
 
-    public void init(Context context) {
-        this.appCompatTextView = this;
+    public TrackArtistList(Context context, AttributeSet attributeSet) {
+        super(context, attributeSet);
 
+        this.init(context);
+    }
+
+    public TrackArtistList(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
+        super(context, attributeSet, defaultStyleAttributes);
+
+        this.init(context);
+    }
+
+    public void init(Context context) {
         this.refresh();
 
         this.player.addListener(new PlayerCallback(this.player) {
