@@ -44,6 +44,7 @@ dependencies {
     implementation libs.picasso
     implementation libs.hilt.android
     implementation libs.media3.common
+    implementation libs.media3.exoplayer
 
     testImplementation libs.junit
     androidTestImplementation libs.ext.junit
