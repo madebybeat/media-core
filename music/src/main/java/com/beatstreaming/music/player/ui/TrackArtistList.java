@@ -2,12 +2,12 @@ package com.beatstreaming.music.player.ui;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.MainActivity;
-import com.beatstreaming.core.ui.TextView;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.media.entity.NameItemEntity;
 import com.beatstreaming.media.player.Player;
@@ -23,7 +23,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class TrackArtistList extends TextView implements ItemRefresh {
+public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView implements ItemRefresh {
     private AppCompatTextView appCompatTextView;
 
     @Inject Player<TrackEntity> player;

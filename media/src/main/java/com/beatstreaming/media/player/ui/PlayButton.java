@@ -4,18 +4,29 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.content.ContextCompat;
 
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.R;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 
-public class PlayButton extends PlayerButton implements ItemInit<Context>, ItemRefresh {
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+public class PlayButton extends AppCompatImageButton implements ItemInit<Context>, ItemRefresh {
+    @Inject Player<?> player;
+
     private Context context;
 
     public PlayButton(Context context) {
         super(context);
+
+        this.init(context);
     }
 
     public PlayButton(Context context, AttributeSet attributeSet) {
@@ -27,10 +38,6 @@ public class PlayButton extends PlayerButton implements ItemInit<Context>, ItemR
     }
 
     public void init(Context context) {
-        super.init(context);
-
-        System.out.println(player);
-
         this.refresh();
 
         this.player.addListener(new PlayerCallback(this.player) {

@@ -4,32 +4,43 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.content.ContextCompat;
 
+import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemRefresh;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 import com.beatstreaming.media.player.RepeatMode;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlayerRepeatButton extends PlayerButton implements ItemRefresh {
+public class PlayerRepeatButton extends AppCompatImageButton implements ItemInit<Context>, ItemRefresh {
+    @Inject Player<?> player;
+
     public PlayerRepeatButton(Context context) {
         super(context);
+
+        this.init(context);
     }
 
     public PlayerRepeatButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+
+        this.init(context);
     }
 
     public PlayerRepeatButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
         super(context, attributeSet, defaultStyleAttributes);
+
+        this.init(context);
     }
 
     @Override
     public void init(Context context) {
-        super.init(context);
-
         this.refresh();
 
         this.setOnClickListener(new OnClickListener() {
@@ -49,6 +60,6 @@ public class PlayerRepeatButton extends PlayerButton implements ItemRefresh {
 
     @Override
     public void refresh() {
-        this.setImageDrawable(ContextCompat.getDrawable(this.context, RepeatMode.values()[player.getPlayer().getRepeatMode()].drawable));
+        this.setImageDrawable(ContextCompat.getDrawable(this.getContext(), RepeatMode.values()[player.getPlayer().getRepeatMode()].drawable));
     }
 }

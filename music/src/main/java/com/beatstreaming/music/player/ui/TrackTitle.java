@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.media3.common.MediaItem;
 
-import com.beatstreaming.core.ui.TextView;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
@@ -16,7 +15,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class TrackTitle extends TextView implements ItemRefresh {
+public class TrackTitle extends androidx.appcompat.widget.AppCompatTextView implements ItemRefresh {
     private AppCompatTextView appCompatTextView;
 
     @Inject Player<TrackEntity> player;
