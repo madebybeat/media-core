@@ -8,14 +8,8 @@ import android.os.Looper;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.player.Player;
 
-import javax.inject.Inject;
-
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class PlayerPage<T extends ItemEntity> extends Activity {
-    @Inject protected Player<T> player;
-
+    protected Player<T> player;
     protected Handler handler;
 
     @Override

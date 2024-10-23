@@ -4,18 +4,29 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import com.beatstreaming.media.page.PlayerPage;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.music.databinding.MusicPlayerPageBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MusicPlayerPage extends PlayerPage<TrackEntity> {
     private MusicPlayerPageBinding musicPlayerPageBinding;
 
+    @Inject Player<TrackEntity> player;
+
+    @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
         this.musicPlayerPageBinding = MusicPlayerPageBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.musicPlayerPageBinding.getRoot());
+
+        super.player = player;
 
         this.handler.post(new Runnable() {
             @Override
