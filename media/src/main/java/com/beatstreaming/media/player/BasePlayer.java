@@ -27,6 +27,8 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
         super(BasePlayer.class, PlayerCallback.class);
 
         this.context = context;
+
+        this.addListener(new BasePlayerCallback(this));
     }
 
     public void onInit() {

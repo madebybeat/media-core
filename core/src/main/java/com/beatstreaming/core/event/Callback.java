@@ -4,5 +4,5 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Callback<T> {
-    public final T item;
+    protected final T item;
 }
