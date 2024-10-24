@@ -3,6 +3,7 @@ package com.beatstreaming.music.page;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 
+import com.beatstreaming.media.databinding.PlayerPageBinding;
 import com.beatstreaming.media.page.PlayerPage;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.music.databinding.MusicPlayerPageBinding;
@@ -14,7 +15,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class MusicPlayerPage extends PlayerPage {
-    private MusicPlayerPageBinding musicPlayerPageBinding;
+    private PlayerPageBinding playerPageBinding;
 
     @Inject Player<TrackEntity> player;
 
@@ -22,8 +23,12 @@ public class MusicPlayerPage extends PlayerPage {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        this.musicPlayerPageBinding = MusicPlayerPageBinding.inflate(this.getLayoutInflater());
-        this.setContentView(this.musicPlayerPageBinding.getRoot());
+        this.playerPageBinding = PlayerPageBinding.inflate(this.getLayoutInflater());
+        this.setContentView(this.playerPageBinding.getRoot());
+
+        MusicPlayerPageBinding musicPlayerPageBinding = MusicPlayerPageBinding.inflate(this.getLayoutInflater());
+
+        this.playerPageBinding.playerBody.addView(musicPlayerPageBinding.getRoot());
 
         this.handler.post(new Runnable() {
             @Override
