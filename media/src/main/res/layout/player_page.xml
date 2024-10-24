@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingHorizontal="@dimen/space_normal">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal">
 
-    <LinearLayout
+    <com.google.android.flexbox.FlexboxLayout
         android:id="@+id/player_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:paddingVertical="@dimen/space_normal"
+        app:justifyContent="space_between"
+        app:alignItems="center">
 
         <include layout="@layout/player_close_button" />
         <LinearLayout
@@ -19,7 +20,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal" />
         <include android:id="@+id/player_menu_button" layout="@layout/player_menu_button" />
-    </LinearLayout>
+    </com.google.android.flexbox.FlexboxLayout>
 
     <LinearLayout
         android:id="@+id/player_body"

@@ -11,4 +11,6 @@
     <dimen name="image_height_big">250dp</dimen>
 
     <dimen name="image_round">10dp</dimen>
+
+    <dimen name="button_size_normal">40dp</dimen>
 </resources>

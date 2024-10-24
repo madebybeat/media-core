@@ -55,4 +55,5 @@ dependencies {
     implementation libs.httpclient
     compileOnly libs.lombok
     annotationProcessor libs.lombok
+    implementation libs.flexbox
 }

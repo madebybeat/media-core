@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -28,24 +28,28 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingVertical="@dimen/space_huge">
+            android:layout_height="@dimen/space_huge"
+            app:alignItems="center"
+            app:alignContent="center"
+            app:justifyContent="space_between">
 
             <include layout="@layout/shuffle_button" />
             <include layout="@layout/play_previous_button" />
             <include layout="@layout/play_status" />
             <include layout="@layout/play_next_button" />
             <include layout="@layout/repeat_button" />
-        </LinearLayout>
+        </com.google.android.flexbox.FlexboxLayout>
 
-        <LinearLayout
+        <com.google.android.flexbox.FlexboxLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/space_huge"
+            app:alignItems="center"
+            app:justifyContent="space_between">
 
             <include layout="@layout/quality_button" />
             <include layout="@layout/share_button" />
-        </LinearLayout>
+        </com.google.android.flexbox.FlexboxLayout>
     </LinearLayout>
 </LinearLayout>
