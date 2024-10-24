@@ -10,15 +10,14 @@ import com.beatstreaming.music.entity.TrackEntity;
 
 import javax.inject.Inject;
 
-public class MusicPlayerPage extends PlayerPage<TrackEntity> {
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+public class MusicPlayerPage extends PlayerPage {
     private MusicPlayerPageBinding musicPlayerPageBinding;
 
-    @Inject
-    public MusicPlayerPage(Player<TrackEntity> player) {
-        super(player);
-    }
+    @Inject Player<TrackEntity> player;
 
-    @SuppressLint("MissingSuperCall")
     @Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
