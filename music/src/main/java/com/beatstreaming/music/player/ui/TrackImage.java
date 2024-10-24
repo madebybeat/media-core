@@ -55,6 +55,10 @@ public class TrackImage extends androidx.appcompat.widget.AppCompatImageView imp
             return;
         }
 
+        if (this.player.getCurrent().getAlbum().getImage() == null) {
+            return;
+        }
+
         Picasso.get().load(this.player.getCurrent().getAlbum().getImage().getUrl()).into(this);
     }
 }
