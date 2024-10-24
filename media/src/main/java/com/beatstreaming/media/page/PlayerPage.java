@@ -8,9 +8,17 @@ import android.os.Looper;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.player.Player;
 
+import javax.inject.Inject;
+
 public class PlayerPage<T extends ItemEntity> extends Activity {
-    protected Player<T> player;
+    protected final Player<T> player;
+
     protected Handler handler;
+
+    @Inject
+    public PlayerPage(Player<T> player) {
+        this.player = player;
+    }
 
     @Override
     protected void onCreate(Bundle bundle) {

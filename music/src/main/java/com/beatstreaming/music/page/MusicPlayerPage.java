@@ -10,13 +10,13 @@ import com.beatstreaming.music.entity.TrackEntity;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class MusicPlayerPage extends PlayerPage<TrackEntity> {
     private MusicPlayerPageBinding musicPlayerPageBinding;
 
-    @Inject Player<TrackEntity> player;
+    @Inject
+    public MusicPlayerPage(Player<TrackEntity> player) {
+        super(player);
+    }
 
     @SuppressLint("MissingSuperCall")
     @Override
@@ -25,8 +25,6 @@ public class MusicPlayerPage extends PlayerPage<TrackEntity> {
 
         this.musicPlayerPageBinding = MusicPlayerPageBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.musicPlayerPageBinding.getRoot());
-
-        super.player = player;
 
         this.handler.post(new Runnable() {
             @Override
