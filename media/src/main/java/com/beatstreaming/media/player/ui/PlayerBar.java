@@ -24,8 +24,6 @@ public class PlayerBar<T extends ItemEntity> extends Fragment implements ItemRef
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.refresh();
-
         this.player.addListener(new PlayerCallback(this.player) {
             @Override
             public void onIsLoadingChanged(boolean status) {
