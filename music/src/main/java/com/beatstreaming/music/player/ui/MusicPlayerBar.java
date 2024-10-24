@@ -56,7 +56,5 @@ public class MusicPlayerBar extends PlayerBar<TrackEntity> {
     @Override
     public void refresh() {
         super.refresh();
-
-        this.trackItemBinding.trackTitle.setText(this.player.getCurrent().getName());
     }
 }

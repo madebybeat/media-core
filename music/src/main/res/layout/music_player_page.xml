@@ -11,7 +11,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <include android:id="@+id/media_cover_image" layout="@layout/media_cover_image" />
+        <include layout="@layout/track_image" />
     </LinearLayout>
 
     <LinearLayout
