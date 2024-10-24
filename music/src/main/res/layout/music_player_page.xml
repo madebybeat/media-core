@@ -2,8 +2,17 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <include android:id="@+id/media_cover_image" layout="@layout/media_cover_image" />
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,9 +20,8 @@
         android:orientation="vertical">
         <include layout="@layout/track_title" />
         <include layout="@layout/track_subtitle" />
+        <include android:id="@+id/player_seek_bar" layout="@layout/player_seek_bar" />
     </LinearLayout>
-
-    <include android:id="@+id/player_seek_bar" layout="@layout/player_seek_bar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +30,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_big">
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/space_huge">
 
             <include layout="@layout/shuffle_button" />
             <include layout="@layout/play_previous_button" />
@@ -33,7 +42,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/space_normal">
+            android:layout_height="wrap_content">
 
             <include layout="@layout/quality_button" />
             <include layout="@layout/share_button" />

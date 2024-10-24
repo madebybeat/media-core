@@ -3,6 +3,7 @@
     <dimen name="space_normal">15dp</dimen>
     <dimen name="space_medium">18dp</dimen>
     <dimen name="space_big">25dp</dimen>
+    <dimen name="space_huge">75dp</dimen>
 
     <dimen name="text_normal">30dp</dimen>
 
