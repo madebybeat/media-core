@@ -34,13 +34,19 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public Player<TrackEntity> provideTrackPlayer(MusicPlayer musicPlayer) {
+        return musicPlayer;
+    }
+
+    @Provides
+    @Singleton
     public Player<?> providePlayer(MusicPlayer musicPlayer) {
         return musicPlayer;
     }
 
     @Provides
     @Singleton
-    public PlayerBar<?> providePlayerBar(Player<?> player) {
-        return new MusicPlayerBar((Player<TrackEntity>) player);
+    public PlayerBar<?> providePlayerBar(MusicPlayer musicPlayer) {
+        return new MusicPlayerBar((Player<TrackEntity>) musicPlayer);
     }
 }

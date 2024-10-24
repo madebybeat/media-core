@@ -15,7 +15,7 @@ public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
     }
 
     public T getCurrent() {
-        return null;
+        return (T) this.playContext.getItemList().get(this.player.getCurrentMediaItemIndex());
     }
 
     public boolean isReady() {
