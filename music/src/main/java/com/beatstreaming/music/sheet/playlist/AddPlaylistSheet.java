@@ -7,6 +7,7 @@ import com.beatstreaming.core.component.sheet.ListSheetContext;
 import com.beatstreaming.core.component.sheet.Sheet;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.music.R;
+import com.beatstreaming.music.databinding.AddPlaylistSheetBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 
 public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistSheet, ListSheetContext<TrackEntity>> {
@@ -34,8 +35,8 @@ public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistShee
         this.setContentView(this.addPlaylistSheetBinding.getRoot());
 
         this.addPlaylistSheetBinding.sheetHeader.sheetTitle.setText(R.string.sheet_add_to_playlist_title);
-        this.addPlaylistSheetBinding.addPlaylistList.setup(this.trackItemContext).sheet(this);
-        this.addPlaylistSheetBinding.createPlaylistButton.setup(this.trackItemContext).sheet(this);
+        this.addPlaylistSheetBinding.addPlaylistList.setup(this.listSheetContext).sheet(this);
+        this.addPlaylistSheetBinding.createPlaylistButton.setup(this.listSheetContext).sheet(this);
     }
 
     @Override
