@@ -13,6 +13,7 @@ import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -51,12 +52,12 @@ public class ListSheet<T extends ListContext, V extends ItemEntity> extends Shee
         this.setContentView(this.listSheetBinding.getRoot());
 
         this.listSheetBinding.sheetHeader.sheetTitle.setText(this.listSheetContext.getTitle());
-        this.listSheetBinding.listSheetList.setAdapter(new ListRecyclerViewAdapter(this.listSheetContext, this.list, this.listSheetItemBinder));
+        this.listSheetBinding.listSheetList.setAdapter(new ListRecyclerViewAdapter<T, V>((T) this.listSheetContext, (V[]) this.list.toArray(new ListSheetItemContext[]{}), this.listSheetItemBinder));
     }
 
     @Override
     public void init(Context item) {
-
+        this.list = new ArrayList<>();
     }
 
     @Override

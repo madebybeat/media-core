@@ -25,4 +25,9 @@ public class TrackSheetList extends ListSheet<TrackSheetContext, TrackEntity> {
 
         this.init(context);
     }
+
+    @Override
+    public void init(Context context) {
+        super.init(context);
+    }
 }
