@@ -18,7 +18,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ListSheet<T extends ListContext, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, ListSheetContext<V>> {
+public class ListSheet<T extends ListContext, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, V> {
     protected ListSheetBinding listSheetBinding;
     protected ListSheetContext<V> listSheetContext;
 
@@ -52,7 +52,7 @@ public class ListSheet<T extends ListContext, V extends ItemEntity> extends Shee
         this.setContentView(this.listSheetBinding.getRoot());
 
         this.listSheetBinding.sheetHeader.sheetTitle.setText(this.listSheetContext.getTitle());
-        this.listSheetBinding.listSheetList.setAdapter(new ListRecyclerViewAdapter<T, V>((T) this.listSheetContext, (V[]) this.list.toArray(new ListSheetItemContext[]{}), this.listSheetItemBinder));
+        this.listSheetBinding.listSheetList.setAdapter(new ListRecyclerViewAdapter<T, V>((T) this.listSheetContext, (V[]) this.list.toArray(new ListSheetItemContext[]{}), new ListSheetItemBinder()));
     }
 
     @Override
@@ -61,9 +61,8 @@ public class ListSheet<T extends ListContext, V extends ItemEntity> extends Shee
     }
 
     @Override
-    public ListSheet<T, V> setup(ListSheetContext<V> listSheetContext) {
-        this.listSheetContext = listSheetContext;
-
+    public ListSheet<T, V> setup(V item) {
         return this;
     }
+
 }

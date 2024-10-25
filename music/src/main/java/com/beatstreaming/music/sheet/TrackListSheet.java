@@ -7,20 +7,20 @@ import androidx.annotation.NonNull;
 import com.beatstreaming.core.component.sheet.ListSheet;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class TrackSheetList extends ListSheet<TrackSheetContext, TrackEntity> {
-    public TrackSheetList(@NonNull Context context) {
+public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity> {
+    public TrackListSheet(@NonNull Context context) {
         super(context);
 
         this.init(context);
     }
 
-    public TrackSheetList(@NonNull Context context, int theme) {
+    public TrackListSheet(@NonNull Context context, int theme) {
         super(context, theme);
 
         this.init(context);
     }
 
-    protected TrackSheetList(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
+    protected TrackListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.init(context);
@@ -31,5 +31,14 @@ public class TrackSheetList extends ListSheet<TrackSheetContext, TrackEntity> {
         super.init(context);
 
         this.list.add(new AddToPlaylistListContext());
+    }
+
+    @Override
+    public ListSheet<TrackListSheetContext, TrackEntity> setup(TrackEntity item) {
+        super.setup(item);
+
+        this.listSheetContext = new TrackListSheetContext(item);
+
+        return this;
     }
 }

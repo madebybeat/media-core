@@ -6,9 +6,6 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class Sheet extends BottomSheetDialog {
     protected Context context;
 
