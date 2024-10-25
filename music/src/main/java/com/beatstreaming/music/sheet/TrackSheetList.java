@@ -29,5 +29,7 @@ public class TrackSheetList extends ListSheet<TrackSheetContext, TrackEntity> {
     @Override
     public void init(Context context) {
         super.init(context);
+
+        this.list.add(new AddToPlaylistListContext());
     }
 }
