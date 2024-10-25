@@ -7,7 +7,7 @@ import com.beatstreaming.music.entity.TrackEntity;
 
 public class AddToPlaylistListContext extends ListSheetItemContext<TrackEntity> {
     public AddToPlaylistListContext() {
-        super(R.string.sheet_track_add_to_playlist, R.drawable.playlist_add);
+        super(R.string.sheet_track_item_add_to_playlist, R.drawable.playlist_add);
     }
 
     @Override
