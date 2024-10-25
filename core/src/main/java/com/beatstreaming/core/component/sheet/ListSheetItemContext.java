@@ -2,12 +2,14 @@ package com.beatstreaming.core.component.sheet;
 
 import com.beatstreaming.core.entity.ItemEntity;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
+@Getter
 public class ListSheetItemContext<T extends ItemEntity> extends ItemEntity {
-    protected final int title;
-    protected final int icon;
+    private final int title;
+    private final int icon;
 
     public void onCall(ListSheetContext<T> listSheetContext) {
 

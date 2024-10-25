@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.databinding.ListSheetBinding;
 import com.beatstreaming.core.entity.ItemEntity;
-import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
@@ -18,11 +17,11 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ListSheet<T extends ListContext, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, V> {
+public class ListSheet<T extends ListSheetContext<?>, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, V> {
     protected ListSheetBinding listSheetBinding;
     protected ListSheetContext<V> listSheetContext;
 
-    @Inject ListSheetItemBinder<T, V> listSheetItemBinder;
+    @Inject ListSheetItemBinder<T, ?> listSheetItemBinder;
 
     protected List<ListSheetItemContext> list;
 

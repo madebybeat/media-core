@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="@dimen/space_big"
+    android:background="@drawable/ripple_with_border">
+
+    <ImageView
+        android:id="@+id/sheet_item_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/image_height_normal"
+        android:importantForAccessibility="no" />
+
+    <TextView
+        android:id="@+id/sheet_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" />
+</LinearLayout>
