@@ -1,10 +1,9 @@
-package com.beatstreaming.core.component;
+package com.beatstreaming.core.component.list;
 
 import android.content.Context;
 
-import androidx.recyclerview.widget.GridLayoutManager;
-
 import com.beatstreaming.core.R;
+import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;

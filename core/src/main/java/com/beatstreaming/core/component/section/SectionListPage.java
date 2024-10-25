@@ -1,4 +1,4 @@
-package com.beatstreaming.core.component;
+package com.beatstreaming.core.component.section;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

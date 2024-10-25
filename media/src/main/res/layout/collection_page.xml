@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.beatstreaming.core.component.ListNestedScrollView
+    <com.beatstreaming.core.component.list.ListNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -44,5 +44,5 @@
             <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
         </LinearLayout>
 
-    </com.beatstreaming.core.component.ListNestedScrollView>
+    </com.beatstreaming.core.component.list.ListNestedScrollView>
 </LinearLayout>

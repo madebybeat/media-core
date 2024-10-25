@@ -3,8 +3,8 @@ package com.beatstreaming.core.http;
 import android.content.Context;
 import android.view.ViewGroup;
 
-import com.beatstreaming.core.component.Section;
-import com.beatstreaming.core.component.SectionContext;
+import com.beatstreaming.core.component.section.Section;
+import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.databinding.HttpRequestStatusBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;

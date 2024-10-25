@@ -1,4 +1,4 @@
-package com.beatstreaming.core.component;
+package com.beatstreaming.core.component.list;
 
 import android.content.Context;
 import android.util.AttributeSet;

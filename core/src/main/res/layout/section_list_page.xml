@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.beatstreaming.core.component.Section
+    <com.beatstreaming.core.component.section.Section
         android:id="@+id/section_page_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

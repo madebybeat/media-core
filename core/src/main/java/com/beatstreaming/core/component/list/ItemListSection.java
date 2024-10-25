@@ -1,4 +1,4 @@
-package com.beatstreaming.core.component;
+package com.beatstreaming.core.component.list;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.R;
+import com.beatstreaming.core.component.section.Section;
+import com.beatstreaming.core.component.section.SectionListPage;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListContext;
 
