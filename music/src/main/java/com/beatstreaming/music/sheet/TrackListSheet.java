@@ -7,7 +7,11 @@ import androidx.annotation.NonNull;
 import com.beatstreaming.core.component.sheet.ListSheet;
 import com.beatstreaming.music.entity.TrackEntity;
 
+import javax.inject.Inject;
+
 public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity> {
+    @Inject AddToPlaylistListContext addToPlaylistListContext;
+
     public TrackListSheet(@NonNull Context context) {
         super(context);
 
@@ -30,7 +34,7 @@ public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity
     public void init(Context context) {
         super.init(context);
 
-        this.list.add(new AddToPlaylistListContext());
+        this.list.add(this.addToPlaylistListContext);
     }
 
     @Override
