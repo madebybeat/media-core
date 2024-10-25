@@ -1,9 +1,12 @@
-package com.beatstreaming.music.sheet;
+package com.beatstreaming.music.sheet.track;
+
+import android.content.Context;
 
 import com.beatstreaming.core.component.sheet.ListSheetContext;
 import com.beatstreaming.core.component.sheet.ListSheetItemContext;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.sheet.playlist.AddPlaylistSheet;
 
 public class AddToPlaylistListContext extends ListSheetItemContext<TrackEntity> {
     public AddToPlaylistListContext() {
@@ -11,7 +14,7 @@ public class AddToPlaylistListContext extends ListSheetItemContext<TrackEntity> 
     }
 
     @Override
-    public void onCall(ListSheetContext<TrackEntity> listSheetContext) {
-
+    public void onCall(Context context, ListSheetContext<TrackEntity> listSheetContext) {
+        new AddPlaylistSheet(context).setup(listSheetContext).show();
     }
 }
