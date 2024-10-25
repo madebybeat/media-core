@@ -8,4 +8,5 @@
     <string name="menu_library_name">Library</string>
     <string name="page_artist_section_tracks_title">Tracks</string>
     <string name="page_album_section_tracks_title">Tracks</string>
+    <string name="sheet_track_title">Track</string>
 </resources>

@@ -1,17 +1,13 @@
 package com.beatstreaming.core.component.sheet;
 
-import java.util.List;
+import com.beatstreaming.core.entity.ItemEntity;
 
-public class ListSheetContext<T> {
-    public final int title;
-    public List<T> item;
+import lombok.Builder;
+import lombok.Getter;
 
-    public ListSheetContext(int title) {
-        this.title = title;
-    }
-
-    public ListSheetContext(int title, List<T> item) {
-        this.title = title;
-        this.item = item;
-    }
+@Builder
+@Getter
+public class ListSheetContext<T extends ItemEntity> {
+    private final int title;
+    private final T item;
 }

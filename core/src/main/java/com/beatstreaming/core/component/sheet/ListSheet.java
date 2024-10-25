@@ -7,13 +7,23 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.databinding.ListSheetBinding;
+import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.core.list.ListContext;
+import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
 
-public class ListSheet<T> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T>, ListSheetContext<T>> {
-    private ListSheetBinding listSheetBinding;
+import java.util.List;
 
-    public ListSheetContext<T> listSheetContext;
+import javax.inject.Inject;
+
+public class ListSheet<T extends ListContext, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, ListSheetContext<V>> {
+    protected ListSheetBinding listSheetBinding;
+    protected ListSheetContext<V> listSheetContext;
+
+    @Inject ListSheetItemBinder<T, V> listSheetItemBinder;
+
+    protected List<ListSheetItemContext> list;
 
     public ListSheet(@NonNull Context context) {
         super(context);
@@ -40,8 +50,8 @@ public class ListSheet<T> extends Sheet implements ItemInit<Context>, ItemSetup<
         this.listSheetBinding = ListSheetBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.listSheetBinding.getRoot());
 
-        this.listSheetBinding.sheetHeader.sheetTitle.setText(this.listSheetContext.title);
-        this.listSheetBinding.listSheetList.setAdapter(null);
+        this.listSheetBinding.sheetHeader.sheetTitle.setText(this.listSheetContext.getTitle());
+        this.listSheetBinding.listSheetList.setAdapter(new ListRecyclerViewAdapter(this.listSheetContext, this.list, this.listSheetItemBinder));
     }
 
     @Override
@@ -50,7 +60,7 @@ public class ListSheet<T> extends Sheet implements ItemInit<Context>, ItemSetup<
     }
 
     @Override
-    public ListSheet<T> setup(ListSheetContext<T> listSheetContext) {
+    public ListSheet<T, V> setup(ListSheetContext<V> listSheetContext) {
         this.listSheetContext = listSheetContext;
 
         return this;
