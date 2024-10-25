@@ -3,13 +3,14 @@ package com.beatstreaming.music.sheet.playlist;
 import android.content.Context;
 import android.os.Bundle;
 
+import com.beatstreaming.core.component.sheet.ListSheetContext;
 import com.beatstreaming.core.component.sheet.Sheet;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.music.R;
-import com.beatstreaming.music.sheet.context.TrackItemContext;
+import com.beatstreaming.music.entity.TrackEntity;
 
-public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistSheet, TrackItemContext> {
-    private TrackItemContext trackItemContext;
+public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistSheet, ListSheetContext<TrackEntity>> {
+    private ListSheetContext<TrackEntity> listSheetContext;
 
     private AddPlaylistSheetBinding addPlaylistSheetBinding;
 
@@ -38,8 +39,8 @@ public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistShee
     }
 
     @Override
-    public AddPlaylistSheet setup(TrackItemContext trackItemContext) {
-        this.trackItemContext = trackItemContext;
+    public AddPlaylistSheet setup(ListSheetContext<TrackEntity> listSheetContext) {
+        this.listSheetContext = listSheetContext;
 
         return this;
     }
