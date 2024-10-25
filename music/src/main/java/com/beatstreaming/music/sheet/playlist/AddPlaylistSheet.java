@@ -35,8 +35,8 @@ public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistShee
         this.setContentView(this.addPlaylistSheetBinding.getRoot());
 
         this.addPlaylistSheetBinding.sheetHeader.sheetTitle.setText(R.string.sheet_add_to_playlist_title);
-        this.addPlaylistSheetBinding.addPlaylistList.setup(this.listSheetContext).sheet(this);
-        this.addPlaylistSheetBinding.createPlaylistButton.setup(this.listSheetContext).sheet(this);
+        this.addPlaylistSheetBinding.addPlaylistList.setup(this.listSheetContext);
+        this.addPlaylistSheetBinding.createPlaylistButton.setup(this.listSheetContext);
     }
 
     @Override

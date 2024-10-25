@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <com.beatstreaming.beat.components.sheet.playlist.add.CreatePlaylistButton
+    <com.beatstreaming.music.sheet.playlist.CreatePlaylistButton
         android:id="@+id/create_playlist_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
