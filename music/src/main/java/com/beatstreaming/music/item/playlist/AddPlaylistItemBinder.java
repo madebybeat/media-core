@@ -5,6 +5,7 @@ import android.widget.Toast;
 
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListViewHolder;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.R;
@@ -18,7 +19,7 @@ public class AddPlaylistItemBinder extends PlaylistItemBinder {
     @Inject LibraryListStorageManager libraryListStorageManager;
 
     @Override
-    public void bind(TrackListContext context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
+    public void bind(TrackListContext context, ListViewHolder<LibraryItemEntity<PlaylistEntity>> holder, LibraryItemEntity<PlaylistEntity> item) {
         super.bind(context, holder, item);
 
         LibraryListStorage libraryListStorage = libraryListStorageManager.load(holder.itemView.getContext());
