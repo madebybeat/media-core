@@ -1,8 +1,7 @@
 package com.beatstreaming.core.module;
 
-import com.beatstreaming.core.serialize.ClassNameTypeAdapter;
+import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import javax.inject.Singleton;
 
@@ -17,6 +16,6 @@ public class BindModule {
     @Provides
     @Singleton
     public Gson provideGson() {
-        return new GsonBuilder().registerTypeAdapter(Class.class, new ClassNameTypeAdapter()).create();
+        return SerializableItemEntity.GSON;
     }
 }

@@ -9,7 +9,7 @@ import lombok.SneakyThrows;
 
 @Getter
 public class SerializableItemEntity<T extends ItemEntity> {
-    private static final Gson gson = new GsonBuilder()
+    public static final Gson GSON = new GsonBuilder()
             .registerTypeAdapter(Class.class, new ClassNameTypeAdapter())
             .create();
 
@@ -18,12 +18,12 @@ public class SerializableItemEntity<T extends ItemEntity> {
 
     public SerializableItemEntity(Class<?> type, T data) {
         this.clazz = type.getName();
-        this.serialize = gson.toJson(data);
+        this.serialize = GSON.toJson(data);
     }
 
     @SneakyThrows
     public T get() {
-        return (T) gson.fromJson(this.serialize, Class.forName(this.clazz));
+        return (T) GSON.fromJson(this.serialize, Class.forName(this.clazz));
     }
 
     @SneakyThrows

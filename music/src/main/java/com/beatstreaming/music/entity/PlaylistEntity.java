@@ -13,7 +13,8 @@ public class PlaylistEntity extends ImageItemEntity {
     private final List<LibraryItemEntity<TrackEntity>> tracks;
 
     public PlaylistEntity(String name, List<LibraryItemEntity<TrackEntity>> tracks) {
-        this.name = name;
+        super(name, null);
+
         this.tracks = tracks;
     }
 
