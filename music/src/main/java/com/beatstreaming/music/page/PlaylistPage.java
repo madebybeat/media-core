@@ -33,7 +33,7 @@ public class PlaylistPage extends CollectionPage<PlaylistEntity> {
         this.collectionPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.list.add(new LibraryItemEntity<PlaylistEntity>(appSourceContext, playlistItemType, new SerializableItemEntity<>(playlistItemType.getClazz(), imageItemEntity)));
+                libraryListStorage.getList().add(new LibraryItemEntity<PlaylistEntity>(appSourceContext, playlistItemType, new SerializableItemEntity<>(playlistItemType.getClazz(), imageItemEntity)));
                 libraryListStorageManager.save(view.getContext(), libraryListStorage);
             }
         });

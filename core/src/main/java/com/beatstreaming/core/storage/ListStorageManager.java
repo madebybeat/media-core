@@ -23,8 +23,8 @@ public class ListStorageManager<T extends IdItemEntity> extends StorageManager<L
     public boolean remove(Context context, T item) {
         ListStorage<T> listStorage = this.load(context);
 
-        Optional<T> optional = listStorage.list.stream().filter(item::equals).findFirst();
-        optional.ifPresent(listStorage.list::remove);
+        Optional<T> optional = listStorage.getList().stream().filter(item::equals).findFirst();
+        optional.ifPresent(listStorage.getList()::remove);
 
         this.save(context, listStorage);
 

@@ -47,7 +47,7 @@ public class ArtistPage extends Fragment {
         this.artistPageBinding.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.list.add(new LibraryItemEntity<ArtistEntity>(appSourceContext, artistItemType, new SerializableItemEntity<>(artistItemType.getClazz(), artistEntity)));
+                libraryListStorage.getList().add(new LibraryItemEntity<ArtistEntity>(appSourceContext, artistItemType, new SerializableItemEntity<>(artistItemType.getClazz(), artistEntity)));
                 libraryListStorageManager.save(view.getContext(), libraryListStorage);
             }
         });
