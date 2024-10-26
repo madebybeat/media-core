@@ -13,7 +13,7 @@ import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.item.playlist.AddPlaylistItemBind;
+import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
 
 import javax.inject.Inject;
 
@@ -22,7 +22,8 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<TrackEntity>> {
     @Inject LibraryListStorageManager libraryListStorageManager;
-    @Inject AddPlaylistItemBind addPlaylistItemBind;
+    @Inject
+    AddPlaylistItemBinder addPlaylistItemBind;
 
     public PlaylistList(Context context) {
         super(context);
