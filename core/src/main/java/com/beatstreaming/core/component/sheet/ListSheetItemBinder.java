@@ -22,7 +22,7 @@ public class ListSheetItemBinder<T extends ListSheetContext<V>, V extends ListSh
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                item.onCall(context);
+                item.onCall(holder.itemView.getContext(), context);
             }
         });
     }

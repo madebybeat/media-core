@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -23,13 +23,13 @@ import javax.inject.Inject;
 public class ArtistPage extends Fragment {
     protected ArtistPageBinding artistPageBinding;
 
-    protected final AppSourceContext appSourceContext;
+    protected final AppSourceListContext appSourceContext;
     protected final ArtistEntity artistEntity;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject ArtistItemType artistItemType;
 
-    public ArtistPage(AppSourceContext appSourceContext, ArtistEntity artistEntity) {
+    public ArtistPage(AppSourceListContext appSourceContext, ArtistEntity artistEntity) {
         this.appSourceContext = appSourceContext;
         this.artistEntity = artistEntity;
     }

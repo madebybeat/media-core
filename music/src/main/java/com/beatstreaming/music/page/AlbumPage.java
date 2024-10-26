@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.page.CollectionPage;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
@@ -22,7 +22,7 @@ public class AlbumPage extends CollectionPage<AlbumEntity> {
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject AlbumItemType albumItemType;
 
-    public AlbumPage(AppSourceContext appSourceContext, AlbumEntity albumEntity) {
+    public AlbumPage(AppSourceListContext appSourceContext, AlbumEntity albumEntity) {
         super(appSourceContext, albumEntity);
     }
 

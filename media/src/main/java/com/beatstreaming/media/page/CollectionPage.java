@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.CollectionPageBinding;
 import com.beatstreaming.media.entity.ImageItemEntity;
 import com.squareup.picasso.Picasso;
@@ -16,10 +16,10 @@ import com.squareup.picasso.Picasso;
 public class CollectionPage<T extends ImageItemEntity> extends Fragment {
     protected CollectionPageBinding collectionPageBinding;
 
-    protected final AppSourceContext appSourceContext;
+    protected final AppSourceListContext appSourceContext;
     protected final T imageItemEntity;
 
-    public CollectionPage(AppSourceContext appSourceContext, T imageItemEntity) {
+    public CollectionPage(AppSourceListContext appSourceContext, T imageItemEntity) {
         this.appSourceContext = appSourceContext;
         this.imageItemEntity = imageItemEntity;
     }

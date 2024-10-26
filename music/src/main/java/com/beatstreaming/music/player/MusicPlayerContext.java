@@ -3,7 +3,7 @@ package com.beatstreaming.music.player;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.ItemEntity;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.player.PlayerContext;
 import com.beatstreaming.media.player.PlayerSource;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MusicPlayerContext<T extends ItemEntity> extends PlayerContext<T, TrackEntity> {
-    public MusicPlayerContext(AppSourceContext appSourceContext, PlayerSource<T> playerSource) {
+    public MusicPlayerContext(AppSourceListContext appSourceContext, PlayerSource<T> playerSource) {
         super(appSourceContext, playerSource);
     }
 
@@ -25,7 +25,7 @@ public class MusicPlayerContext<T extends ItemEntity> extends PlayerContext<T, T
                 .stream()
                 .map((TrackEntity trackEntity) -> {
                     try {
-                        return MediaItem.fromUri(new URIBuilder(this.appSourceContext.getAppSourceEntity().getUrl())
+                        return MediaItem.fromUri(new URIBuilder(this.appSourceContext.getItem().getUrl())
                                         .setPathSegments("api", "v1", "play")
                                         .addParameter("id", trackEntity.getId())
                                         .addParameter("quality", "MP3_128")

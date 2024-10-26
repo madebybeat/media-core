@@ -2,13 +2,15 @@ package com.beatstreaming.core.storage;
 
 import com.beatstreaming.core.entity.ItemEntity;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import lombok.Getter;
+
+@Getter
 public class ListStorage<T extends ItemEntity> {
-    public final List<T> list;
+    private final List<T> list;
 
     public ListStorage() {
         this.list = new ArrayList<>();

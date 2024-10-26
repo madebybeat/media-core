@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.media.AppSourceContext;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.page.CollectionPage;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
-import com.beatstreaming.music.entity.AlbumEntity;
 import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.item.PlaylistItemType;
 
@@ -23,7 +22,7 @@ public class PlaylistPage extends CollectionPage<PlaylistEntity> {
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject PlaylistItemType playlistItemType;
 
-    public PlaylistPage(AppSourceContext appSourceContext, PlaylistEntity playlistEntity) {
+    public PlaylistPage(AppSourceListContext appSourceContext, PlaylistEntity playlistEntity) {
         super(appSourceContext, playlistEntity);
     }
 

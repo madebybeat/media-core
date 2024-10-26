@@ -19,4 +19,9 @@ public class SerializableItemEntity<T extends ItemEntity> {
     public T get() {
         return (T) new Gson().fromJson(this.serialize, Class.forName(this.clazz));
     }
+
+    @SneakyThrows
+    public Class<T> getClazz() {
+        return (Class<T>) Class.forName(this.clazz);
+    }
 }
