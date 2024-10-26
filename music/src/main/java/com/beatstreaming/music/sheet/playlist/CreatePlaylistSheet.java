@@ -8,19 +8,26 @@ import android.widget.Toast;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.component.sheet.input.InputSheet;
 import com.beatstreaming.core.component.sheet.input.InputSheetContext;
+import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.entity.SerializableItemEntity;
+import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.PlaylistEntity;
+import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.PlaylistItemType;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Collections;
+
 import javax.inject.Inject;
 
-public class CreatePlaylistSheet extends InputSheet {
+public class CreatePlaylistSheet extends InputSheet implements ItemSetup<CreatePlaylistSheet, ListSheetContext<TrackEntity>> {
     @Inject LibraryListStorageManager libraryListStorageManager;
+
+    protected ListSheetContext<TrackEntity> listSheetContext;
 
     @Inject PlaylistItemType playlistItemType;
 
@@ -40,7 +47,7 @@ public class CreatePlaylistSheet extends InputSheet {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
-        this.setup(InputSheetContext.builder().title(R.string.sheet_create_playlist_title).hint(R.string.sheet_create_playlist_hint).label( R.string.sheet_create_playlist_confirm).build());
+        this.init(InputSheetContext.builder().title(R.string.sheet_create_playlist_title).hint(R.string.sheet_create_playlist_hint).label( R.string.sheet_create_playlist_confirm).build());
     }
 
     @Override
@@ -53,7 +60,14 @@ public class CreatePlaylistSheet extends InputSheet {
 
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        libraryListStorage.add(new LibraryItemEntity<PlaylistEntity>(null, this.playlistItemType, new SerializableItemEntity<>(PlaylistEntity.class, null)));
+        libraryListStorage.add(new LibraryItemEntity<PlaylistEntity>(null, this.playlistItemType, new SerializableItemEntity<>(PlaylistEntity.class, PlaylistEntity.builder().name(value).tracks(Collections.singletonList(this.listSheetContext.getItem())).build())));
         Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.toast_playlist_create, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public CreatePlaylistSheet setup(ListSheetContext<TrackEntity> listSheetContext) {
+        this.listSheetContext = listSheetContext;
+
+        return this;
     }
 }

@@ -7,10 +7,10 @@ import android.view.View;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.databinding.InputSheetBinding;
-import com.beatstreaming.core.view.ItemSetup;
+import com.beatstreaming.core.view.ItemInit;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class InputSheet extends BottomSheetDialog implements ItemSetup<InputSheet, InputSheetContext> {
+public class InputSheet extends BottomSheetDialog implements ItemInit<InputSheetContext> {
     protected InputSheetBinding inputSheetBinding;
 
     protected InputSheetContext inputSheetContext;
@@ -53,10 +53,8 @@ public class InputSheet extends BottomSheetDialog implements ItemSetup<InputShee
     }
 
     @Override
-    public InputSheet setup(InputSheetContext inputSheetContext) {
+    public void init(InputSheetContext inputSheetContext) {
         this.inputSheetContext = inputSheetContext;
-
-        return this;
     }
 
     public void onCall(String value) {
