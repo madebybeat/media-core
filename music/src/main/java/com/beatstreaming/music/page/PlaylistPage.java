@@ -18,6 +18,9 @@ import com.beatstreaming.music.item.PlaylistItemType;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class PlaylistPage extends CollectionPage<PlaylistEntity> {
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject PlaylistItemType playlistItemType;
