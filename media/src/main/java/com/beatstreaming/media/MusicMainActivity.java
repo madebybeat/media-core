@@ -12,7 +12,7 @@ import lombok.Getter;
 
 @AndroidEntryPoint
 @Getter
-public class AppMainActivity extends MainActivity {
+public class MusicMainActivity extends MainActivity {
     @Inject AppSourceService appSourceService;
 
     @Override
