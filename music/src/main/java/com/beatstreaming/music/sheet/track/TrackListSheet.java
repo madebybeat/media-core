@@ -37,7 +37,7 @@ public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity
     public ListSheet<TrackListSheetContext, TrackEntity> setup(TrackEntity item) {
         super.setup(item);
 
-        this.listSheetContext = new TrackListSheetContext(item);
+        this.listSheetContext = new TrackListSheetContext(this, item);
 
         return this;
     }

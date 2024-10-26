@@ -17,8 +17,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class CreatePlaylistButton extends SheetButton implements ItemInit<Context>, ItemSetup<CreatePlaylistButton, ListSheetContext<TrackEntity>> {
-    private AddPlaylistSheet addPlaylistSheet;
-
     private ListSheetContext<TrackEntity> listSheetContext;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
@@ -45,7 +43,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
         this.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addPlaylistSheet.dismiss();
+                listSheetContext.getSheet().dismiss();
 
                 //new CreatePlaylistSheet(view.getContext()).show();
             }
