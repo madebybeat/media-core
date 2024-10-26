@@ -20,4 +20,5 @@
     <string name="sheet_create_playlist_confirm">Create</string>
     <string name="toast_playlist_create">New playlist was created</string>
     <string name="toast_playlist_missing_name">A name is required</string>
+    <string name="toast_playlist_added_success">Added track to playlist</string>
 </resources>

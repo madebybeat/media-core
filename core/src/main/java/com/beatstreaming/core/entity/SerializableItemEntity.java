@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.SneakyThrows;
 
 @Getter
@@ -14,7 +15,9 @@ public class SerializableItemEntity<T extends ItemEntity> {
             .create();
 
     private final String clazz;
-    private final String serialize;
+
+    @Setter
+    private String serialize;
 
     public SerializableItemEntity(Class<?> type, T data) {
         this.clazz = type.getName();

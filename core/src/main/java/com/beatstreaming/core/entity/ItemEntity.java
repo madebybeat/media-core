@@ -6,5 +6,9 @@ import lombok.Getter;
 
 @Getter
 public class ItemEntity {
-    public UUID uuid;
+    private final UUID uuid;
+
+    public ItemEntity() {
+        this.uuid = UUID.randomUUID();
+    }
 }

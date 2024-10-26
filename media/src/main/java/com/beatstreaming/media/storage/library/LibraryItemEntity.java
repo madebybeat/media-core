@@ -17,4 +17,10 @@ public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
     public T getItem() {
         return SerializableItemEntity.GSON.fromJson(this.serializableItemEntity.getSerialize(), this.serializableItemEntity.getClazz());
     }
+
+    public void setItem(T newItem) {
+        String serializedItem = SerializableItemEntity.GSON.toJson(newItem);
+
+        this.serializableItemEntity.setSerialize(serializedItem);
+    }
 }

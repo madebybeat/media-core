@@ -34,13 +34,16 @@ public class AddPlaylistItemBinder extends PlaylistItemBinder {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                libraryListStorage.getByType(PlaylistEntity.class).stream().filter(item -> item.uuid.equals(item.getUuid())).findFirst().ifPresent(target -> {
-                    target.getItem().getTracks().add(context.getItem());
+                libraryListStorage.getByType(PlaylistEntity.class).stream().filter(target -> target.getItem().getUuid().equals(item.getUuid())).findFirst().ifPresent(target -> {
+                    PlaylistEntity item = target.getItem();
+
+                    item.getTracks().add(context.getItem());
+                    target.setItem(item);
                 });
 
                 libraryListStorageManager.save(view.getContext(), libraryListStorage);
 
-                Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.toast_playlist_create_success, Toast.LENGTH_SHORT).show();
+                Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.toast_playlist_added_success, Toast.LENGTH_SHORT).show();
             }
         });
     }

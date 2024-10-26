@@ -47,9 +47,7 @@ public class PlaylistList extends ListRecyclerView implements ItemInit<Context>,
     public PlaylistList setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        System.out.println(listSheetContext.getItem());
-
-        this.setAdapter(new ListRecyclerViewAdapter(new TrackListContext(listSheetContext.getItem()), libraryListStorage.<PlaylistEntity>getItemsByType(PlaylistEntity.class).toArray(new PlaylistEntity[]{}), this.addPlaylistItemBind));
+        this.setAdapter(new ListRecyclerViewAdapter(new TrackListContext(listSheetContext.getItem()), libraryListStorage.getItemsByType(PlaylistEntity.class).toArray(new PlaylistEntity[]{}), this.addPlaylistItemBind));
 
         return null;
     }

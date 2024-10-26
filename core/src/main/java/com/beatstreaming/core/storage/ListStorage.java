@@ -21,7 +21,7 @@ public class ListStorage<T extends ItemEntity> {
     }
 
     public Optional<T> get(T item) {
-        return this.list.stream().filter(current -> current.uuid.equals(item.uuid)).findFirst();
+        return this.list.stream().filter(current -> current.getUuid().equals(item.getUuid())).findFirst();
     }
 
     public void replace(T item) {
