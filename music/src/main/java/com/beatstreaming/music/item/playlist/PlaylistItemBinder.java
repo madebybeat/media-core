@@ -19,7 +19,7 @@ public class PlaylistItemBinder extends ItemListItemBinder<TrackListContext, Pla
         this.mediaSubtitle.setText(String.format(holder.itemView.getContext().getResources().getText(item.getTracks().size() == 1 ? R.string.playlist_description_singular : R.string.playlist_description_plural).toString(), item.getTracks().size()));
 
         MediaCoverImageBinding mediaCoverImageBinding = MediaCoverImageBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
-        Picasso.get().load(item.getTracks().get(0).getAlbum().getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
+        Picasso.get().load(item.getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
 
         this.mediaCover.addView(mediaCoverImageBinding.getRoot());
     }
