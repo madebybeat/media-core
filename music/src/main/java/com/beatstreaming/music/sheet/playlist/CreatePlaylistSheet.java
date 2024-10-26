@@ -12,6 +12,7 @@ import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.item.PlaylistItemType;
@@ -19,12 +20,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Collections;
 
-import javax.inject.Inject;
-
 public class CreatePlaylistSheet extends InputSheet implements ItemSetup<CreatePlaylistSheet, CreatePlaylistContext> {
-    @Inject CreatePlaylistContext createPlaylistContext;
-
-    @Inject PlaylistItemType playlistItemType;
+    protected CreatePlaylistContext createPlaylistContext;
 
     public CreatePlaylistSheet(Context context) {
         super(context);
@@ -53,9 +50,13 @@ public class CreatePlaylistSheet extends InputSheet implements ItemSetup<CreateP
             return;
         }
 
-        LibraryListStorage libraryListStorage = this.createPlaylistContext.getLibraryListStorageManager().load(this.getContext());
+        LibraryListStorageManager libraryListStorageManager = this.createPlaylistContext.getLibraryListStorageManager();
+        PlaylistItemType playlistItemType = this.createPlaylistContext.getPlaylistItemType();
+        LibraryListStorage libraryListStorage = libraryListStorageManager.load(this.context);
 
-        libraryListStorage.add(new LibraryItemEntity<PlaylistEntity>(null, this.playlistItemType, new SerializableItemEntity<>(PlaylistEntity.class, new PlaylistEntity(value, Collections.singletonList(this.createPlaylistContext.getItem())))));
+        libraryListStorage.add(new LibraryItemEntity<PlaylistEntity>(null, playlistItemType, new SerializableItemEntity<>(PlaylistEntity.class, new PlaylistEntity(value, Collections.singletonList(this.createPlaylistContext.getItem())))));
+        libraryListStorageManager.save(this.context, libraryListStorage);
+
         Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.toast_playlist_create, Toast.LENGTH_SHORT).show();
     }
 

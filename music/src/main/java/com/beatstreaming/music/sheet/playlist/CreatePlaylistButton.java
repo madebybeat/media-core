@@ -10,6 +10,7 @@ import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.music.item.PlaylistItemType;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
     private ListSheetContext<TrackEntity> listSheetContext;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
+    @Inject PlaylistItemType playlistItemType;
 
     public CreatePlaylistButton(Context context) {
         super(context);
@@ -45,7 +47,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
             public void onClick(View view) {
                 listSheetContext.getSheet().dismiss();
 
-                new CreatePlaylistSheet(view.getContext()).setup(new CreatePlaylistContext(libraryListStorageManager, listSheetContext.getSheet(), listSheetContext.getTitle(), listSheetContext.getItem())).show();
+                new CreatePlaylistSheet(view.getContext()).setup(new CreatePlaylistContext(libraryListStorageManager, playlistItemType, listSheetContext.getSheet(), listSheetContext.getTitle(), listSheetContext.getItem())).show();
             }
         });
     }
