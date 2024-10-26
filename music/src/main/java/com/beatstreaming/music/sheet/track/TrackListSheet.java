@@ -4,7 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.core.component.sheet.ListSheet;
+import com.beatstreaming.core.component.sheet.list.ListSheet;
 import com.beatstreaming.music.entity.TrackEntity;
 
 public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity> {

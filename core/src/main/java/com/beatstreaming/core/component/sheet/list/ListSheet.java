@@ -1,4 +1,4 @@
-package com.beatstreaming.core.component.sheet;
+package com.beatstreaming.core.component.sheet.list;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.core.component.sheet.Sheet;
 import com.beatstreaming.core.databinding.ListSheetBinding;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;

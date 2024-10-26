@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.beatstreaming.core.component.sheet.ListSheetContext;
+import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.ui.SheetButton;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;

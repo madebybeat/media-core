@@ -3,7 +3,7 @@ package com.beatstreaming.music.sheet.playlist;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.beatstreaming.core.component.sheet.ListSheetContext;
+import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.list.ListRecyclerView;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.view.ItemInit;
