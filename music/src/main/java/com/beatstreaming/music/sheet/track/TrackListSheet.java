@@ -5,9 +5,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.component.sheet.list.ListSheet;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity> {
+public class TrackListSheet extends ListSheet<TrackListSheetContext, LibraryItemEntity<TrackEntity>> {
     public TrackListSheet(@NonNull Context context) {
         super(context);
 
@@ -34,7 +35,7 @@ public class TrackListSheet extends ListSheet<TrackListSheetContext, TrackEntity
     }
 
     @Override
-    public ListSheet<TrackListSheetContext, TrackEntity> setup(TrackEntity item) {
+    public ListSheet<TrackListSheetContext, LibraryItemEntity<TrackEntity>> setup(LibraryItemEntity<TrackEntity> item) {
         super.setup(item);
 
         this.listSheetContext = new TrackListSheetContext(this, item);
