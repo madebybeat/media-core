@@ -5,14 +5,16 @@ import com.beatstreaming.media.entity.ImageItemEntity;
 
 import java.util.List;
 
-import lombok.Builder;
 import lombok.Getter;
 
 @Getter
-@Builder
 public class PlaylistEntity extends ImageItemEntity {
-    private String name;
-    private List<TrackEntity> tracks;
+    private final List<TrackEntity> tracks;
+
+    public PlaylistEntity(String name, List<TrackEntity> tracks) {
+        this.name = name;
+        this.tracks = tracks;
+    }
 
     @Override
     public ImageEntity getImage() {
