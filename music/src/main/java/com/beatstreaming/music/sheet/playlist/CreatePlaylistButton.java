@@ -45,7 +45,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
             public void onClick(View view) {
                 listSheetContext.getSheet().dismiss();
 
-                new CreatePlaylistSheet(view.getContext()).setup(listSheetContext).show();
+                new CreatePlaylistSheet(view.getContext()).setup(new CreatePlaylistContext(libraryListStorageManager, listSheetContext.getSheet(), listSheetContext.getTitle(), listSheetContext.getItem())).show();
             }
         });
     }

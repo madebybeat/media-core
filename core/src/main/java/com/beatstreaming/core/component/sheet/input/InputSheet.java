@@ -6,11 +6,11 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.core.component.sheet.Sheet;
 import com.beatstreaming.core.databinding.InputSheetBinding;
 import com.beatstreaming.core.view.ItemInit;
-import com.google.android.material.bottomsheet.BottomSheetDialog;
 
-public class InputSheet extends BottomSheetDialog implements ItemInit<InputSheetContext> {
+public class InputSheet extends Sheet implements ItemInit<InputSheetContext> {
     protected InputSheetBinding inputSheetBinding;
 
     protected InputSheetContext inputSheetContext;
