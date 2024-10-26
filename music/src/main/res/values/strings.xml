@@ -15,4 +15,9 @@
     <string name="playlist_description_singular">%s track</string>
     <string name="playlist_description_plural">%s tracks</string>
     <string name="toast_playlist_create_success">New playlist was created</string>
+    <string name="sheet_create_playlist_title">New playlist</string>
+    <string name="sheet_create_playlist_hint">Playlist name</string>
+    <string name="sheet_create_playlist_confirm">Create</string>
+    <string name="toast_playlist_create">New playlist was created</string>
+    <string name="toast_playlist_missing_name">A name is required</string>
 </resources>
