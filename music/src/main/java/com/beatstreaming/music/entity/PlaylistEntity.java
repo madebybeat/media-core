@@ -4,7 +4,12 @@ import com.beatstreaming.core.entity.IdItemEntity;
 
 import java.util.List;
 
+import lombok.Builder;
+import lombok.Getter;
+
+@Getter
+@Builder
 public class PlaylistEntity extends IdItemEntity {
-    public String name;
-    public List<TrackEntity> tracks;
+    private String name;
+    private List<TrackEntity> tracks;
 }
