@@ -14,6 +14,7 @@ import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.playlist.AddPlaylistItemBinder;
+import com.beatstreaming.music.list.TrackListContext;
 
 import javax.inject.Inject;
 
@@ -22,8 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<TrackEntity>> {
     @Inject LibraryListStorageManager libraryListStorageManager;
-    @Inject
-    AddPlaylistItemBinder addPlaylistItemBind;
+    @Inject AddPlaylistItemBinder addPlaylistItemBind;
 
     public PlaylistList(Context context) {
         super(context);
@@ -47,7 +47,7 @@ public class PlaylistList extends ListRecyclerView implements ItemInit<Context>,
     public PlaylistList setup(ListSheetContext<TrackEntity> listSheetContext) {
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
-        this.setAdapter(new ListRecyclerViewAdapter(null, libraryListStorage.<PlaylistEntity>getByType(PlaylistEntity.class).toArray(new LibraryItemEntity[]{}), this.addPlaylistItemBind));
+        this.setAdapter(new ListRecyclerViewAdapter(new TrackListContext(listSheetContext.getItem()), libraryListStorage.<PlaylistEntity>getByType(PlaylistEntity.class).toArray(new LibraryItemEntity[]{}), this.addPlaylistItemBind));
 
         return null;
     }
