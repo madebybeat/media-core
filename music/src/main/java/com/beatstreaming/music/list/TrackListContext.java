@@ -1,11 +1,18 @@
 package com.beatstreaming.music.list;
 
-import com.beatstreaming.core.list.ItemListContext;
-import com.beatstreaming.media.storage.library.LibraryItemEntity;
+import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class TrackListContext extends ItemListContext<LibraryItemEntity<TrackEntity>> {
-    public TrackListContext(LibraryItemEntity<TrackEntity> item) {
-        super(item);
+import lombok.Getter;
+
+@Getter
+public class TrackListContext extends AppSourceListContext {
+    protected final TrackEntity trackEntity;
+
+    public TrackListContext(AppSourceEntity appSourceEntity, TrackEntity trackEntity) {
+        super(appSourceEntity);
+
+        this.trackEntity = trackEntity;
     }
 }

@@ -8,7 +8,6 @@ import com.beatstreaming.core.list.ListRecyclerView;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
-import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.PlaylistEntity;
@@ -21,7 +20,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<LibraryItemEntity<TrackEntity>>> {
+public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<TrackEntity>> {
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject AddPlaylistItemBinder addPlaylistItemBind;
 
@@ -44,7 +43,7 @@ public class PlaylistList extends ListRecyclerView implements ItemInit<Context>,
     }
 
     @Override
-    public PlaylistList setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public PlaylistList setup(ListSheetContext<TrackEntity> listSheetContext) {
         LibraryListStorage libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
         this.setAdapter(new ListRecyclerViewAdapter(new TrackListContext(listSheetContext.getItem()), libraryListStorage.<PlaylistEntity>getItemsByType(PlaylistEntity.class).toArray(new PlaylistEntity[]{}), this.addPlaylistItemBind));

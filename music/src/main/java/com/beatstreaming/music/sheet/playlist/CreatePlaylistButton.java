@@ -8,7 +8,6 @@ import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.ui.SheetButton;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
-import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.PlaylistItemType;
@@ -18,8 +17,8 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class CreatePlaylistButton extends SheetButton implements ItemInit<Context>, ItemSetup<CreatePlaylistButton, ListSheetContext<LibraryItemEntity<TrackEntity>>> {
-    private ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext;
+public class CreatePlaylistButton extends SheetButton implements ItemInit<Context>, ItemSetup<CreatePlaylistButton, ListSheetContext<TrackEntity>> {
+    private ListSheetContext<TrackEntity> listSheetContext;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject PlaylistItemType playlistItemType;
@@ -54,7 +53,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
     }
 
     @Override
-    public CreatePlaylistButton setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public CreatePlaylistButton setup(ListSheetContext<TrackEntity> listSheetContext) {
         this.listSheetContext = listSheetContext;
 
         return this;

@@ -19,7 +19,6 @@ public class PlaylistEntity extends ImageItemEntity {
 
     @Override
     public ImageEntity getImage() {
-        System.out.println(this.tracks.get(0).getItem());
         return this.tracks.get(0).getItem().getAlbum().getImage();
     }
 }
