@@ -15,7 +15,12 @@ import com.google.android.material.snackbar.Snackbar;
 import javax.inject.Inject;
 
 public class AddPlaylistItemBinder extends PlaylistItemBinder {
-    @Inject LibraryListStorageManager libraryListStorageManager;
+    protected final LibraryListStorageManager libraryListStorageManager;
+
+    @Inject
+    public AddPlaylistItemBinder(LibraryListStorageManager libraryListStorageManager) {
+        this.libraryListStorageManager = libraryListStorageManager;
+    }
 
     @Override
     public void bind(TrackListContext context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
