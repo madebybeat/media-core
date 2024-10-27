@@ -1,6 +1,6 @@
 package com.beatstreaming.media.list;
 
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.beatstreaming.core.entity.ItemEntity;
@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class ItemListItemBinder<T extends ListContext, V extends ItemEntity> extends ListBinder<T, V> {
     protected TextView mediaTitle;
     protected TextView mediaSubtitle;
-    protected LinearLayout mediaCover;
+    protected FrameLayout mediaCover;
 
     @Override
     public void bind(T context, ListViewHolder<V> holder, V item) {
