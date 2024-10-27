@@ -17,7 +17,7 @@ public class ListSheetItemBinder<T extends ListSheetContext<V>, V extends ListSh
         TextView title = holder.itemView.findViewById(R.id.sheet_item_title);
 
         icon.setImageDrawable(ContextCompat.getDrawable(holder.itemView.getContext(), item.getIcon()));
-        title.setText(holder.itemView.getContext().getString(context.getTitle()));
+        title.setText(holder.itemView.getContext().getString(item.getTitle()));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
