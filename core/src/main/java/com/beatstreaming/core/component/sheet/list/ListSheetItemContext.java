@@ -16,4 +16,8 @@ public class ListSheetItemContext<T extends ItemEntity> extends ItemEntity {
     public void onCall(Context context, ListSheetContext<T> listSheetContext) {
 
     }
+
+    public String format(String translation, ListSheetContext<T> listSheetContext) {
+        return translation;
+    }
 }
