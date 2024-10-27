@@ -3,12 +3,12 @@ package com.beatstreaming.media.item;
 import android.view.LayoutInflater;
 
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
 import com.beatstreaming.media.entity.ImageItemEntity;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.squareup.picasso.Picasso;
 
-public class CardImageItemBinder<T extends ImageItemEntity> extends CardNameItemBinder<T> {
+public class ListImageItemBinder<T extends ImageItemEntity> extends ListNameItemBinder<T> {
     protected MediaCoverImageBinding mediaCoverImageBinding;
 
     @Override
