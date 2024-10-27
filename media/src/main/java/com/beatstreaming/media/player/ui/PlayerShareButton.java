@@ -7,7 +7,6 @@ import android.view.View;
 import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.beatstreaming.core.view.ItemInit;
-import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.library.ItemType;
