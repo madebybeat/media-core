@@ -3,19 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="@dimen/space_small">
+    android:orientation="vertical">
 
     <include android:id="@+id/header" layout="@layout/sheet_header" />
 
     <com.beatstreaming.core.component.ui.IconContentView
         android:id="@+id/app_website"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_big"
+        android:layout_height="@dimen/image_height_normal"
         android:background="@drawable/ripple_with_border">
 
         <ImageView
-            android:layout_width="@dimen/space_normal"
+            android:layout_width="@dimen/image_height_normal"
             android:layout_height="wrap_content"
             android:importantForAccessibility="no"
             android:src="@drawable/link" />
@@ -29,11 +28,11 @@
     <com.beatstreaming.core.component.ui.IconContentView
         android:id="@+id/app_author_email"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_normal"
+        android:layout_height="@dimen/image_height_normal"
         android:background="@drawable/ripple_with_border">
 
         <ImageView
-            android:layout_width="@dimen/space_normal"
+            android:layout_width="@dimen/image_height_normal"
             android:layout_height="wrap_content"
             android:importantForAccessibility="no"
             android:src="@drawable/email" />
@@ -46,10 +45,10 @@
 
     <com.beatstreaming.core.component.ui.IconContentView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/space_normal">
+        android:layout_height="@dimen/image_height_normal">
 
         <ImageView
-            android:layout_width="@dimen/space_normal"
+            android:layout_width="@dimen/image_height_normal"
             android:layout_height="wrap_content"
             android:importantForAccessibility="no"
             android:src="@drawable/info" />
