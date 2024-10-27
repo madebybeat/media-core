@@ -32,6 +32,7 @@ public class ShareListSheet extends ListSheet<TrackListSheetContext, LibraryItem
         super.init(context);
 
         this.list.add(new ShareCopyContext());
+        this.list.add(new ShareShareContext());
     }
 
     @Override

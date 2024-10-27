@@ -29,4 +29,5 @@
     <string name="sheet_share_copy">Copy text</string>
     <string name="sheet_share_message">Hey! I\'m listening %s of %s on Beat. Download it now for a premium music listening experience!</string>
     <string name="sheet_share_copy_success">Copied in the clipboard</string>
+    <string name="sheet_share_share">Share</string>
 </resources>
