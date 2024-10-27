@@ -1,4 +1,4 @@
-package com.beatstreaming.music.sheet.track;
+package com.beatstreaming.music.sheet.share;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
