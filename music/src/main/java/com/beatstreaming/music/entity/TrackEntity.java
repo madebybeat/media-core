@@ -1,6 +1,7 @@
 package com.beatstreaming.music.entity;
 
 import com.beatstreaming.media.entity.ImageEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -14,6 +15,6 @@ public class TrackEntity extends MediaEntity {
     private AlbumEntity album;
 
     public TrackEntity(String name, ImageEntity image) {
-        super(null, name, image);
+        super(name, image);
     }
 }

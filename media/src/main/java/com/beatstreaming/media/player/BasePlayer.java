@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Getter
 public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
-    public final Context context;
+    protected final Context context;
 
     protected ExoPlayer player;
     protected MediaSession mediaSession;
