@@ -15,7 +15,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class ShareCopyContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public ShareCopyContext() {
-        super(R.string.sheet_share_copy, com.beatstreaming.core.R.drawable.copy);
+        super(com.beatstreaming.media.R.string.sheet_share_copy, com.beatstreaming.core.R.drawable.copy);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class ShareCopyContext extends ListSheetItemContext<LibraryItemEntity<Tra
                         "Copied text", String.format(context.getResources().getText(R.string.sheet_share_message).toString(),
                                 listSheetContext.getItem().getItem().getName(), listSheetContext.getItem().getItem().getArtist().getName())));
 
-        Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.sheet_share_copy_success, Toast.LENGTH_SHORT).show();
+        Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.sheet_share_copy_success, Toast.LENGTH_SHORT).show();
     }
 }

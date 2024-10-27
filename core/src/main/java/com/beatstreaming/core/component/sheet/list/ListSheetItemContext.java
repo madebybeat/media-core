@@ -17,7 +17,7 @@ public class ListSheetItemContext<T extends ItemEntity> extends ItemEntity {
 
     }
 
-    public String format(String translation, ListSheetContext<T> listSheetContext) {
-        return translation;
+    public String getTitle(Context context, ListSheetContext<T> listSheetContext) {
+        return context.getString(this.title);
     }
 }
