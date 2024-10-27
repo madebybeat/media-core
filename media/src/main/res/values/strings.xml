@@ -3,4 +3,10 @@
     <string name="section_app_list_recommend_title">Recommended apps</string>
     <string name="section_app_menu_info">Open</string>
     <string name="page_search_bar_hint">Search…</string>
+    <string name="sheet_app_title">About this app</string>
+    <string name="sheet_app_disclaimer">Apps are completely developed and maintained by third-party developers and they don\'t have any relation with Beat</string>
+    <string name="sheet_track_about">About %s</string>
+    <string name="sheet_share_copy_success">Copied in the clipboard</string>
+    <string name="sheet_app_website_copy_success">Copied in the clipboard</string>
+    <string name="sheet_app_author_email_copy_success">Copied in the clipboard</string>
 </resources>

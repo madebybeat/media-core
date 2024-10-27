@@ -10,4 +10,5 @@ public class AppSourceEntity extends ItemEntity {
     private String description;
     private String name;
     private String website;
+    private AppSourceAuthorEntity author;
 }

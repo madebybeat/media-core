@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="25dp">
+
+    <include android:id="@+id/header" layout="@layout/sheet_header" />
+
+    <com.beatstreaming.beat.components.ui.IconContentView
+        android:id="@+id/app_website"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/ripple_with_border">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/link" />
+
+        <TextView
+            android:id="@+id/app_website_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.beatstreaming.beat.components.ui.IconContentView>
+
+    <com.beatstreaming.beat.components.ui.IconContentView
+        android:id="@+id/app_author_email"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/ripple_with_border">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/email" />
+
+        <TextView
+            android:id="@+id/app_author_email_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.beatstreaming.beat.components.ui.IconContentView>
+
+    <com.beatstreaming.beat.components.ui.IconContentView
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:importantForAccessibility="no"
+            android:src="@drawable/info" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/sheet_app_disclaimer" />
+    </com.beatstreaming.beat.components.ui.IconContentView>
+</LinearLayout>
