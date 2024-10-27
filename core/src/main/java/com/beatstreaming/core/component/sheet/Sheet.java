@@ -21,7 +21,7 @@ public class Sheet extends BottomSheetDialog {
         this.context = context;
     }
 
-    protected Sheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
+    public Sheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.context = context;

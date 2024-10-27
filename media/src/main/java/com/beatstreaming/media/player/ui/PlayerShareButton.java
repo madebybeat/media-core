@@ -8,14 +8,19 @@ import androidx.appcompat.widget.AppCompatImageButton;
 
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.player.Player;
+import com.beatstreaming.media.sheet.ShareListSheet;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
 
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
+import lombok.SneakyThrows;
 
 @AndroidEntryPoint
 public class PlayerShareButton extends AppCompatImageButton implements ItemInit<Context> {
     @Inject Player<?> player;
+
+    @Inject Class<? extends ShareListSheet<?>> shareListSheet;
 
     public PlayerShareButton(Context context) {
         super(context);
@@ -39,8 +44,9 @@ public class PlayerShareButton extends AppCompatImageButton implements ItemInit<
     public void init(Context context) {
         this.setOnClickListener(new OnClickListener() {
             @Override
+            @SneakyThrows
             public void onClick(View view) {
-
+                shareListSheet.getConstructor(Context.class).newInstance(view.getContext()).setup(new LibraryItemEntity(player.getPlayContext().getAppSourceContext(), player.getCurrent())).show();
             }
         });
     }

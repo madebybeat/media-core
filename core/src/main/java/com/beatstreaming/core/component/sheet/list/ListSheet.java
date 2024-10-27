@@ -38,7 +38,7 @@ public class ListSheet<T extends ListSheetContext<?>, V extends ItemEntity> exte
         this.init(context);
     }
 
-    protected ListSheet(@NonNull Context context, boolean cancelable, DialogInterface.OnCancelListener onCancelListener) {
+    public ListSheet(@NonNull Context context, boolean cancelable, DialogInterface.OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.init(context);

@@ -4,25 +4,24 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.core.component.sheet.list.ListSheet;
+import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.sheet.track.TrackListSheetContext;
 
-public class ShareListSheet extends ListSheet<TrackListSheetContext, LibraryItemEntity<TrackEntity>> {
-    public ShareListSheet(@NonNull Context context) {
+public class AppShareListSheet extends ShareListSheet<TrackEntity> {
+    public AppShareListSheet(@NonNull Context context) {
         super(context);
 
         this.init(context);
     }
 
-    public ShareListSheet(@NonNull Context context, int theme) {
+    public AppShareListSheet(@NonNull Context context, int theme) {
         super(context, theme);
 
         this.init(context);
     }
 
-    protected ShareListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
+    protected AppShareListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.init(context);
@@ -37,7 +36,7 @@ public class ShareListSheet extends ListSheet<TrackListSheetContext, LibraryItem
     }
 
     @Override
-    public ListSheet<TrackListSheetContext, LibraryItemEntity<TrackEntity>> setup(LibraryItemEntity<TrackEntity> item) {
+    public AppShareListSheet setup(LibraryItemEntity<TrackEntity> item) {
         super.setup(item);
 
         this.listSheetContext = new ShareSheetContext(this, item);
