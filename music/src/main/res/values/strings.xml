@@ -11,6 +11,11 @@
     <string name="sheet_track_title">Track</string>
     <string name="sheet_track_item_add_to_playlist">Add to playlist</string>
     <string name="sheet_add_to_playlist_title">Add to playlist</string>
+    <string name="sheet_track_view_album">View album</string>
+    <string name="sheet_track_view_artist">View artist</string>
+    <string name="sheet_track_share">Share</string>
+    <string name="sheet_track_credits">Go to credits</string>
+    <string name="sheet_track_remove_from_playlist">Remove from playlist</string>
     <string name="sheet_add_to_playlist_create">Create new playlist</string>
     <string name="playlist_description_singular">%s track</string>
     <string name="playlist_description_plural">%s tracks</string>
