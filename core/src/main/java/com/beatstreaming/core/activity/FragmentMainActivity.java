@@ -23,9 +23,14 @@ public class FragmentMainActivity extends MainActivity {
         super.onCreate(bundle);
 
         Object[] data = new Gson().fromJson(this.getIntent().getStringExtra("data"), Object[].class);
+        Object[] typed = new Object[data.length];
+
+        for (int i = 0; i < data.length; i++) {
+            typed[i] = clazz[i].cast(data[i]);
+        }
 
         this.getSupportFragmentManager().beginTransaction()
-                .replace(mainActivityBinding.fragment.getId(), this.activity.getConstructor(this.clazz).newInstance(data))
+                .replace(mainActivityBinding.fragment.getId(), this.activity.getConstructor(this.clazz).newInstance(typed))
                 .addToBackStack(null)
                 .commit();
     }
