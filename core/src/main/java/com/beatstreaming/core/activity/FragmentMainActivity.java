@@ -26,7 +26,7 @@ public class FragmentMainActivity extends MainActivity {
         Object[] typed = new Object[data.length];
 
         for (int i = 0; i < data.length; i++) {
-            typed[i] = clazz[i].cast(data[i]);
+            typed[i] = new Gson().fromJson(new Gson().toJson(data[i]), clazz[i]);
         }
 
         this.getSupportFragmentManager().beginTransaction()
