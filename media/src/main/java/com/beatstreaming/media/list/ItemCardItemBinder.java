@@ -1,6 +1,6 @@
 package com.beatstreaming.media.list;
 
-import android.widget.LinearLayout;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.beatstreaming.core.entity.ItemEntity;
@@ -10,7 +10,7 @@ import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.R;
 
 public class ItemCardItemBinder<T extends ListContext, V extends ItemEntity> extends ListBinder<T, V> {
-    protected LinearLayout mediaCover;
+    protected FrameLayout mediaCover;
     protected TextView mediaTitle;
     protected TextView mediaSubtitle;
 

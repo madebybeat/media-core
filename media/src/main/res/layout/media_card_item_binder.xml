@@ -5,11 +5,11 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/media_cover"
         android:layout_width="@dimen/image_height_big"
         android:layout_height="@dimen/image_height_big"
-        android:orientation="horizontal" />
+        android:orientation="vertical" />
 
     <LinearLayout
         android:layout_width="match_parent"
