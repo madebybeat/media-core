@@ -25,7 +25,7 @@ public class SerializableFragmentMainActivity<T> extends MainActivity {
         T data = new Gson().fromJson(this.getIntent().getStringExtra("data"), item);
 
         this.getSupportFragmentManager().beginTransaction()
-                .replace(mainActivityBinding.fragment.getId(), this.activity.getConstructor(item).newInstance(data))
+                .replace(mainActivityBinding.fragment.getId(), this.activity.getConstructor(this.item).newInstance(data))
                 .addToBackStack(null)
                 .commit();
     }
