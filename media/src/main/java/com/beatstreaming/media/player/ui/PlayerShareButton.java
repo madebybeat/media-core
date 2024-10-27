@@ -19,10 +19,10 @@ import lombok.SneakyThrows;
 
 @AndroidEntryPoint
 public class PlayerShareButton extends AppCompatImageButton implements ItemInit<Context> {
-    @Inject Player<MediaEntity> player;
+    @Inject Player<?> player;
 
-    @Inject Class<? extends ShareListSheet<MediaEntity>> shareListSheet;
-    @Inject ItemType<MediaEntity> itemType;
+    @Inject Class<? extends ShareListSheet> shareListSheet;
+    @Inject ItemType itemType;
 
     public PlayerShareButton(Context context) {
         super(context);
