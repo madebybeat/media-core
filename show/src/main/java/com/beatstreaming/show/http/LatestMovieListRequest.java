@@ -5,12 +5,14 @@ import android.content.Context;
 import com.android.volley.Request;
 import com.beatstreaming.core.http.HttpRequestBinding;
 import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.show.databinding.HomePageBinding;
 import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.entity.MediaCategory;
 import com.beatstreaming.show.entity.MediaType;
 import com.beatstreaming.show.entity.MovieEntity;
 import com.beatstreaming.show.item.MovieCardItemBinder;
+import com.beatstreaming.show.section.LatestMovieSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -36,6 +38,8 @@ public class LatestMovieListRequest extends HttpRequestBinding<MovieEntity[], Ho
 
     @Override
     public void onLoad(MovieEntity[] movieEntities) {
+        this.resultBinding.section.init(new LatestMovieSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), movieEntities, this.movieCardItemBinder));
+
         super.onLoad(movieEntities);
     }
 }

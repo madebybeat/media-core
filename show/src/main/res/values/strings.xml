@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">show</string>
     <string name="page_home_title">Welcome</string>
+    <string name="section_movie_latest_name">Latest movies</string>
 </resources>
