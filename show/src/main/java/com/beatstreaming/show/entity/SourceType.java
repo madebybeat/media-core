@@ -1,6 +1,6 @@
 package com.beatstreaming.show.entity;
 
-import com.showstreaming.show.R;
+import com.beatstreaming.show.R;
 
 public enum SourceType {
     RENT(R.string.source_type_rent_title),

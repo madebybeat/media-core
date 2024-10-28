@@ -2,4 +2,8 @@
     <string name="app_name">show</string>
     <string name="page_home_title">Welcome</string>
     <string name="section_movie_latest_name">Latest movies</string>
+    <string name="source_type_rent_title">Rent</string>
+    <string name="source_type_buy_title">Buy</string>
+    <string name="source_type_flatrate_title">Flat rate</string>
+    <string name="section_media_sources_name">Available</string>
 </resources>

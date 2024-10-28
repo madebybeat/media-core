@@ -1,9 +1,13 @@
 package com.beatstreaming.show.entity;
 
-import lombok.Data;
+import com.beatstreaming.core.entity.IdItemEntity;
 
-@Data
-public class EpisodeEntity extends IdItem {
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Getter
+public class EpisodeEntity extends IdItemEntity {
     private final String name;
     private final String overview;
     private final String date;
