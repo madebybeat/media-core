@@ -46,12 +46,14 @@ dependencies {
     androidTestImplementation libs.ext.junit
     androidTestImplementation libs.espresso.core
 
-    compileOnly libs.lombok
-    annotationProcessor libs.lombok
-    implementation libs.volley
-    implementation libs.gson
     implementation libs.hilt.android
     annotationProcessor libs.hilt.compiler
+
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+
+    implementation libs.volley
+    implementation libs.gson
     implementation libs.httpclient
     implementation libs.picasso
 }
