@@ -1,6 +1,7 @@
 package com.beatstreaming.show.module;
 
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.show.item.MovieCardItemBinder;
 import com.beatstreaming.show.server.DefaultAppServerManager;
 
 import javax.inject.Singleton;
@@ -17,5 +18,11 @@ public class BindModule {
     @Singleton
     public AppServerManager provideAppServerManager() {
         return new DefaultAppServerManager();
+    }
+
+    @Provides
+    @Singleton
+    public MovieCardItemBinder provideMovieCardItemBinder() {
+        return new MovieCardItemBinder();
     }
 }
