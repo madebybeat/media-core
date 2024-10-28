@@ -1,13 +1,13 @@
 package com.beatstreaming.music.entity;
 
 import com.beatstreaming.media.entity.ImageEntity;
-import com.beatstreaming.media.entity.MediaEntity;
+import com.beatstreaming.media.entity.MediaItemEntity;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public class TrackEntity extends MediaEntity {
+public class TrackEntity extends MediaItemEntity {
     private ArtistEntity[] artists;
     private ArtistEntity artist;
 

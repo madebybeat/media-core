@@ -10,14 +10,14 @@ import androidx.fragment.app.Fragment;
 
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.media.databinding.PlayerBarBinding;
-import com.beatstreaming.media.entity.MediaEntity;
+import com.beatstreaming.media.entity.MediaItemEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class PlayerBar<T extends MediaEntity> extends Fragment implements ItemRefresh {
+public class PlayerBar<T extends MediaItemEntity> extends Fragment implements ItemRefresh {
     protected PlayerBarBinding playerBarBinding;
 
     protected final Player<T> player;

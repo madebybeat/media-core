@@ -10,6 +10,8 @@ import androidx.annotation.NonNull;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.show.databinding.HomePageBinding;
 
+import java.util.Arrays;
+
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint

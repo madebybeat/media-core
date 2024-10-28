@@ -2,7 +2,6 @@ package com.beatstreaming.music.module;
 
 import android.content.Context;
 
-import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.music.entity.TrackEntity;
