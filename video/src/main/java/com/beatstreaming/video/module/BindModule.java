@@ -2,7 +2,7 @@ package com.beatstreaming.video.module;
 
 import android.content.Context;
 
-import com.beatstreaming.video.entity.VideoEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.ui.PlayerBar;
 import com.beatstreaming.video.player.VideoPlayer;
@@ -27,7 +27,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public Player<VideoEntity> provideTrackPlayer(VideoPlayer videoPlayer) {
+    public Player<MediaEntity> provideTrackPlayer(VideoPlayer videoPlayer) {
         return videoPlayer;
     }
 
