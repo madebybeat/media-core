@@ -6,14 +6,16 @@ import androidx.viewbinding.ViewBinding;
 
 import com.beatstreaming.core.databinding.SectionBinding;
 
-public class Section<T extends ViewBinding> {
+public class Section<T extends ViewBinding, V extends ViewBinding> {
     protected final Context context;
-    protected final T binding;
     protected final SectionBinding sectionBinding;
+    protected final T pageBinding;
+    protected final V resultBinding;
 
-    public Section(Context context, T resultBinding, SectionBinding sectionBinding) {
+    public Section(Context context, SectionBinding sectionBinding, T pageBinding, V resultBinding) {
         this.context = context;
-        this.binding = resultBinding;
         this.sectionBinding = sectionBinding;
+        this.pageBinding = pageBinding;
+        this.resultBinding = resultBinding;
     }
 }
