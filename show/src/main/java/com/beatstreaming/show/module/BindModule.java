@@ -3,6 +3,8 @@ package com.beatstreaming.show.module;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.beatstreaming.media.server.AppServerManager;
+import com.beatstreaming.media.storage.library.ItemType;
+import com.beatstreaming.show.item.MediaItemType;
 import com.beatstreaming.show.item.MovieCardItemBinder;
 import com.beatstreaming.show.page.AppHomePage;
 import com.beatstreaming.show.page.AppPages;
@@ -40,5 +42,17 @@ public class BindModule {
     @Singleton
     public Pages[] providePages() {
         return AppPages.values();
+    }
+
+    @Provides
+    @Singleton
+    public MediaItemType provideTrackItemType() {
+        return new MediaItemType();
+    }
+
+    @Provides
+    @Singleton
+    public ItemType provideItemType(MediaItemType trackItemType) {
+        return trackItemType;
     }
 }

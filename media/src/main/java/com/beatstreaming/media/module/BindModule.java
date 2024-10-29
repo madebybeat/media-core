@@ -5,6 +5,8 @@ import android.content.Context;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.service.AppSourceService;
+import com.beatstreaming.media.sheet.MediaListSheet;
+import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.google.gson.Gson;
@@ -20,6 +22,18 @@ import dagger.hilt.components.SingletonComponent;
 @Module
 @InstallIn(SingletonComponent.class)
 public class BindModule {
+    @Provides
+    @Singleton
+    public Class<? extends MediaListSheet> provideAppTrackListSheet() {
+        return MediaListSheet.class;
+    }
+
+    @Provides
+    @Singleton
+    public Class<? extends ShareListSheet> provideShareListSheet() {
+        return ShareListSheet.class;
+    }
+
     @Provides
     @Singleton
     public AppSourcePageItemBinder provideAppSourcePageItemBinder(AppSourceStorageManager appSourceStorageManager, HomePage homePage) {
