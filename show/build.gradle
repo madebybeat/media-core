@@ -58,4 +58,5 @@ dependencies {
 
     implementation libs.httpclient
     implementation libs.volley
+    implementation libs.gson
 }

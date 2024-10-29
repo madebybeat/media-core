@@ -9,6 +9,6 @@ import java.net.URISyntaxException;
 
 public class DefaultAppSourceEntity extends AppSourceEntity {
     public DefaultAppSourceEntity() throws URISyntaxException {
-        super(new URIBuilder().setScheme("https").setHost("meta.show.api.beatstreaming.com").build().toString(), "", "", "", new AppSourceAuthorEntity("", ""));
+        super(new URIBuilder().setScheme("https").setHost("server.show.api.beatstreaming.com").build().toString(), "", "", "", new AppSourceAuthorEntity("", ""));
     }
 }

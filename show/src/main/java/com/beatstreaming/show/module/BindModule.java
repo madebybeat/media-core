@@ -14,7 +14,8 @@ import com.beatstreaming.show.item.ShowCardItemBinder;
 import com.beatstreaming.show.page.AppHomePage;
 import com.beatstreaming.show.page.AppPages;
 import com.beatstreaming.show.server.DefaultAppServerManager;
-import com.beatstreaming.show.service.DefaultAppSourceService;
+import com.beatstreaming.show.app.DefaultAppSourceStorageManager;
+import com.google.gson.Gson;
 
 import javax.inject.Singleton;
 
@@ -71,7 +72,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppSourceService provideAppSourceService(@ApplicationContext Context context, AppSourceStorageManager appSourceStorageManager) {
-        return new DefaultAppSourceService(context, appSourceStorageManager);
+    public AppSourceStorageManager provideAppSourceStorageManager(Gson gson) {
+        return new DefaultAppSourceStorageManager(gson);
     }
 }
