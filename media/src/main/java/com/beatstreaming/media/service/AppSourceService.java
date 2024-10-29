@@ -9,7 +9,7 @@ import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 public class AppSourceService extends Service {
-    private final AppSourceStorageItem appSourceStorageItem;
+    protected final AppSourceStorageItem appSourceStorageItem;
 
     public AppSourceService(Context context, AppSourceStorageManager appSourceStorageManager) {
         super(context);
