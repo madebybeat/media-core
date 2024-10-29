@@ -11,7 +11,7 @@ import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
-import com.beatstreaming.show.databinding.MediaPageBinding;
+import com.beatstreaming.show.databinding.TitlePageBinding;
 import com.beatstreaming.show.entity.TitleEntity;
 import com.squareup.picasso.Picasso;
 
@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppTitlePage<T extends TitleEntity> extends HomePage {
-    private MediaPageBinding mediaPageBinding;
+    private TitlePageBinding titlePageBinding;
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
@@ -35,15 +35,15 @@ public class AppTitlePage<T extends TitleEntity> extends HomePage {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.mediaPageBinding = MediaPageBinding.inflate(this.getLayoutInflater());
+        this.titlePageBinding = TitlePageBinding.inflate(this.getLayoutInflater());
 
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
-        this.mediaPageBinding.mediaName.setText(this.item.getName());
-        this.mediaPageBinding.mediaOverview.setText(this.item.getOverview());
+        this.titlePageBinding.mediaName.setText(this.item.getName());
+        this.titlePageBinding.mediaOverview.setText(this.item.getOverview());
 
-        Picasso.get().load(this.item.getImage().getUrl()).into(this.mediaPageBinding.mediaImage);
+        Picasso.get().load(this.item.getImage().getUrl()).into(this.titlePageBinding.mediaImage);
 
-        return this.mediaPageBinding.getRoot();
+        return this.titlePageBinding.getRoot();
     }
 }

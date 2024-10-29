@@ -8,9 +8,7 @@ import lombok.Getter;
 @Getter
 public class TitleEntity extends MediaEntity {
     private MediaType type;
-
     private String overview;
-
     private MediaCoverEntity media;
 
     public TitleEntity(String name) {
