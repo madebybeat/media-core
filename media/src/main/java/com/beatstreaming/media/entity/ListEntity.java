@@ -2,8 +2,9 @@ package com.beatstreaming.media.entity;
 
 import com.beatstreaming.core.entity.ItemEntity;
 
-import java.util.List;
+import lombok.Getter;
 
+@Getter
 public class ListEntity<T extends ItemEntity> {
-    protected List<T> list;
+    protected T[] list;
 }
