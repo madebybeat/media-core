@@ -21,7 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class AppTitlePage<T extends TitleEntity> extends HomePage {
-    private TitlePageBinding titlePageBinding;
+    protected TitlePageBinding titlePageBinding;
 
     @Inject AppSourceStorageManager appSourceStorageManager;
 
@@ -35,8 +35,6 @@ public class AppTitlePage<T extends TitleEntity> extends HomePage {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.titlePageBinding = TitlePageBinding.inflate(this.getLayoutInflater());
-
         AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
 
         this.titlePageBinding.mediaName.setText(this.item.getName());
