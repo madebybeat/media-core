@@ -14,6 +14,8 @@ import com.beatstreaming.show.databinding.HomePageBinding;
 import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.http.LatestMovieListRequest;
 import com.beatstreaming.show.http.LatestShowListRequest;
+import com.beatstreaming.show.http.NowPlayingMovieListRequest;
+import com.beatstreaming.show.http.NowPlayingShowListRequest;
 import com.beatstreaming.show.item.MovieCardItemBinder;
 import com.beatstreaming.show.item.ShowCardItemBinder;
 
@@ -38,6 +40,8 @@ public class AppHomePage extends HomePage {
 
         new LatestMovieListRequest(this.getLayoutInflater().getContext(), this.homePageBinding, appSourceStorageItem.getAppSourceEntity(), HomeSectionBinding.inflate(this.getLayoutInflater()), this.movieCardItemBinder);
         new LatestShowListRequest(this.getLayoutInflater().getContext(), this.homePageBinding, appSourceStorageItem.getAppSourceEntity(), HomeSectionBinding.inflate(this.getLayoutInflater()), this.showCardItemBinder);
+        new NowPlayingMovieListRequest(this.getLayoutInflater().getContext(), this.homePageBinding, appSourceStorageItem.getAppSourceEntity(), HomeSectionBinding.inflate(this.getLayoutInflater()), this.movieCardItemBinder);
+        new NowPlayingShowListRequest(this.getLayoutInflater().getContext(), this.homePageBinding, appSourceStorageItem.getAppSourceEntity(), HomeSectionBinding.inflate(this.getLayoutInflater()), this.showCardItemBinder);
 
         return this.homePageBinding.getRoot();
     }
