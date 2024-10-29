@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.beatstreaming.beat.R;
+import com.beatstreaming.core.R;
 
 public class GridSpaceDecoration extends RecyclerView.ItemDecoration {
     private final int space;

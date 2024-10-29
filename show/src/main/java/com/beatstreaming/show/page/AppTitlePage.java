@@ -9,21 +9,19 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.list.AppSourceListContext;
-import com.beatstreaming.media.storage.app.AppSourceStorageItem;
-import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.databinding.TitlePageBinding;
 import com.beatstreaming.show.entity.TitleEntity;
+import com.beatstreaming.show.http.PlatformListRequest;
+import com.beatstreaming.show.item.PlatformListItemBinder;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class AppTitlePage<T extends TitleEntity> extends HomePage {
-    protected TitlePageBinding titlePageBinding;
+    @Inject PlatformListItemBinder platformListItemBinder;
 
-    @Inject AppSourceStorageManager appSourceStorageManager;
+    protected TitlePageBinding titlePageBinding;
 
     protected final AppSourceListContext appSourceListContext;
     protected final T item;
@@ -35,12 +33,12 @@ public class AppTitlePage<T extends TitleEntity> extends HomePage {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        AppSourceStorageItem appSourceStorageItem = this.appSourceStorageManager.load(this.getContext());
-
         this.titlePageBinding.mediaName.setText(this.item.getName());
         this.titlePageBinding.mediaOverview.setText(this.item.getOverview());
 
         Picasso.get().load(this.item.getImage().getUrl()).into(this.titlePageBinding.mediaImage);
+
+        new PlatformListRequest(this.getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.platformListItemBinder);
 
         return this.titlePageBinding.getRoot();
     }

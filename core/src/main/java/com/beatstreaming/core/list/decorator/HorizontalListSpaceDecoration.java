@@ -7,7 +7,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.beatstreaming.beat.R;
+import com.beatstreaming.core.R;
 
 public class HorizontalListSpaceDecoration extends RecyclerView.ItemDecoration {
     private final int firstItemSpace;
@@ -20,6 +20,10 @@ public class HorizontalListSpaceDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(@NonNull Rect rect, @NonNull View view, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.State state) {
+        if (recyclerView.getAdapter() == null) {
+            return;
+        }
+
         int position = recyclerView.getChildAdapterPosition(view);
         int itemCount = recyclerView.getAdapter().getItemCount();
 
