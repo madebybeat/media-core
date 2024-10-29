@@ -3,6 +3,7 @@ package com.beatstreaming.show.service;
 import android.content.Context;
 
 import com.beatstreaming.media.service.AppSourceService;
+import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.show.app.DefaultAppSourceEntity;
 
@@ -16,6 +17,6 @@ public class DefaultAppSourceService extends AppSourceService {
     @Override
     @SneakyThrows
     public void start() {
-        this.appSourceStorageItem.setAppSourceEntity(new DefaultAppSourceEntity());
+        this.appSourceStorageManager.save(context, new AppSourceStorageItem().setAppSourceEntity(new DefaultAppSourceEntity()));
     }
 }

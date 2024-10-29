@@ -9,12 +9,15 @@ import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 
 public class AppSourceService extends Service {
+    protected final AppSourceStorageManager appSourceStorageManager;
     protected final AppSourceStorageItem appSourceStorageItem;
 
     public AppSourceService(Context context, AppSourceStorageManager appSourceStorageManager) {
         super(context);
 
-        this.appSourceStorageItem = appSourceStorageManager.load(this.context);
+        this.appSourceStorageManager = appSourceStorageManager;
+
+        this.appSourceStorageItem = this.appSourceStorageManager.load(this.context);
     }
 
     @Override
