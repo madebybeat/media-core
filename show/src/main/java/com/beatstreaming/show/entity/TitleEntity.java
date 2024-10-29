@@ -1,19 +1,19 @@
 package com.beatstreaming.show.entity;
 
 import com.beatstreaming.media.entity.ImageEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 
 import lombok.Getter;
 
 @Getter
-public class MediaEntity extends com.beatstreaming.media.entity.MediaEntity {
+public class TitleEntity extends MediaEntity {
     private MediaType type;
 
-    private String name;
     private String overview;
 
     private MediaCoverEntity media;
 
-    public MediaEntity(String name) {
+    public TitleEntity(String name) {
         super(name, null);
     }
 
