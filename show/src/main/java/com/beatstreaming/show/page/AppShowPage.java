@@ -11,7 +11,7 @@ import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.databinding.TitlePageBinding;
 import com.beatstreaming.show.entity.ShowEntity;
-import com.beatstreaming.show.http.ShowSeasonListRequest;
+import com.beatstreaming.show.section.ShowSeasonListSection;
 import com.beatstreaming.show.item.ShowSeasonListItemBinder;
 
 import javax.inject.Inject;
@@ -30,7 +30,7 @@ public class AppShowPage extends AppTitlePage<ShowEntity> {
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.titlePageBinding = TitlePageBinding.inflate(this.getLayoutInflater());
 
-        new ShowSeasonListRequest(this.getLayoutInflater().getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.showCardItemBinder);
+        new ShowSeasonListSection(this.getLayoutInflater().getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.showCardItemBinder);
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }

@@ -12,7 +12,7 @@ import com.beatstreaming.show.entity.MediaCategory;
 import com.beatstreaming.show.entity.MediaType;
 import com.beatstreaming.show.entity.ShowEntityList;
 import com.beatstreaming.show.item.ShowCardItemBinder;
-import com.beatstreaming.show.section.NowPlayingShowSectionContext;
+import com.beatstreaming.show.section.context.NowPlayingShowSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 

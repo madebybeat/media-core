@@ -1,4 +1,4 @@
-package com.beatstreaming.show.section;
+package com.beatstreaming.show.section.context;
 
 import android.content.Context;
 
@@ -12,9 +12,9 @@ import com.beatstreaming.show.R;
 import com.beatstreaming.show.entity.MovieEntity;
 import com.beatstreaming.show.item.MovieCardItemBinder;
 
-public class LatestMovieSectionContext extends ListSectionContext<AppSourceListContext, MovieEntity> {
-    public LatestMovieSectionContext(Context context, AppSourceListContext appSourceContext, MovieEntity[] entities, MovieCardItemBinder binder) {
-        super(context, R.string.section_movie_latest_name, new ListRecyclerViewAdapter<AppSourceListContext, MovieEntity>(appSourceContext, entities, binder));
+public class NowPlayingMovieSectionContext extends ListSectionContext<AppSourceListContext, MovieEntity> {
+    public NowPlayingMovieSectionContext(Context context, AppSourceListContext appSourceContext, MovieEntity[] entities, MovieCardItemBinder binder) {
+        super(context, R.string.section_show_now_playing_name, new ListRecyclerViewAdapter<AppSourceListContext, MovieEntity>(appSourceContext, entities, binder));
     }
 
     @Override

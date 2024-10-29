@@ -12,8 +12,8 @@ import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.databinding.TitlePageBinding;
 import com.beatstreaming.show.entity.TitleEntity;
-import com.beatstreaming.show.http.PlatformListRequest;
 import com.beatstreaming.show.item.PlatformListItemBinder;
+import com.beatstreaming.show.section.ShowSeasonListSection;
 import com.squareup.picasso.Picasso;
 
 import javax.inject.Inject;
@@ -38,7 +38,7 @@ public class AppTitlePage<T extends TitleEntity> extends HomePage {
 
         Picasso.get().load(this.item.getImage().getUrl()).into(this.titlePageBinding.mediaImage);
 
-        new PlatformListRequest(this.getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.platformListItemBinder);
+        new ShowSeasonListSection(this.getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.platformListItemBinder);
 
         return this.titlePageBinding.getRoot();
     }

@@ -11,7 +11,7 @@ import com.beatstreaming.show.databinding.TitlePageBinding;
 import com.beatstreaming.show.entity.PlatformEntityList;
 import com.beatstreaming.show.entity.TitleEntity;
 import com.beatstreaming.show.item.PlatformListItemBinder;
-import com.beatstreaming.show.section.PlatformSectionContext;
+import com.beatstreaming.show.section.context.PlatformSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -30,6 +30,7 @@ public class PlatformListRequest extends HttpRequestBinding<PlatformEntityList, 
 
         this.load(new URIBuilder(this.appSourceEntity.getUrl())
                 .setPathSegments("api", "v1", "source", titleEntity.getId())
+                .addParameter("type", titleEntity.getType().name())
                 .build());
     }
 
