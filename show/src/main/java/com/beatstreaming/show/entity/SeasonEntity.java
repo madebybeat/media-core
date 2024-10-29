@@ -1,8 +1,11 @@
 package com.beatstreaming.show.entity;
 
-import lombok.RequiredArgsConstructor;
+import com.beatstreaming.media.entity.NameItemEntity;
 
-@RequiredArgsConstructor
-public class SeasonEntity extends SeasonBaseEntity {
+public class SeasonEntity extends NameItemEntity {
     private final int episodes;
+
+    public SeasonEntity(String name) {
+        super(name);
+    }
 }
