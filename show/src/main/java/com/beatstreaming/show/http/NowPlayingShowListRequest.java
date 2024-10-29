@@ -12,7 +12,7 @@ import com.beatstreaming.show.entity.MediaCategory;
 import com.beatstreaming.show.entity.MediaType;
 import com.beatstreaming.show.entity.ShowEntityList;
 import com.beatstreaming.show.item.ShowCardItemBinder;
-import com.beatstreaming.show.section.LatestShowSectionContext;
+import com.beatstreaming.show.section.NowPlayingShowSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -38,7 +38,7 @@ public class NowPlayingShowListRequest extends HttpRequestBinding<ShowEntityList
 
     @Override
     public void onLoad(ShowEntityList titleEntityList) {
-        this.resultBinding.section.init(new LatestShowSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), titleEntityList.getList(), this.showCardItemBinder));
+        this.resultBinding.section.init(new NowPlayingShowSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), titleEntityList.getList(), this.showCardItemBinder));
 
         super.onLoad(titleEntityList);
     }

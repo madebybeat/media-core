@@ -10,6 +10,7 @@ import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 import com.beatstreaming.show.item.MediaItemType;
 import com.beatstreaming.show.item.MovieCardItemBinder;
+import com.beatstreaming.show.item.ShowCardItemBinder;
 import com.beatstreaming.show.page.AppHomePage;
 import com.beatstreaming.show.page.AppPages;
 import com.beatstreaming.show.server.DefaultAppServerManager;
@@ -36,6 +37,12 @@ public class BindModule {
     @Singleton
     public MovieCardItemBinder provideMovieCardItemBinder() {
         return new MovieCardItemBinder();
+    }
+
+    @Provides
+    @Singleton
+    public ShowCardItemBinder provideShowCardItemBinder() {
+        return new ShowCardItemBinder();
     }
 
     @Provides

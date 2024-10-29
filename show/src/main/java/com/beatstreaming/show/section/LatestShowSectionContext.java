@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.beatstreaming.core.component.list.ListSectionContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
+import com.beatstreaming.core.list.decorator.HorizontalListSpaceDecoration;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.show.R;
 import com.beatstreaming.show.entity.ShowEntity;
@@ -19,5 +20,6 @@ public class LatestShowSectionContext extends ListSectionContext<AppSourceListCo
     @Override
     public void onBind() {
         this.listSectionBinding.sectionList.setLayoutManager(new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false));
+        this.listSectionBinding.sectionList.addItemDecoration(new HorizontalListSpaceDecoration(this.context));
     }
 }

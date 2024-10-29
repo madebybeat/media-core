@@ -12,7 +12,7 @@ import com.beatstreaming.show.entity.MediaCategory;
 import com.beatstreaming.show.entity.MediaType;
 import com.beatstreaming.show.entity.MovieEntityList;
 import com.beatstreaming.show.item.MovieCardItemBinder;
-import com.beatstreaming.show.section.LatestMovieSectionContext;
+import com.beatstreaming.show.section.NowPlayingMovieSectionContext;
 
 import org.apache.http.client.utils.URIBuilder;
 
@@ -38,7 +38,7 @@ public class NowPlayingMovieListRequest extends HttpRequestBinding<MovieEntityLi
 
     @Override
     public void onLoad(MovieEntityList titleEntityList) {
-        this.resultBinding.section.init(new LatestMovieSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), titleEntityList.getList(), this.movieCardItemBinder));
+        this.resultBinding.section.init(new NowPlayingMovieSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), titleEntityList.getList(), this.movieCardItemBinder));
 
         super.onLoad(titleEntityList);
     }
