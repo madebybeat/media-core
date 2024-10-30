@@ -17,5 +17,7 @@ public class Section<T extends ViewBinding, V extends ViewBinding> {
         this.sectionBinding = sectionBinding;
         this.pageBinding = pageBinding;
         this.resultBinding = resultBinding;
+
+        this.sectionBinding.view.addView(this.resultBinding.getRoot());
     }
 }

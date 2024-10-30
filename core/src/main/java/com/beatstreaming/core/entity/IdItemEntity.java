@@ -4,5 +4,5 @@ import lombok.Getter;
 
 @Getter
 public class IdItemEntity extends ItemEntity {
-    public String id;
+    protected String id;
 }

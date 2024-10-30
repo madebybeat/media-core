@@ -9,5 +9,7 @@ public class PlatformListItemBinder extends ListImageItemBinder<PlatformEntity> 
     @Override
     public void bind(AppSourceListContext context, ListViewHolder<PlatformEntity> holder, PlatformEntity item) {
         super.bind(context, holder, item);
+
+        this.mediaTitle.setText(item.getName());
     }
 }
