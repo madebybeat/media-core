@@ -58,7 +58,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <include android:id="@+id/platform_section" layout="@layout/section" />
+            <include android:id="@+id/platform_section" layout="@layout/http_request_status" />
+            <include android:id="@+id/season_section" layout="@layout/section" />
         </LinearLayout>
     </com.beatstreaming.core.component.list.ListNestedScrollView>
 </LinearLayout>

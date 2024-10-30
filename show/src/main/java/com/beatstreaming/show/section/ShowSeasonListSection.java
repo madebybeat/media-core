@@ -19,7 +19,7 @@ public class ShowSeasonListSection extends Section<TitlePageBinding, HomeSection
 
     @SneakyThrows
     public ShowSeasonListSection(Context context, TitlePageBinding titlePageBinding, AppSourceEntity appSourceEntity, ShowEntity showEntity, HomeSectionBinding homeSectionBinding, ShowSeasonListItemBinder seasonListItemBinder) {
-        super(context, titlePageBinding.platformSection, titlePageBinding, homeSectionBinding);
+        super(context, titlePageBinding.seasonSection, titlePageBinding, homeSectionBinding);
 
         this.appSourceEntity = appSourceEntity;
         this.showSeasonListItemBinder = seasonListItemBinder;

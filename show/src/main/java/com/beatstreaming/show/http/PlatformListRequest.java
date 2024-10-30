@@ -30,7 +30,7 @@ public class PlatformListRequest extends HttpRequestBinding<PlatformEntityList, 
 
         this.load(new URIBuilder(this.appSourceEntity.getUrl())
                 .setPathSegments("api", "v1", "source", titleEntity.getId())
-                .addParameter("type", titleEntity.getType().name())
+                .addParameter("id", titleEntity.getType().name())
                 .build());
     }
 
