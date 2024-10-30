@@ -8,7 +8,7 @@ import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.show.databinding.HomeSectionBinding;
 import com.beatstreaming.show.databinding.TitlePageBinding;
-import com.beatstreaming.show.entity.SeasonEntityList;
+import com.beatstreaming.show.entity.SeasonEntity;
 import com.beatstreaming.show.entity.TitleEntity;
 import com.beatstreaming.show.item.ShowSeasonListItemBinder;
 import com.beatstreaming.show.section.context.ShowSeasonSectionContext;
@@ -17,13 +17,13 @@ import org.apache.http.client.utils.URIBuilder;
 
 import lombok.SneakyThrows;
 
-public class ShowSeasonListRequest extends HttpRequestBinding<SeasonEntityList, TitlePageBinding, HomeSectionBinding> {
+public class ShowSeasonListRequest extends HttpRequestBinding<SeasonEntity[], TitlePageBinding, HomeSectionBinding> {
     private final AppSourceEntity appSourceEntity;
     private final ShowSeasonListItemBinder showSeasonListItemBinder;
 
     @SneakyThrows
     public ShowSeasonListRequest(Context context, TitlePageBinding titlePageBinding, AppSourceEntity appSourceEntity, TitleEntity titleEntity, HomeSectionBinding homeSectionBinding, ShowSeasonListItemBinder showSeasonListItemBinder) {
-        super(context, titlePageBinding.platformSection, titlePageBinding, homeSectionBinding, SeasonEntityList.class, Request.Method.GET);
+        super(context, titlePageBinding.platformSection, titlePageBinding, homeSectionBinding, SeasonEntity[].class, Request.Method.GET);
 
         this.appSourceEntity = appSourceEntity;
         this.showSeasonListItemBinder = showSeasonListItemBinder;
@@ -35,8 +35,8 @@ public class ShowSeasonListRequest extends HttpRequestBinding<SeasonEntityList, 
     }
 
     @Override
-    public void onLoad(SeasonEntityList seasonEntityList) {
-        this.resultBinding.section.init(new ShowSeasonSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), seasonEntityList.getList(), this.showSeasonListItemBinder));
+    public void onLoad(SeasonEntity[] seasonEntityList) {
+        this.resultBinding.section.init(new ShowSeasonSectionContext(this.context, new AppSourceListContext(this.appSourceEntity), seasonEntityList, this.showSeasonListItemBinder));
 
         super.onLoad(seasonEntityList);
     }

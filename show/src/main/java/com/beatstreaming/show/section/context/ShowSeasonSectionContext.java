@@ -11,6 +11,6 @@ import com.beatstreaming.show.item.ShowSeasonListItemBinder;
 
 public class ShowSeasonSectionContext extends ListSectionContext<AppSourceListContext, SeasonEntity> {
     public ShowSeasonSectionContext(Context context, AppSourceListContext appSourceContext, SeasonEntity[] entities, ShowSeasonListItemBinder binder) {
-        super(context, R.string.section_media_sources_name, new ListRecyclerViewAdapter<AppSourceListContext, SeasonEntity>(appSourceContext, entities, binder));
+        super(context, R.string.section_media_show_season_name, new ListRecyclerViewAdapter<AppSourceListContext, SeasonEntity>(appSourceContext, entities, binder));
     }
 }
