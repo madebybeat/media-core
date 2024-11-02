@@ -1,6 +1,8 @@
 package com.beatstreaming.core.module;
 
+import com.beatstreaming.core.bind.BindMap;
 import com.beatstreaming.core.entity.SerializableItemEntity;
+import com.beatstreaming.core.list.SectionListBinder;
 import com.google.gson.Gson;
 
 import javax.inject.Singleton;
@@ -17,5 +19,11 @@ public class BindModule {
     @Singleton
     public Gson provideGson() {
         return SerializableItemEntity.GSON;
+    }
+
+    @Provides
+    @Singleton
+    public SectionListBinder provideSectionListBinder(BindMap bindMap) {
+        return new SectionListBinder(bindMap);
     }
 }
