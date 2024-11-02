@@ -5,9 +5,6 @@
       <SelectionState runConfigName="beat">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="video">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="show">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
