@@ -15,7 +15,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class MediaListItemBinder<C extends ListContext, T extends MediaEntity, V extends ItemEntity> extends ItemListItemBinder<C, T> implements ItemSetup<MediaListItemBinder<C, T, V>, PlayerContext<V, T>> {
     protected final Player<T> player;
-
     protected PlayerContext<V, T> playContext;
 
     @Override

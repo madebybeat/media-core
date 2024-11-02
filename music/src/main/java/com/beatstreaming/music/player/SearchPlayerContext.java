@@ -5,6 +5,7 @@ import com.beatstreaming.media.player.PlayerSource;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.request.SearchResultEntity;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class SearchPlayerContext extends MusicPlayerContext<SearchResultEntity> {
@@ -14,6 +15,6 @@ public class SearchPlayerContext extends MusicPlayerContext<SearchResultEntity> 
 
     @Override
     public List<TrackEntity> getItemList() {
-        return null;
+        return Arrays.asList(this.playerSource.getItem().getTracks());
     }
 }
