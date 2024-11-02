@@ -8,9 +8,9 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class BindListItem {
+public class BindListItem<T extends ListBinder<?, ?>> {
     private final String id;
     private final BindType type;
     private final Class<? extends ItemEntity[]> clazz;
-    private final ListBinder binder;
+    private final T binder;
 }
