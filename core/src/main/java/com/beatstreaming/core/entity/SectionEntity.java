@@ -5,7 +5,7 @@ import com.beatstreaming.core.bind.BindType;
 import lombok.Getter;
 
 @Getter
-public class SectionEntity<T extends SectionItemEntity> extends NameItemEntity {
+public class SectionEntity<T extends ItemEntity> extends NameItemEntity {
     protected BindType type;
     protected T[] list;
 

@@ -23,7 +23,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public SectionListBinder provideSectionListBinder(BindList bindMap) {
-        return new SectionListBinder(bindMap);
+    public SectionListBinder provideSectionListBinder(BindList bindList) {
+        return new SectionListBinder(bindList);
     }
 }
