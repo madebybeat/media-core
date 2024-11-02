@@ -14,7 +14,10 @@ public class BindList {
         this.list = new ArrayList<>();
     }
 
-    public Optional<BindListItem> getBinder(BindListItem bindListItem) {
-        return this.list.stream().filter((BindListItem item) -> item.equals(bindListItem)).findAny();
+    public Optional<BindListItem> getBinder(String name, BindType type) {
+        return this.list.stream()
+                .filter((BindListItem item) -> item.getName().equals(name))
+                .filter((BindListItem item) -> item.getType().equals(type))
+                .findAny();
     }
 }

@@ -2,6 +2,7 @@ package com.beatstreaming.core.list;
 
 import com.beatstreaming.core.R;
 import com.beatstreaming.core.bind.BindList;
+import com.beatstreaming.core.bind.BindListItem;
 import com.beatstreaming.core.entity.SectionEntity;
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -20,7 +21,10 @@ public class SectionListBinder extends ListBinder<ListContext, SectionEntity> {
         ListRecyclerView list = holder.itemView.findViewById(R.id.section_list);
 
         toolbar.setTitle(item.getName());
-        list.setAdapter(new ListRecyclerViewAdapter(context, item.getList(), this.bindMap.getBinder(item)));
+
+        this.bindMap.getBinder(item.getName(), item.getType()).ifPresent((BindListItem binder) -> {
+            list.setAdapter(new ListRecyclerViewAdapter(context, item.getList(), binder.getBinder()));
+        });
     }
 
     public int getItemLayout() {
