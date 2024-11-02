@@ -1,7 +1,7 @@
 package com.beatstreaming.media.item;
 
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.media.entity.NameItemEntity;
+import com.beatstreaming.core.entity.NameItemEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.list.MediaCardItemBinder;
 

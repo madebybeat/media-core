@@ -3,14 +3,12 @@ package com.beatstreaming.music.player.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
-import androidx.appcompat.widget.AppCompatTextView;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.view.ItemRefresh;
-import com.beatstreaming.media.entity.NameItemEntity;
+import com.beatstreaming.core.entity.NameItemEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 import com.beatstreaming.music.entity.TrackEntity;

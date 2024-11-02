@@ -1,5 +1,7 @@
 package com.beatstreaming.media.entity;
 
+import com.beatstreaming.core.entity.NameItemEntity;
+
 import lombok.Getter;
 
 @Getter
