@@ -10,9 +10,11 @@ import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
-public class SectionListBinder<T extends ListBinder<?, ?>> extends ListBinder<ListContext, SectionEntity<? extends ItemEntity>> {
+public class SectionListBinder<T extends ListBinder<? extends ListContext, ? extends ItemEntity>> extends ListBinder<ListContext, SectionEntity<? extends ItemEntity>> {
     private final Gson gson;
     private final BindList bindList;
+
+    protected BindListItem<T> bindListItem;
 
     @Inject
     public SectionListBinder(Gson gson, BindList bindList) {
@@ -27,9 +29,9 @@ public class SectionListBinder<T extends ListBinder<?, ?>> extends ListBinder<Li
 
         toolbar.setTitle(item.getName());
 
-        this.bindList.getBinder(item.getId(), item.getType()).ifPresent((BindListItem binder) -> {
-            list.setAdapter(new ListRecyclerViewAdapter(context, this.gson.fromJson(this.gson.toJson(item.getList()), ((BindListItem<T>) binder).getClazz()), ((BindListItem<T>) binder).getBinder()));
-        });
+        this.bindListItem = this.bindList.getBinder(item.getId(), item.getType());
+
+        list.setAdapter(new ListRecyclerViewAdapter(context, this.gson.fromJson(this.gson.toJson(item.getList()), this.bindListItem.getClazz()), this.bindListItem.getBinder()));
     }
 
     @Override
