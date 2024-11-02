@@ -47,7 +47,7 @@ public class PlayerMenuButton extends AppCompatImageButton implements ItemInit<C
             @Override
             @SneakyThrows
             public void onClick(View view) {
-                mediaListSheet.getConstructor(Context.class).newInstance(view.getContext()).setup(player.getCurrent().getLibraryItem(player.getPlayContext().getAppSourceContext(), itemType)).show();
+                mediaListSheet.getConstructor(Context.class).newInstance(view.getContext()).setup(player.getCurrent().getLibraryItem(player.getPlayContext(), itemType)).show();
             }
         });
     }

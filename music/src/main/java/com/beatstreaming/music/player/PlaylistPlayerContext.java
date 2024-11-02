@@ -1,6 +1,6 @@
 package com.beatstreaming.music.player;
 
-import com.beatstreaming.media.list.AppSourceListContext;
+import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.player.PlayerSource;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.PlaylistEntity;
@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlaylistPlayerContext extends MusicPlayerContext<PlaylistEntity> {
-    public PlaylistPlayerContext(AppSourceListContext appSourceContext, PlayerSource<PlaylistEntity> playerSource) {
-        super(appSourceContext, playerSource);
+    public PlaylistPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<PlaylistEntity> playerSource) {
+        super(appSourceEntity, playerSource);
     }
 
     @Override

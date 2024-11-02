@@ -1,6 +1,6 @@
 package com.beatstreaming.music.player;
 
-import com.beatstreaming.media.list.AppSourceListContext;
+import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.player.PlayerSource;
 import com.beatstreaming.music.entity.AlbumEntity;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class AlbumPlayerContext extends MusicPlayerContext<AlbumEntity> {
-    public AlbumPlayerContext(AppSourceListContext appSourceContext, PlayerSource<AlbumEntity> playerSource) {
-        super(appSourceContext, playerSource);
+    public AlbumPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<AlbumEntity> playerSource) {
+        super(appSourceEntity, playerSource);
     }
 
     @Override

@@ -68,7 +68,7 @@ public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getPlayContext().getAppSourceContext(), player.getCurrent().getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getPlayContext(), player.getCurrent().getArtist()))
                         .addToBackStack(null)
                         .commit();
             }
