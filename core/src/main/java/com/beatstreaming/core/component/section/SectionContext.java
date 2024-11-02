@@ -16,12 +16,16 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
     protected final Context context;
-    protected final int title;
+    protected final String title;
     protected int menu;
     protected ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
     protected ListSectionBinding listSectionBinding;
 
     public SectionContext(Context context, int title, int menu, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
+        this(context, context.getString(title), menu, listRecyclerViewAdapter);
+    }
+
+    public SectionContext(Context context, String title, int menu, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
         this.context = context;
         this.title = title;
         this.menu = menu;

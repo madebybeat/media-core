@@ -1,9 +1,9 @@
 package com.beatstreaming.core.list;
 
-import com.beatstreaming.core.entity.SectionEntity;
+import com.beatstreaming.core.entity.TypedItemEntity;
 
-public class SectionListBinder extends ListBinder<ListContext, SectionEntity> {
-    public void bind(ListContext context, ListViewHolder<SectionEntity> holder, SectionEntity item) {
+public class SectionListBinder extends ListBinder<ListContext, TypedItemEntity> {
+    public void bind(ListContext context, ListViewHolder<TypedItemEntity> holder, TypedItemEntity item) {
 
     }
 
