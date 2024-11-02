@@ -2,9 +2,7 @@ package com.beatstreaming.media.module;
 
 import android.content.Context;
 
-import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.pages.HomePage;
-import com.beatstreaming.media.bind.MediaBindMap;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.list.MediaCardItemBinder;
 import com.beatstreaming.media.list.MediaListItemBinder;
@@ -48,12 +46,6 @@ public class BindModule {
     @Singleton
     public LibraryListStorageManager provideLibraryListStorageManager(Gson gson) {
         return new LibraryListStorageManager(gson);
-    }
-
-    @Provides
-    @Singleton
-    public BindList provideBindMap(MediaListItemBinder mediaListItemBinder, MediaCardItemBinder mediaCardItemBinder) {
-        return new MediaBindMap(mediaListItemBinder, mediaCardItemBinder);
     }
 
     @Provides

@@ -20,7 +20,7 @@ public class SectionListBinder extends ListBinder<ListContext, SectionEntity> {
         ListRecyclerView list = holder.itemView.findViewById(R.id.section_list);
 
         toolbar.setTitle(item.getName());
-        list.setAdapter(new ListRecyclerViewAdapter(context, item.getList(), this.bindMap.getList().get(item.getType())));
+        list.setAdapter(new ListRecyclerViewAdapter(context, item.getList(), this.bindMap.getBinder(item)));
     }
 
     public int getItemLayout() {
