@@ -4,7 +4,6 @@ import lombok.Getter;
 
 @Getter
 public class SectionEntity extends NameItemEntity {
-    protected String id;
     protected String type;
     protected SectionItemEntity[] list;
 

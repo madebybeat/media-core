@@ -2,7 +2,7 @@ package com.beatstreaming.media.module;
 
 import android.content.Context;
 
-import com.beatstreaming.core.bind.BindMap;
+import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.media.bind.MediaBindMap;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
@@ -52,7 +52,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public BindMap provideBindMap(MediaListItemBinder mediaListItemBinder, MediaCardItemBinder mediaCardItemBinder) {
+    public BindList provideBindMap(MediaListItemBinder mediaListItemBinder, MediaCardItemBinder mediaCardItemBinder) {
         return new MediaBindMap(mediaListItemBinder, mediaCardItemBinder);
     }
 

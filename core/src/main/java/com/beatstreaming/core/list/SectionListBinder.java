@@ -1,17 +1,17 @@
 package com.beatstreaming.core.list;
 
 import com.beatstreaming.core.R;
-import com.beatstreaming.core.bind.BindMap;
+import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.entity.SectionEntity;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import javax.inject.Inject;
 
 public class SectionListBinder extends ListBinder<ListContext, SectionEntity> {
-    private final BindMap bindMap;
+    private final BindList bindMap;
 
     @Inject
-    public SectionListBinder(BindMap bindMap) {
+    public SectionListBinder(BindList bindMap) {
         this.bindMap = bindMap;
     }
 
