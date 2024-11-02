@@ -3,6 +3,7 @@ package com.beatstreaming.media.player;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.media.list.AppSourceListContext;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class PlayerContext<T extends ItemEntity, V extends ItemEntity> {
+public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends ListContext {
     protected final AppSourceListContext appSourceContext;
     protected final PlayerSource<T> playerSource;
 
