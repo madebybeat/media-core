@@ -9,10 +9,6 @@ import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 
 public class ListSectionContext<T extends ListContext, V extends ItemEntity> extends SectionContext<T, V> {
-    public ListSectionContext(Context context, String title, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
-        super(context, title, R.menu.list_section_menu, listRecyclerViewAdapter);
-    }
-
     public ListSectionContext(Context context, int title, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
         super(context, title, R.menu.list_section_menu, listRecyclerViewAdapter);
     }
