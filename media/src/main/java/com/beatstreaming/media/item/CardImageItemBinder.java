@@ -3,13 +3,18 @@ package com.beatstreaming.media.item;
 import android.view.LayoutInflater;
 
 import com.beatstreaming.core.list.ListViewHolder;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
-import com.beatstreaming.media.entity.ImageItemEntity;
+import com.beatstreaming.media.player.Player;
 import com.squareup.picasso.Picasso;
 
-public class CardImageItemBinder<T extends ImageItemEntity> extends CardNameItemBinder<T> {
+public class CardImageItemBinder<T extends MediaEntity> extends CardNameItemBinder<T> {
     protected MediaCoverImageBinding mediaCoverImageBinding;
+
+    public CardImageItemBinder(Player<T> player) {
+        super(player);
+    }
 
     @Override
     public void bind(AppSourceListContext context, ListViewHolder<T> holder, T item) {

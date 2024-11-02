@@ -8,8 +8,8 @@ import com.beatstreaming.media.bind.MediaBindMap;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.list.MediaCardItemBinder;
 import com.beatstreaming.media.list.MediaListItemBinder;
+import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.service.AppSourceService;
-import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.sheet.ShareListSheet;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -34,12 +34,6 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public Class<? extends MediaListSheet> provideAppTrackListSheet() {
-        return MediaListSheet.class;
-    }
-
-    @Provides
-    @Singleton
     public Class<? extends ShareListSheet> provideShareListSheet() {
         return ShareListSheet.class;
     }
@@ -60,5 +54,17 @@ public class BindModule {
     @Singleton
     public BindMap provideBindMap(MediaListItemBinder mediaListItemBinder, MediaCardItemBinder mediaCardItemBinder) {
         return new MediaBindMap(mediaListItemBinder, mediaCardItemBinder);
+    }
+
+    @Provides
+    @Singleton
+    public MediaListItemBinder provideMediaListItemBinder(Player player) {
+        return new MediaListItemBinder(player);
+    }
+
+    @Provides
+    @Singleton
+    public MediaCardItemBinder provideMediaCardItemBinder(Player player) {
+        return new MediaCardItemBinder(player);
     }
 }

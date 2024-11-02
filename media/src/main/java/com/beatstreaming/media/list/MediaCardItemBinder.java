@@ -1,6 +1,11 @@
 package com.beatstreaming.media.list;
 
-import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.media.entity.MediaEntity;
+import com.beatstreaming.media.player.Player;
 
-public class MediaCardItemBinder<T extends ItemEntity> extends ItemCardItemBinder<AppSourceListContext, T> {
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+public class MediaCardItemBinder<T extends MediaEntity> extends ItemCardItemBinder<AppSourceListContext, T> {
+    protected final Player<T> player;
 }

@@ -1,11 +1,16 @@
 package com.beatstreaming.media.item;
 
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.core.entity.NameItemEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.list.MediaCardItemBinder;
+import com.beatstreaming.media.player.Player;
 
-public class ListNameItemBinder<T extends NameItemEntity> extends MediaCardItemBinder<T> {
+public class ListNameItemBinder<T extends MediaEntity> extends MediaCardItemBinder<T> {
+    public ListNameItemBinder(Player<T> player) {
+        super(player);
+    }
+
     @Override
     public void bind(AppSourceListContext context, ListViewHolder<T> holder, T item) {
         super.bind(context, holder, item);
