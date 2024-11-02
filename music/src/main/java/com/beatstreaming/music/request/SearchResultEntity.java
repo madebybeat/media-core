@@ -7,5 +7,5 @@ import lombok.Getter;
 
 @Getter
 public class SearchResultEntity extends ItemEntity {
-    private SectionEntity<? extends ItemEntity>[] sections;
+    private SectionEntity<?>[] sections;
 }
