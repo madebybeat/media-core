@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class BindListItem {
-    private final String name;
+    private final String id;
     private final BindType type;
     private final ListBinder binder;
 }

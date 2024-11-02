@@ -4,6 +4,7 @@ import com.beatstreaming.core.R;
 import com.beatstreaming.core.bind.BindList;
 import com.beatstreaming.core.bind.BindListItem;
 import com.beatstreaming.core.entity.SectionEntity;
+import com.beatstreaming.core.entity.SectionItemEntity;
 import com.google.android.material.appbar.MaterialToolbar;
 
 import javax.inject.Inject;
@@ -16,13 +17,13 @@ public class SectionListBinder extends ListBinder<ListContext, SectionEntity> {
         this.bindMap = bindMap;
     }
 
-    public void bind(ListContext context, ListViewHolder<SectionEntity> holder, SectionEntity item) {
+    public void bind(ListContext context, ListViewHolder<SectionEntity> holder, SectionEntity<? extends SectionItemEntity> item) {
         MaterialToolbar toolbar = holder.itemView.findViewById(R.id.toolbar);
         ListRecyclerView list = holder.itemView.findViewById(R.id.section_list);
 
         toolbar.setTitle(item.getName());
 
-        this.bindMap.getBinder(item.getName(), item.getType()).ifPresent((BindListItem binder) -> {
+        this.bindMap.getBinder(item.getId(), item.getType()).ifPresent((BindListItem binder) -> {
             list.setAdapter(new ListRecyclerViewAdapter(context, item.getList(), binder.getBinder()));
         });
     }
