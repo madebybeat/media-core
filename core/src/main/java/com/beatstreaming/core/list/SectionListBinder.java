@@ -31,10 +31,6 @@ public class SectionListBinder<C extends ListContext, T extends ListBinder<? ext
 
         this.bindListItem = this.bindList.getBinder(item.getId(), item.getType());
 
-        if (this.bindListItem == null) {
-            return;
-        }
-
         list.setAdapter(new ListRecyclerViewAdapter(context, this.gson.fromJson(this.gson.toJson(item.getList()), this.bindListItem.getClazz()), this.bindListItem.getBinder()));
     }
 
