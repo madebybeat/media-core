@@ -1,19 +1,11 @@
 package com.beatstreaming.music.player;
 
+import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.player.PlayerSource;
-import com.beatstreaming.music.entity.AlbumEntity;
-import com.beatstreaming.music.entity.TrackEntity;
 
-import java.util.List;
-
-public class AlbumPlayerContext extends MusicPlayerContext<AlbumEntity> {
-    public AlbumPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<AlbumEntity> playerSource) {
+public class AlbumPlayerContext extends MusicPlayerContext<SectionEntity> {
+    public AlbumPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<SectionEntity> playerSource) {
         super(appSourceEntity, playerSource);
-    }
-
-    @Override
-    public List<TrackEntity> getItemList() {
-        return null;
     }
 }
