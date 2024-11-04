@@ -31,7 +31,8 @@ public class SectionListBinder<C extends ListContext, T extends ListBinder<? ext
 
         this.bindListItem = this.list.getBinder(item.getId(), item.getType());
 
-        list.setAdapter(new ListRecyclerViewAdapter(context, this.gson.fromJson(this.gson.toJson(item.getList()), this.bindListItem.getClazz()), this.bindListItem.getContext().get));
+        list.setAdapter(new ListRecyclerViewAdapter(context, this.gson.fromJson(this.gson.toJson(item.getList()), this.bindListItem.getClazz()), this.bindListItem.getContext().getBinder()));
+        list.setLayoutManager(this.bindListItem.getContext().getLayoutManager());
     }
 
     @Override

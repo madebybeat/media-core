@@ -18,6 +18,7 @@ import lombok.Getter;
 @Getter
 public class Section<T extends ListContext, V extends ItemEntity, C extends SectionContext<T, V>> extends LinearLayout implements ItemInit<C> {
     protected ListSectionBinding listSectionBinding;
+
     protected C sectionContext;
 
     @Inject Gson gson;
@@ -49,7 +50,6 @@ public class Section<T extends ListContext, V extends ItemEntity, C extends Sect
 
         this.listSectionBinding = ListSectionBinding.inflate(LayoutInflater.from(this.getContext()), this, true);
 
-        this.sectionContext.setListSectionBinding(this.listSectionBinding);
         this.sectionContext.onBind();
 
         this.listSectionBinding.toolbar.setTitle(this.sectionContext.getTitle());
