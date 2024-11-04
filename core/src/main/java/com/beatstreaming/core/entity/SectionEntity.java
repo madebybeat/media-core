@@ -1,12 +1,12 @@
 package com.beatstreaming.core.entity;
 
-import com.beatstreaming.core.bind.BindType;
+import com.beatstreaming.core.bind.SectionContextType;
 
 import lombok.Getter;
 
 @Getter
 public class SectionEntity<T> extends NameItemEntity {
-    protected BindType type;
+    protected SectionContextType type;
     protected T[] list;
 
     public SectionEntity(String name) {

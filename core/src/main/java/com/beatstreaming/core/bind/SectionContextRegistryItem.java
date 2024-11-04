@@ -1,5 +1,6 @@
 package com.beatstreaming.core.bind;
 
+import com.beatstreaming.core.component.section.SectionContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListBinder;
 
@@ -8,9 +9,9 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class BindListItem<T extends ListBinder<?, ?>> {
+public class SectionContextRegistryItem<T extends ListBinder<?, ?>> {
     private final String id;
-    private final BindType type;
+    private final SectionContextType type;
     private final Class<? extends ItemEntity[]> clazz;
-    private final T binder;
+    private final SectionContext context;
 }

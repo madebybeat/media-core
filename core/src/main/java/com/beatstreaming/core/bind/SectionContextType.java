@@ -1,6 +1,6 @@
 package com.beatstreaming.core.bind;
 
-public enum BindType {
+public enum SectionContextType {
     LIST,
     CAROUSEL;
 }

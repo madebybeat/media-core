@@ -1,6 +1,6 @@
 package com.beatstreaming.core.module;
 
-import com.beatstreaming.core.bind.BindList;
+import com.beatstreaming.core.bind.SectionContextRegistry;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.list.SectionListBinder;
 import com.google.gson.Gson;
@@ -23,7 +23,7 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public SectionListBinder provideSectionListBinder(Gson gson, BindList bindList) {
-        return new SectionListBinder(gson, bindList);
+    public SectionListBinder provideSectionListBinder(Gson gson, SectionContextRegistry sectionContextRegistry) {
+        return new SectionListBinder(gson, sectionContextRegistry);
     }
 }
