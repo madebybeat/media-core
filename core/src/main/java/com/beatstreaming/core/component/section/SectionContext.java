@@ -2,10 +2,11 @@ package com.beatstreaming.core.component.section;
 
 import android.content.Context;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListBinder;
 import com.beatstreaming.core.list.ListContext;
-import com.beatstreaming.core.list.ListRecyclerViewAdapter;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -16,18 +17,15 @@ import lombok.experimental.SuperBuilder;
 @Setter
 public class SectionContext<T extends ListContext, V extends ItemEntity> {
     protected final Context context;
-    protected final Class<V> clazz;
-    protected final int title;
-    protected int menu;
-    protected ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter;
-    protected ListBinder binder;
+    protected final int menu;
+    protected final RecyclerView.LayoutManager layoutManager;
+    protected final ListBinder binder;
 
-    public SectionContext(Context context, Class<V> clazz, int title, int menu, ListRecyclerViewAdapter<T, V> listRecyclerViewAdapter) {
+    public SectionContext(Context context, int menu, RecyclerView.LayoutManager layoutManager, ListBinder binder) {
         this.context = context;
-        this.clazz = clazz;
-        this.title = title;
         this.menu = menu;
-        this.listRecyclerViewAdapter = listRecyclerViewAdapter;
+        this.layoutManager = layoutManager;
+        this.binder = binder;
     }
 
     public void onBind() {
