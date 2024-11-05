@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class SectionContextRegistryItem<T extends ListBinder<?, ?>> {
+public class SectionContextRegistryItem<T extends ListBinder> {
     private final String id;
     private final SectionContextType type;
     private final Class<? extends ItemEntity[]> clazz;
