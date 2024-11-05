@@ -6,6 +6,6 @@ import com.beatstreaming.core.entity.SectionEntity;
 import lombok.Getter;
 
 @Getter
-public class SearchResultEntity extends ItemEntity {
-    private SectionEntity<?>[] sections;
+public class SearchResultEntity<T> extends ItemEntity {
+    private SectionEntity<T>[] sections;
 }

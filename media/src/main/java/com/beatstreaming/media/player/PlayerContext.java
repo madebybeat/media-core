@@ -14,10 +14,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PlayerContext<T extends ItemEntity, V> extends AppSourceListContext {
-    protected final PlayerSource<T, ?> playerSource;
+public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends AppSourceListContext {
+    protected final PlayerSource<T, V> playerSource;
 
-    public PlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T, ?> playerSource) {
+    public PlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T, V> playerSource) {
         super(appSourceEntity);
 
         this.playerSource = playerSource;
@@ -28,6 +28,6 @@ public class PlayerContext<T extends ItemEntity, V> extends AppSourceListContext
     }
 
     public List<V> getItemList() {
-        return (List<V>) Arrays.asList(this.playerSource.getList());
+        return Arrays.asList(this.playerSource.getList());
     }
 }

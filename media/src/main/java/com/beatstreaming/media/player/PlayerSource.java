@@ -8,15 +8,15 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class PlayerSource<T extends ItemEntity, V extends ItemEntity> implements ItemInit<Object[]> {
+public class PlayerSource<T extends ItemEntity, V extends ItemEntity> implements ItemInit<V[]> {
     private final int title;
     private final Class<T> clazz;
     private final T item;
 
-    private Object[] list;
+    private V[] list;
 
     @Override
-    public void init(Object[] list) {
+    public void init(V[] list) {
         this.list = list;
     }
 }
