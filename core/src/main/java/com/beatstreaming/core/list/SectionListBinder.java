@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 
 import javax.inject.Inject;
 
-public class SectionListBinder<C extends ListContext, T extends ListBinder> extends ListBinder<C, SectionEntity<ItemEntity>> {
+public class SectionListBinder<C extends ListContext, T extends ListBinder, V extends ItemEntity> extends ListBinder<C, SectionEntity<V>> {
     private final Gson gson;
     protected final SectionContextRegistry list;
 
@@ -23,7 +23,7 @@ public class SectionListBinder<C extends ListContext, T extends ListBinder> exte
     }
 
     @Override
-    public void bind(C context, ListViewHolder<SectionEntity<ItemEntity>> holder, SectionEntity<ItemEntity> item) {
+    public void bind(C context, ListViewHolder<SectionEntity<V>> holder, SectionEntity<V> item) {
         MaterialToolbar toolbar = holder.itemView.findViewById(R.id.toolbar);
         ListRecyclerView list = holder.itemView.findViewById(R.id.section_list);
 
