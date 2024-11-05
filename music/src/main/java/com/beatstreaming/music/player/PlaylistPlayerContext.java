@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class PlaylistPlayerContext extends MusicPlayerContext<PlaylistEntity> {
-    public PlaylistPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<PlaylistEntity> playerSource) {
+    public PlaylistPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<PlaylistEntity, TrackEntity> playerSource) {
         super(appSourceEntity, playerSource);
     }
 

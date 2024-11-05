@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MusicPlayerContext<T extends ItemEntity> extends PlayerContext<T, TrackEntity> {
-    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T> playerSource) {
+    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T, TrackEntity> playerSource) {
         super(appSourceEntity, playerSource);
     }
 
