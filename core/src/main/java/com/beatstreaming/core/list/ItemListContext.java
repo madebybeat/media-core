@@ -7,6 +7,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class ItemListContext<T extends ItemEntity> extends ListContext {
+public class ItemListContext<T extends ItemEntity> extends AppSourceListContext {
     protected final T item;
 }
