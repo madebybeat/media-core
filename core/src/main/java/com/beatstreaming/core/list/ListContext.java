@@ -5,6 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ListContext {
+public class ListContext<T> {
+    private T[] list;
     private int index;
 }

@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 public class CollectionPage<T extends ImageItemEntity> extends Fragment {
     protected CollectionPageBinding collectionPageBinding;
 
-    protected final AppSourceListContext appSourceContext;
+    protected final AppSourceListContext<?> appSourceContext;
     protected final T imageItemEntity;
 
     public CollectionPage(AppSourceListContext appSourceContext, T imageItemEntity) {

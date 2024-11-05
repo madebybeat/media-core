@@ -23,7 +23,7 @@ import javax.inject.Inject;
 public class ArtistPage extends Fragment {
     protected ArtistPageBinding artistPageBinding;
 
-    protected final AppSourceListContext appSourceContext;
+    protected final AppSourceListContext<?> appSourceContext;
     protected final ArtistEntity artistEntity;
 
     @Inject LibraryListStorageManager libraryListStorageManager;

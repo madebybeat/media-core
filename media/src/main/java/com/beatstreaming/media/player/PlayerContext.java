@@ -14,7 +14,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends AppSourceListContext {
+public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends AppSourceListContext<V> {
     protected final PlayerSource<T, V> playerSource;
 
     public PlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T, V> playerSource) {
@@ -28,6 +28,6 @@ public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends A
     }
 
     public List<V> getItemList() {
-        return Arrays.asList(this.playerSource.getList());
+        return Arrays.asList(this.getList());
     }
 }

@@ -32,6 +32,7 @@ public class ListRecyclerViewAdapter<T extends ListContext, V extends ItemEntity
     public void onBindViewHolder(@NonNull ListViewHolder<V> holder, int position) {
         if (this.context != null) {
             this.context.setIndex(position);
+            this.context.setList(this.list);
         }
 
         this.itemBinder.bind(this.context, holder, this.list[position]);

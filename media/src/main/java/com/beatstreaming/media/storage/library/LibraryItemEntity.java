@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
-    private final AppSourceListContext appSourceContext;
+    private final AppSourceListContext<?> appSourceContext;
     private final ItemType<T> itemType;
     private final SerializableItemEntity<T> serializableItemEntity;
 
