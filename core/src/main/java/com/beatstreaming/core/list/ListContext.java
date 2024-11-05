@@ -22,4 +22,11 @@ public class ListContext<T> implements Cloneable {
     public ListContext<T> clone() {
         return (ListContext<T>) super.clone();
     }
+
+    public ListContext<T> init(T[] list, int index) {
+        this.list = list;
+        this.index = index;
+
+        return this;
+    }
 }
