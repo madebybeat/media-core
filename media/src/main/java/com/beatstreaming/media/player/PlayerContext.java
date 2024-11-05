@@ -6,11 +6,14 @@ import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 
+import java.util.Arrays;
 import java.util.List;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends AppSourceListContext {
     protected final PlayerSource<T> playerSource;
 
@@ -25,6 +28,6 @@ public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends A
     }
 
     public List<V> getItemList() {
-        return null;
+        return Arrays.asList(this.playerSource.getList());
     }
 }

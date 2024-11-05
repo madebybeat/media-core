@@ -1,10 +1,10 @@
 package com.beatstreaming.music.player;
 
-import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.player.PlayerSource;
+import com.beatstreaming.music.entity.ArtistEntity;
 
-public class ArtistPlayerSource extends PlayerSource<ItemEntity> {
-    public ArtistPlayerSource(ItemEntity item) {
-        super(0, item);
+public class ArtistPlayerSource extends PlayerSource<ArtistEntity> {
+    public ArtistPlayerSource(ArtistEntity item) {
+        super(0, ArtistEntity.class, item);
     }
 }
