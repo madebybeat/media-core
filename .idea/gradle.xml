@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/music" />
             <option value="$PROJECT_DIR$/show" />
             <option value="$PROJECT_DIR$/video" />
+            <option value="$PROJECT_DIR$/youtube" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
