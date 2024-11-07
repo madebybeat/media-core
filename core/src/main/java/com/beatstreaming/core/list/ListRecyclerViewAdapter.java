@@ -30,7 +30,7 @@ public class ListRecyclerViewAdapter<T extends ListContext, V extends ItemEntity
 
     @Override
     public void onBindViewHolder(@NonNull ListViewHolder<V> holder, int position) {
-        this.itemBinder.bind((T) this.context.clone().init(this.list, position), holder, this.list[position]);
+        this.itemBinder.bind(this.context != null ? (T) this.context.clone().init(this.list, position) : null, holder, this.list[position]);
     }
 
     @Override
