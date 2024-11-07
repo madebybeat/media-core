@@ -13,7 +13,7 @@ import lombok.SneakyThrows;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ListContext<T> implements Cloneable {
-    private T[] list;
+    protected T[] list;
     private int index;
 
     @NonNull

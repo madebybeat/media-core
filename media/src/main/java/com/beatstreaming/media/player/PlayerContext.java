@@ -28,6 +28,6 @@ public class PlayerContext<T extends ItemEntity, V extends ItemEntity> extends A
     }
 
     public List<V> getItemList() {
-        return Arrays.asList(this.getList());
+        return Arrays.asList(this.list);
     }
 }
