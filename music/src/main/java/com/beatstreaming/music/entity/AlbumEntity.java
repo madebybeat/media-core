@@ -9,7 +9,7 @@ import lombok.Getter;
 
 @Getter
 public class AlbumEntity extends ImageItemEntity {
-    private final SectionEntity<ItemEntity>[] sections;
+    private final SectionEntity<?>[] sections;
 
     public AlbumEntity(String name, ImageEntity image, SectionEntity<ItemEntity>[] sections) {
         super(name, image);
