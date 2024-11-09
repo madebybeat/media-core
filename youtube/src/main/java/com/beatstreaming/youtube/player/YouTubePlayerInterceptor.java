@@ -6,9 +6,9 @@ import com.beatstreaming.youtube.http.YouTubePlayerRequest;
 import com.beatstreaming.youtube.http.YouTubePlayerResponse;
 import com.google.gson.Gson;
 
-import java.io.IOException;
+import org.apache.http.client.utils.URIBuilder;
 
-import okhttp3.HttpUrl;
+import lombok.SneakyThrows;
 import okhttp3.Interceptor;
 import okhttp3.MediaType;
 import okhttp3.Request;
@@ -19,14 +19,15 @@ import okhttp3.ResponseBody;
 public class YouTubePlayerInterceptor implements Interceptor {
     @NonNull
     @Override
-    public Response intercept(@NonNull Chain chain) throws IOException {
+    @SneakyThrows
+    public Response intercept(@NonNull Chain chain) {
         Response response = chain.proceed(new Request.Builder()
-                .url(new HttpUrl.Builder()
-                        .scheme("https")
-                        .host("www.youtube.com")
-                        .addPathSegment("youtubei/v1/player")
-                        .build())
-                .addHeader("User-Agent", "")
+                .url(new URIBuilder()
+                        .setScheme("https")
+                        .setHost("www.youtube.com")
+                        .setPathSegments("youtubei", "v1", "player")
+                        .build().toURL())
+                .addHeader("User-Agent", "com.google.android.youtube/19.35.36(Linux; U; Android 13; en_US; SM-S908E Build/TP1A.220624.014) gzip")
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().url().queryParameter("id")))))
                 .build());
 
