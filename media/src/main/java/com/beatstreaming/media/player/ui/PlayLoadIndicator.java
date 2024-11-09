@@ -12,8 +12,17 @@ import com.beatstreaming.media.player.PlayerCallback;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class PlayLoadIndicator extends LoadIndicator implements ItemInit<Context>, ItemRefresh {
     @Inject Player<?> player;
+
+    public PlayLoadIndicator(Context context) {
+        super(context);
+
+        this.init(context);
+    }
 
     public PlayLoadIndicator(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -33,12 +42,11 @@ public class PlayLoadIndicator extends LoadIndicator implements ItemInit<Context
         this.init(context);
     }
 
+    @Override
     public void init(Context context) {
-        this.refresh();
-
         this.player.addListener(new PlayerCallback(this.player) {
             @Override
-            public void onIsPlayingChanged(boolean status) {
+            public void onPlaybackStateChanged(int playbackState) {
                 refresh();
             }
         });
@@ -46,6 +54,6 @@ public class PlayLoadIndicator extends LoadIndicator implements ItemInit<Context
 
     @Override
     public void refresh() {
-        this.setVisibility(this.player.isLoading() ? View.VISIBLE : View.GONE);
+        this.setVisibility(this.player.getPlayer().getPlaybackState() == androidx.media3.common.Player.STATE_BUFFERING ? View.VISIBLE : View.GONE);
     }
 }

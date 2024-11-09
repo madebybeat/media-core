@@ -21,8 +21,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class PlayButton extends AppCompatImageButton implements ItemInit<Context>, ItemRefresh {
     @Inject Player<?> player;
 
-    private Context context;
-
     public PlayButton(Context context) {
         super(context);
 
@@ -39,6 +37,13 @@ public class PlayButton extends AppCompatImageButton implements ItemInit<Context
 
     public void init(Context context) {
         this.refresh();
+
+        this.player.addListener(new PlayerCallback(this.player) {
+            @Override
+            public void onPlaybackStateChanged(int playbackState) {
+                refresh();
+            }
+        });
 
         this.player.addListener(new PlayerCallback(this.player) {
             @Override
@@ -62,8 +67,8 @@ public class PlayButton extends AppCompatImageButton implements ItemInit<Context
 
     @Override
     public void refresh() {
-        this.setVisibility(this.player.isLoading() ? View.GONE : View.VISIBLE);
+        this.setVisibility(this.player.getPlayer().getPlaybackState() == androidx.media3.common.Player.STATE_READY ? View.GONE : View.VISIBLE);
 
-        this.setImageDrawable(ContextCompat.getDrawable(this.context, this.player.isPlaying() ? R.drawable.pause : R.drawable.play));
+        this.setImageDrawable(ContextCompat.getDrawable(this.getContext(), this.player.isPlaying() ? R.drawable.pause : R.drawable.play));
     }
 }

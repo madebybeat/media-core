@@ -11,7 +11,6 @@ import java.net.URI;
 import java.util.UUID;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
@@ -20,8 +19,9 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
     protected ExoPlayer player;
     protected MediaSession mediaSession;
 
-    @Setter
-    private boolean isLoading;
+    public boolean isLoading() {
+        return this.player.isLoading();
+    }
 
     public BasePlayer(Context context) {
         super(BasePlayer.class, PlayerCallback.class);
