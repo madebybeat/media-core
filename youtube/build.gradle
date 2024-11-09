@@ -57,4 +57,6 @@ dependencies {
     annotationProcessor libs.lombok
 
     implementation libs.httpclient
+    implementation libs.okhttp
+    implementation libs.gson
 }
