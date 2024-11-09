@@ -17,6 +17,8 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class YouTubePlayerInterceptor implements Interceptor {
+    protected YouTubePlayerResponse youTubePlayerResponse;
+
     @NonNull
     @Override
     @SneakyThrows
@@ -31,19 +33,22 @@ public class YouTubePlayerInterceptor implements Interceptor {
                 .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().url().queryParameter("id")))))
                 .build());
 
-        try (ResponseBody responseBody = response.body()) {
-            if (responseBody == null) {
-                return chain.proceed(chain.request());
-            }
+        ResponseBody responseBody = response.body();
 
-            YouTubePlayerResponse youTubePlayerResponse = new Gson().fromJson(responseBody.string(), YouTubePlayerResponse.class);
-            String uri = youTubePlayerResponse.getStreamingData().getAdaptiveFormats()[0].getUrl();
-
-            Request request = new Request.Builder().url(uri).build();
-
-            responseBody.close();
-
-            return chain.proceed(request);
+        if (responseBody == null) {
+            return chain.proceed(chain.request());
         }
+
+        this.youTubePlayerResponse = new Gson().fromJson(responseBody.string(), YouTubePlayerResponse.class);
+
+        Request request = new Request.Builder().url(this.getMediaUrl()).build();
+
+        responseBody.close();
+
+        return chain.proceed(request);
+    }
+
+    public String getMediaUrl() {
+        return this.youTubePlayerResponse.getStreamingData().getAdaptiveFormats()[0].getUrl();
     }
 }
