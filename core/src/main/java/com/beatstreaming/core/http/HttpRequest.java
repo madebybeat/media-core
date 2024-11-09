@@ -33,10 +33,12 @@ public class HttpRequest {
         this.load();
     }
 
-    public void load() {
-        StringRequest stringRequest = new StringRequest(this.method, this.url.toString(), this::onLoad, this::onError);
+    public StringRequest getRequest() {
+        return new StringRequest(this.method, this.url.toString(), this::onLoad, this::onError);
+    }
 
-        this.requestQueue.add(stringRequest);
+    public void load() {
+        this.requestQueue.add(this.getRequest());
 
         this.onLoading();
     }
