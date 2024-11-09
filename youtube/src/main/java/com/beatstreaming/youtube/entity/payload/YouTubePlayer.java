@@ -1,4 +1,6 @@
-package com.beatstreaming.youtube.entity.player.payload;
+package com.beatstreaming.youtube.entity.payload;
+
+import com.beatstreaming.youtube.entity.YouTubeContext;
 
 public class YouTubePlayer {
     private final String videoId;

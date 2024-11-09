@@ -1,4 +1,4 @@
-package com.beatstreaming.youtube.entity.player.payload;
+package com.beatstreaming.youtube.entity;
 
 public class YouTubeClient {
     private final String clientName = "ANDROID";
