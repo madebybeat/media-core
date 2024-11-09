@@ -1,26 +1,28 @@
 package com.beatstreaming.youtube.player;
 
+import androidx.annotation.NonNull;
+
 import com.beatstreaming.youtube.http.YouTubePlayerRequest;
 import com.beatstreaming.youtube.http.YouTubePlayerResponse;
 import com.google.gson.Gson;
-import com.squareup.okhttp.HttpUrl;
-import com.squareup.okhttp.Interceptor;
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
-import com.squareup.okhttp.ResponseBody;
 
 import java.io.IOException;
-import java.util.List;
+
+import okhttp3.HttpUrl;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class YouTubePlayerHttpClient extends OkHttpClient {
-    @Override
-    public List<Interceptor> interceptors() {
+    public YouTubePlayerHttpClient() {
         this.interceptors().add(new Interceptor() {
+            @NonNull
             @Override
-            public Response intercept(Chain chain) throws IOException {
+            public Response intercept(@NonNull Chain chain) throws IOException {
                 Response response = chain.proceed(new Request.Builder()
                         .url(new HttpUrl.Builder()
                                 .scheme("https")
@@ -28,10 +30,14 @@ public class YouTubePlayerHttpClient extends OkHttpClient {
                                 .addPathSegment("youtubei/v1/player")
                                 .build())
                         .addHeader("User-Agent", "")
-                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().httpUrl().queryParameter("id")))))
+                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().url().queryParameter("id")))))
                         .build());
 
                 try (ResponseBody responseBody = response.body()) {
+                    if (responseBody == null) {
+                        return chain.proceed(chain.request());
+                    }
+
                     YouTubePlayerResponse youTubePlayerResponse = new Gson().fromJson(responseBody.string(), YouTubePlayerResponse.class);
                     String uri = youTubePlayerResponse.getStreamingData().getAdaptiveFormats()[0].getUrl();
 
@@ -43,7 +49,5 @@ public class YouTubePlayerHttpClient extends OkHttpClient {
                 }
             }
         });
-
-        return super.interceptors();
     }
 }
