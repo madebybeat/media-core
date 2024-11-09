@@ -26,9 +26,7 @@ public class MusicPlayerContext<T extends ItemEntity> extends PlayerContext<T, T
                 .map((TrackEntity trackEntity) -> {
                     try {
                         return MediaItem.fromUri(new URIBuilder(this.item.getUrl())
-                                        .setPathSegments("api", "v1", "play")
                                         .addParameter("id", trackEntity.getId())
-                                        .addParameter("quality", "MP3_128")
                                         .build()
                                         .toString()
                                 );

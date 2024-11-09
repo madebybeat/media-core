@@ -28,7 +28,7 @@ public class YouTubePlayerHttpClient extends OkHttpClient {
                                 .addPathSegment("youtubei/v1/player")
                                 .build())
                         .addHeader("User-Agent", "")
-                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().urlString()))))
+                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().httpUrl().queryParameter("id")))))
                         .build());
 
                 try (ResponseBody responseBody = response.body()) {
