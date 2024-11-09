@@ -22,8 +22,12 @@ public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
         return this.playContext != null;
     }
 
+    public int getPlaybackState() {
+        return this.player.getPlaybackState();
+    }
+
     public boolean isPlaying() {
-        return this.player.isPlaying() || this.player.isLoading();
+        return this.player.isPlaying();
     }
 
     public void queue(PlayerContext<?, T> playContext) {

@@ -54,6 +54,6 @@ public class PlayLoadIndicator extends LoadIndicator implements ItemInit<Context
 
     @Override
     public void refresh() {
-        this.setVisibility(this.player.getPlayer().getPlaybackState() == androidx.media3.common.Player.STATE_BUFFERING ? View.VISIBLE : View.GONE);
+        this.setVisibility(this.player.getPlaybackState() == androidx.media3.common.Player.STATE_BUFFERING ? View.VISIBLE : View.GONE);
     }
 }

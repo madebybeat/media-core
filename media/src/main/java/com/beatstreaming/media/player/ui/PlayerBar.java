@@ -36,7 +36,7 @@ public class PlayerBar<T extends MediaEntity> extends Fragment implements ItemRe
 
     @Override
     public void refresh() {
-        if (this.player.isPlaying()) {
+        if (this.player.isReady()) {
             this.playerBarBinding.playerBar.setVisibility(View.VISIBLE);
         }
     }

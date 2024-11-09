@@ -19,6 +19,10 @@ public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
     protected ExoPlayer player;
     protected MediaSession mediaSession;
 
+    public boolean isReady() {
+        return this.isLoading();
+    }
+
     public boolean isLoading() {
         return this.player.isLoading();
     }

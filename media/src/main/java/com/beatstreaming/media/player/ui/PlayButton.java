@@ -29,10 +29,14 @@ public class PlayButton extends AppCompatImageButton implements ItemInit<Context
 
     public PlayButton(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
+
+        this.init(context);
     }
 
     public PlayButton(Context context, AttributeSet attributeSet, int defaultStyleAttributes) {
         super(context, attributeSet, defaultStyleAttributes);
+
+        this.init(context);
     }
 
     public void init(Context context) {
@@ -67,7 +71,7 @@ public class PlayButton extends AppCompatImageButton implements ItemInit<Context
 
     @Override
     public void refresh() {
-        this.setVisibility(this.player.getPlayer().getPlaybackState() == androidx.media3.common.Player.STATE_READY ? View.GONE : View.VISIBLE);
+        this.setVisibility(this.player.getPlaybackState() == androidx.media3.common.Player.STATE_READY ? View.VISIBLE : View.GONE);
 
         this.setImageDrawable(ContextCompat.getDrawable(this.getContext(), this.player.isPlaying() ? R.drawable.pause : R.drawable.play));
     }
