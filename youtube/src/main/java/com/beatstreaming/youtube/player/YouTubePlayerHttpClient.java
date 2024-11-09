@@ -1,6 +1,7 @@
 package com.beatstreaming.youtube.player;
 
-import com.beatstreaming.youtube.entity.payload.YouTubePlayer;
+import com.beatstreaming.youtube.http.YouTubePlayerRequest;
+import com.beatstreaming.youtube.http.YouTubePlayerResponse;
 import com.google.gson.Gson;
 import com.squareup.okhttp.HttpUrl;
 import com.squareup.okhttp.Interceptor;
@@ -19,17 +20,17 @@ public class YouTubePlayerHttpClient extends OkHttpClient {
         this.interceptors().add(new Interceptor() {
             @Override
             public Response intercept(Chain chain) throws IOException {
-                chain.proceed(new Request.Builder()
+                Response response = chain.proceed(new Request.Builder()
                         .url(new HttpUrl.Builder()
                                 .scheme("https")
                                 .host("www.youtube.com")
                                 .addPathSegment("youtubei/v1/player")
                                 .build())
                         .addHeader("User-Agent", "")
-                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayer(chain.request().urlString()))))
+                        .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().urlString()))))
                         .build());
 
-                return null;
+                return chain.proceed(new Request.Builder().url(new Gson().fromJson(response.body().toString(), YouTubePlayerResponse.class).getStreamingData().getAdaptiveFormats()[0].getUrl()).build());
             }
         });
 

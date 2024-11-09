@@ -1,4 +1,4 @@
-package com.beatstreaming.youtube.entity.response;
+package com.beatstreaming.youtube.entity;
 
 import lombok.Getter;
 
