@@ -42,11 +42,6 @@ public class PlayButton extends AppCompatImageButton implements ItemInit<Context
 
         this.player.addListener(new PlayerCallback(this.player) {
             @Override
-            public void onIsLoadingChanged(boolean status) {
-                refresh();
-            }
-
-            @Override
             public void onIsPlayingChanged(boolean status) {
                 refresh();
             }
