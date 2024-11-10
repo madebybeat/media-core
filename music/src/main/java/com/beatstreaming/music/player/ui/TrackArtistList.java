@@ -11,10 +11,8 @@ import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.entity.NameItemEntity;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
-import com.beatstreaming.media.player.PlayerContext;
-import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
-import com.beatstreaming.music.page.LoadableArtistPage;
+import com.beatstreaming.music.page.ArtistPage;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -27,8 +25,6 @@ import lombok.SneakyThrows;
 @AndroidEntryPoint
 public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView implements ItemRefresh {
     @Inject Player<TrackEntity> player;
-
-    @Inject Class<? extends LoadableArtistPage> loadableArtistPage;
 
     public TrackArtistList(Context context) {
         super(context);
@@ -74,7 +70,7 @@ public class TrackArtistList extends androidx.appcompat.widget.AppCompatTextView
             public void onClick(View view) {
                 MainActivity.mainActivity.getSupportFragmentManager()
                         .beginTransaction()
-                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), loadableArtistPage.getConstructor(PlayerContext.class, ArtistEntity.class).newInstance(player.getPlayContext(), player.getCurrent().getArtist()))
+                        .replace(MainActivity.mainActivity.getMainActivityBinding().fragment.getId(), new ArtistPage(player.getPlayContext(), player.getCurrent().getArtist()))
                         .addToBackStack(null)
                         .commit();
             }
