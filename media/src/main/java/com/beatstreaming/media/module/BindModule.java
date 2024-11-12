@@ -9,6 +9,7 @@ import com.beatstreaming.media.list.MediaListItemBinder;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.service.AppSourceService;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
+import com.beatstreaming.media.storage.history.HistoryListStorageManager;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.google.gson.Gson;
 
@@ -39,6 +40,12 @@ public class BindModule {
     @Singleton
     public LibraryListStorageManager provideLibraryListStorageManager(Gson gson) {
         return new LibraryListStorageManager(gson);
+    }
+
+    @Provides
+    @Singleton
+    public HistoryListStorageManager provideHistoryListStorageManager(Gson gson) {
+        return new HistoryListStorageManager(gson);
     }
 
     @Provides
