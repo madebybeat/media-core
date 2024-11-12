@@ -47,7 +47,6 @@ public class PlayerShareButton extends AppCompatImageButton implements ItemInit<
             @Override
             @SneakyThrows
             public void onClick(View view) {
-                System.out.println(player.getCurrent().getLibraryItem(player.getPlayContext(), itemType));
                 shareListSheet.getConstructor(Context.class).newInstance(view.getContext()).setup(player.getCurrent().getLibraryItem(player.getPlayContext(), itemType)).show();
             }
         });

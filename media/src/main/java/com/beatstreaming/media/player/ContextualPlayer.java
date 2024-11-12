@@ -8,10 +8,16 @@ import lombok.Getter;
 
 @Getter
 public class ContextualPlayer<T extends ItemEntity> extends BasePlayer {
+    protected final PlayerContext playerContext;
+
     protected PlayContext<?, T> playContext;
 
-    public ContextualPlayer(Context context) {
+    public ContextualPlayer(Context context, PlayerContext playerContext) {
         super(context);
+
+        this.playerContext = playerContext;
+
+        this.onInit();
     }
 
     public T getCurrent() {

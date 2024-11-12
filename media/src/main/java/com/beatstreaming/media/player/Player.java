@@ -10,7 +10,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext;
 
 public class Player<T extends MediaEntity> extends HttpPlayer<T> {
     @Inject
-    public Player(@ApplicationContext Context context) {
-        super(context);
+    public Player(@ApplicationContext Context context, PlayerContext playerContext) {
+        super(context, playerContext);
     }
 }

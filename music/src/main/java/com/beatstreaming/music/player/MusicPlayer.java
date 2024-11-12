@@ -12,13 +12,9 @@ import javax.inject.Inject;
 import dagger.hilt.android.qualifiers.ApplicationContext;
 
 public class MusicPlayer extends Player<TrackEntity> {
-    protected final PlayerContext playerContext;
-
     @Inject
     public MusicPlayer(@ApplicationContext Context context, PlayerContext playerContext) {
-        super(context);
-
-        this.playerContext = playerContext;
+        super(context, playerContext);
     }
 
     @Override
