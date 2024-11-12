@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class PlayerSource<T extends ItemEntity, V extends ItemEntity> {
+public class PlaySource<T extends ItemEntity, V extends ItemEntity> {
     private final int title;
     private final Class<T> clazz;
     private final T item;

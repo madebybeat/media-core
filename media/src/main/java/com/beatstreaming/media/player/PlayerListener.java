@@ -5,6 +5,6 @@ import androidx.media3.common.Player;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class PlayerListener implements Player.Listener {
-    protected final BasePlayer player;
+public class PlayerListener<T extends BasePlayer> implements Player.Listener {
+    protected final T player;
 }

@@ -4,8 +4,8 @@ import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.entity.AppSourceEntity;
-import com.beatstreaming.media.player.PlayerContext;
-import com.beatstreaming.media.player.PlayerSource;
+import com.beatstreaming.media.player.PlayContext;
+import com.beatstreaming.media.player.PlaySource;
 import com.beatstreaming.music.entity.TrackEntity;
 
 import org.apache.http.client.utils.URIBuilder;
@@ -14,8 +14,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MusicPlayerContext<T extends ItemEntity> extends PlayerContext<T, TrackEntity> {
-    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlayerSource<T, TrackEntity> playerSource) {
+public class MusicPlayerContext<T extends ItemEntity> extends PlayContext<T, TrackEntity> {
+    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlaySource<T, TrackEntity> playerSource) {
         super(appSourceEntity, playerSource);
     }
 
