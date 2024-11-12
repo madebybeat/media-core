@@ -21,7 +21,7 @@ public class PlayerContextListener extends PlayerListener<ContextualPlayer<AppSo
     public void onMediaItemTransition(MediaItem mediaItem, int reason) {
         HistoryListStorage historyListStorage = this.playerContext.getHistoryListStorageManager().load(this.player.getContext());
 
-        historyListStorage.add(new LibraryItemEntity(new AppSourceListContext<>(this.player.getPlayContext().getItem()), this.playerContext.getItemType(), new SerializableItemEntity<>(this.player.getCurrent().getClass(), this.player.getCurrent())));
+        historyListStorage.add(new LibraryItemEntity(new AppSourceListContext(this.player.getPlayContext().getItem()), this.playerContext.getItemType(), new SerializableItemEntity(this.playerContext.getItemType().getClazz(), this.player.getCurrent())));
 
         this.playerContext.getHistoryListStorageManager().save(this.player.getContext(), historyListStorage);
     }
