@@ -16,6 +16,7 @@ public class ListSectionContext<T extends ListContext, V extends ItemEntity> ext
     public SectionContext<T, V> getPageContext() {
         return SectionContext.<T, V>builder()
                 .context(this.context)
+                .title(this.title)
                 .listRecyclerViewAdapter(this.listRecyclerViewAdapter)
                 .binder(this.binder)
                 .build();
