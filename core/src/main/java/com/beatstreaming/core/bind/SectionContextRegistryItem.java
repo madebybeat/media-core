@@ -12,5 +12,6 @@ public class SectionContextRegistryItem<T extends ListBinder> {
     private final String id;
     private final SectionContextType type;
     private final Class<? extends ItemEntity[]> clazz;
+    private final Class<? extends ItemEntity[]> entity;
     private final SectionContextItemContext context;
 }
