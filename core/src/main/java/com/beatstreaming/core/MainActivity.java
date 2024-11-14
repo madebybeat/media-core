@@ -5,6 +5,7 @@ import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.beatstreaming.core.databinding.MainActivityBinding;
 import com.beatstreaming.core.pages.HomePage;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         this.mainActivityBinding = MainActivityBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.mainActivityBinding.getRoot());
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         this.getSupportFragmentManager().beginTransaction()
                 .replace(mainActivityBinding.fragment.getId(), this.homePage)
