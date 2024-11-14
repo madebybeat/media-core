@@ -17,6 +17,8 @@ public class HttpRequestBinding<T, B extends ViewBinding, V extends ViewBinding>
         this.httpRequestStatusBinding = httpRequestStatusBinding;
         this.pageBinding = pageBinding;
         this.resultBinding = resultBinding;
+
+        this.httpRequestStatusBinding.view.removeAllViews();
     }
 
     @Override
