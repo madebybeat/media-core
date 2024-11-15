@@ -10,4 +10,6 @@
     <string name="sheet_app_website_copy_success">Copied in the clipboard</string>
     <string name="sheet_app_author_email_copy_success">Copied in the clipboard</string>
     <string name="sheet_share_copy">Copy text</string>
+    <string name="page_collection_save">Add to library</string>
+    <string name="page_collection_save_success">Added to your library</string>
 </resources>

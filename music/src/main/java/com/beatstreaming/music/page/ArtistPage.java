@@ -15,7 +15,6 @@ import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
-import com.beatstreaming.music.R;
 import com.beatstreaming.music.databinding.ArtistPageBinding;
 import com.beatstreaming.music.entity.ArtistEntity;
 import com.beatstreaming.music.item.ArtistItemType;
@@ -54,7 +53,7 @@ public class ArtistPage extends Fragment {
                 libraryListStorage.getList().add(new LibraryItemEntity<ArtistEntity>(appSourceContext, artistItemType, new SerializableItemEntity<>(artistItemType.getClazz(), artistEntity)));
                 libraryListStorageManager.save(view.getContext(), libraryListStorage);
 
-                Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.toast_item_library_save_success, Toast.LENGTH_SHORT).show();
+                Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_save_success, Toast.LENGTH_SHORT).show();
             }
         });
 

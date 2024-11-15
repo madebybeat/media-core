@@ -40,7 +40,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/space_medium"
-                android:text="@string/page_artist_play" />
+                android:text="@string/page_artist_play"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/space_medium"
+                android:text="@string/page_collection_save"
+                app:icon="@drawable/library"/>
 
             <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
         </LinearLayout>
