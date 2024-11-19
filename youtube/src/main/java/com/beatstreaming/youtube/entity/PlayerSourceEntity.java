@@ -5,6 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class PlayerSourceEntity<T extends PlayerSourceDataEntity> {
-    private final T data;
+public class PlayerSourceEntity {
+    private final PlayerSourceDataEntity data;
 }
