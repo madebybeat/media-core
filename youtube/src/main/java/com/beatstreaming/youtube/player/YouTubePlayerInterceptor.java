@@ -2,6 +2,7 @@ package com.beatstreaming.youtube.player;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.youtube.entity.PlayerSourceEntity;
 import com.beatstreaming.youtube.http.YouTubePlayerRequest;
 import com.beatstreaming.youtube.http.YouTubePlayerResponse;
 import com.google.gson.Gson;
@@ -23,6 +24,8 @@ public class YouTubePlayerInterceptor implements Interceptor {
     @Override
     @SneakyThrows
     public Response intercept(@NonNull Chain chain) {
+        PlayerSourceEntity playerSourceEntity = new Gson().fromJson(chain.proceed(chain.request()).body().string(), PlayerSourceEntity.class);
+
         Response response = chain.proceed(new Request.Builder()
                 .url(new URIBuilder()
                         .setScheme("https")
@@ -30,7 +33,7 @@ public class YouTubePlayerInterceptor implements Interceptor {
                         .setPathSegments("youtubei", "v1", "player")
                         .build().toURL())
                 .addHeader("User-Agent", "com.google.android.youtube/19.35.36(Linux; U; Android 13; en_US; SM-S908E Build/TP1A.220624.014) gzip")
-                .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(chain.request().url().queryParameter("id")))))
+                .post(RequestBody.create(MediaType.parse("application/json; charset=utf-8"), new Gson().toJson(new YouTubePlayerRequest(playerSourceEntity.getData().getId()))))
                 .build());
 
         ResponseBody responseBody = response.body();
