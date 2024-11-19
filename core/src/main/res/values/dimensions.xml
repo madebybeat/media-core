@@ -1,4 +1,5 @@
 <resources>
+    <dimen name="space_min">2dp</dimen>
     <dimen name="space_small">10dp</dimen>
     <dimen name="space_normal">15dp</dimen>
     <dimen name="space_medium">18dp</dimen>
