@@ -8,9 +8,6 @@ import com.beatstreaming.media.player.PlayContext;
 import com.beatstreaming.media.player.PlaySource;
 import com.beatstreaming.music.entity.TrackEntity;
 
-import org.apache.http.client.utils.URIBuilder;
-
-import java.net.URISyntaxException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,16 +20,7 @@ public class MusicPlayerContext<T extends ItemEntity> extends PlayContext<T, Tra
     public List<MediaItem> getMediaItemList() {
         return this.getItemList()
                 .stream()
-                .map((TrackEntity trackEntity) -> {
-                    try {
-                        return MediaItem.fromUri(new URIBuilder(this.item.getUrl())
-                                        .addParameter("id", trackEntity.getId())
-                                        .build()
-                                        .toString()
-                                );
-                    } catch (URISyntaxException exception) {
-                        throw new RuntimeException(exception);
-                    }
-                }).collect(Collectors.toList());
+                .map((TrackEntity trackEntity) -> MediaItem.fromUri(trackEntity.getPlayer().getUrl()))
+                .collect(Collectors.toList());
     }
 }
