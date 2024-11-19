@@ -2,8 +2,19 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    android:divider="@drawable/divider"
+    android:gravity="center_vertical">
 
-    <include layout="@layout/track_image" />
+    <FrameLayout
+        android:id="@+id/media_cover"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/image_height_normal"
+        android:orientation="horizontal">
+
+        <include layout="@layout/track_image" />
+    </FrameLayout>
+
     <include layout="@layout/track_title" />
 </LinearLayout>

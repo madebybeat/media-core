@@ -6,13 +6,15 @@
     android:layout_height="wrap_content"
     android:baselineAligned="false"
     android:orientation="horizontal"
+    android:paddingVertical="@dimen/space_small"
     android:padding="@dimen/space_normal"
+    android:gravity="center_vertical"
     android:visibility="gone">
 
     <LinearLayout
         android:id="@+id/player_media_item"
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="horizontal" />
 
