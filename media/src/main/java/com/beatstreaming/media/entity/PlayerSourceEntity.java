@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class PlayerSourceEntity<T extends PlayerSourceDataEntity> extends IdItemEntity {
-    private final String type;
+    private final String method;
     private final T data;
 }

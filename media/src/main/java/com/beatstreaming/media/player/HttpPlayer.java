@@ -23,6 +23,7 @@ public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
 
         this.player.clearMediaItems();
         this.player.addMediaItems(playContext.getMediaItemList());
+        this.player.seekTo(playContext.getIndex(), 0);
 
         this.play();
     }
