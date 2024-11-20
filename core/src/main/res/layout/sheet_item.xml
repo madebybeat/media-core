@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingHorizontal="@dimen/space_big"
-    android:background="@drawable/ripple_with_border">
+    android:background="@drawable/ripple_with_border"
+    android:gravity="center_vertical"
+    android:showDividers="middle"
+    android:divider="@drawable/divider">
 
     <ImageView
         android:id="@+id/sheet_item_icon"
@@ -14,6 +17,6 @@
 
     <TextView
         android:id="@+id/sheet_item_title"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
