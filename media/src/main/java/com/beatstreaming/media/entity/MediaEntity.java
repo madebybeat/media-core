@@ -1,5 +1,6 @@
 package com.beatstreaming.media.entity;
 
+import com.beatstreaming.core.entity.IdItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.library.ItemType;
@@ -15,5 +16,10 @@ public class MediaEntity extends ImageItemEntity {
 
     public LibraryItemEntity<MediaEntity> getLibraryItem(AppSourceListContext appSourceEntity, ItemType<MediaEntity> itemType) {
         return new LibraryItemEntity<MediaEntity>(appSourceEntity, itemType, new SerializableItemEntity<>(this.getClass(), this));
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return this.id.equals(((IdItemEntity) object).getId());
     }
 }
