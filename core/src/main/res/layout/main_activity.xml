@@ -21,9 +21,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_margin="@dimen/space_normal"
-                app:cardCornerRadius="@dimen/space_normal">
+                android:layout_gravity="bottom">
 
                 <androidx.fragment.app.FragmentContainerView
                     android:id="@+id/footer"
