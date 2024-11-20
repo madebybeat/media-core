@@ -12,9 +12,10 @@
         app:scrubber_dragged_size="0dp"
         app:scrubber_enabled_size="0dp" />
 
-    <LinearLayout
+    <com.google.android.flexbox.FlexboxLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:justifyContent="space_between">
 
         <TextView
             android:id="@+id/seek_bar_start"
@@ -25,5 +26,5 @@
             android:id="@+id/seek_bar_end"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-    </LinearLayout>
+    </com.google.android.flexbox.FlexboxLayout>
 </LinearLayout>
