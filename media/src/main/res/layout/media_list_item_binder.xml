@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:paddingVertical="@dimen/space_min"
     android:paddingHorizontal="@dimen/space_normal"
-    android:foreground="@drawable/ripple_with_border"
+    android:background="@drawable/ripple_with_border"
     android:gravity="center_vertical"
     android:showDividers="middle"
     android:divider="@drawable/divider">
