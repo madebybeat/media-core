@@ -26,10 +26,10 @@
         <include android:id="@+id/player_menu_button" layout="@layout/player_menu_button" />
     </com.google.android.flexbox.FlexboxLayout>
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/player_body"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-    </LinearLayout>
+    </FrameLayout>
 </LinearLayout>
