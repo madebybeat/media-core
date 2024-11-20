@@ -11,7 +11,6 @@ import androidx.media3.common.util.UnstableApi;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.media.player.Player;
-import com.beatstreaming.media.player.PlayerCallback;
 import com.google.android.exoplayer2.ui.DefaultTimeBar;
 import com.google.android.exoplayer2.ui.TimeBar;
 
@@ -49,17 +48,10 @@ public class PlayerSeekBar extends DefaultTimeBar implements ItemInit<Context>, 
 
         this.refresh();
 
-        this.player.addListener(new PlayerCallback(this.player) {
-            @Override
-            public void onIsLoadingChanged(boolean status) {
-                refresh();
-            }
-        });
-
         this.handler.post(new Runnable() {
             @Override
             public void run() {
-                setPosition(player.getPlayer().getCurrentPosition());
+                refresh();
 
                 handler.post(this);
             }
@@ -87,6 +79,7 @@ public class PlayerSeekBar extends DefaultTimeBar implements ItemInit<Context>, 
 
     @Override
     public void refresh() {
-        this.setDuration(this.player.isLoading() ? 0 : player.getPlayer().getDuration());
+        this.setDuration(this.player.getPlayer().getDuration());
+        this.setPosition(this.player.getPlayer().getCurrentPosition());
     }
 }
