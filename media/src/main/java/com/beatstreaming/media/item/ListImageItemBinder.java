@@ -16,7 +16,10 @@ public class ListImageItemBinder<T extends ImageItemEntity> extends ListNameItem
         super.bind(context, holder, item);
 
         this.mediaCoverImageBinding = MediaCoverImageBinding.inflate(LayoutInflater.from(this.mediaCover.getContext()));
-        Picasso.get().load(item.getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
+
+        if (item.getImage() != null) {
+            Picasso.get().load(item.getImage().getUrl()).into(mediaCoverImageBinding.mediaImage);
+        }
 
         this.mediaCover.addView(mediaCoverImageBinding.getRoot());
     }
