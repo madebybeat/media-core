@@ -5,7 +5,6 @@ import android.content.Context;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.session.MediaSession;
 
-import com.beatstreaming.core.event.Callback;
 import com.beatstreaming.core.event.Listener;
 
 import java.net.URI;
@@ -14,7 +13,7 @@ import java.util.UUID;
 import lombok.Getter;
 
 @Getter
-public class BasePlayer extends Listener<BasePlayer, Callback> {
+public class BasePlayer extends Listener<BasePlayer, PlayerCallback> {
     protected final Context context;
 
     protected ExoPlayer player;
@@ -29,7 +28,7 @@ public class BasePlayer extends Listener<BasePlayer, Callback> {
     }
 
     public BasePlayer(Context context) {
-        super(BasePlayer.class, Callback.class);
+        super(BasePlayer.class, PlayerCallback.class);
 
         this.context = context;
     }

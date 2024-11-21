@@ -1,9 +1,9 @@
 package com.beatstreaming.music.item;
 
-import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListBinder;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.player.HomePlayerSource;
 import com.beatstreaming.music.player.SectionPlayerContext;
@@ -20,7 +20,7 @@ public class ContextLibraryItemBinder<T extends SectionRegistryListContext, V ex
 
         SectionPlayerContext sectionPlayerContext = new SectionPlayerContext((AppSourceEntity) item.getAppSourceContext().getItem(), new HomePlayerSource(null));
 
-        sectionPlayerContext.init(Arrays.stream(context.getList()).map(target -> ((LibraryItemEntity) target).getItem()).toArray(ItemEntity[]::new), context.getIndex());
+        sectionPlayerContext.init(Arrays.stream(context.getList()).map(target -> ((MediaEntity) ((LibraryItemEntity) target).getItem())).toArray(MediaEntity[]::new), context.getIndex());
 
         context.getSectionContextRegistry()
                 .getBinder(item.getSerializableItemEntity().getClazz(), context.getSectionContextType()).getContext().getBinder()

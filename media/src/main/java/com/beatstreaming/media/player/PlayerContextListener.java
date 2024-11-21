@@ -3,12 +3,11 @@ package com.beatstreaming.media.player;
 import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.storage.history.HistoryListStorage;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 
-public class PlayerContextListener extends PlayerListener<ContextualPlayer<AppSourceEntity>> {
+public class PlayerContextListener extends PlayerListener<ContextualPlayer<?>> {
     private final PlayerContext playerContext;
 
     public PlayerContextListener(ContextualPlayer player, PlayerContext playerContext) {
