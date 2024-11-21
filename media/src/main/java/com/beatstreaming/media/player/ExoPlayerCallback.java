@@ -4,9 +4,9 @@ import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.event.Callback;
 
-public class ExoPlayerCallback extends Callback<BasePlayer> {
-    public ExoPlayerCallback(BasePlayer item) {
-        super(item);
+public class ExoPlayerCallback<T extends BasePlayer> extends Callback<T> {
+    public ExoPlayerCallback(T player) {
+        super(player);
     }
 
     public void onIsLoadingChanged(boolean status) {

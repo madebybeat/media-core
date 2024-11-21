@@ -19,4 +19,14 @@ public class TrackEntity extends MediaEntity {
     public TrackEntity(String name, ImageEntity image) {
         super(name, image);
     }
+
+    @Override
+    public ImageEntity getImage() {
+        return this.album.getImage();
+    }
+
+    @Override
+    public String getAuthor() {
+        return this.artist.getName();
+    }
 }

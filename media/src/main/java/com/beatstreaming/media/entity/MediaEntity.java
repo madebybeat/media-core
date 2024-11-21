@@ -18,6 +18,10 @@ public class MediaEntity extends ImageItemEntity {
         return new LibraryItemEntity<MediaEntity>(appSourceEntity, itemType, new SerializableItemEntity<>(this.getClass(), this));
     }
 
+    public String getAuthor() {
+        return null;
+    }
+
     @Override
     public boolean equals(Object object) {
         return this.id.equals(((IdItemEntity) object).getId());
