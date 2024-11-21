@@ -1,6 +1,7 @@
 package com.beatstreaming.core.http;
 
 import android.content.Context;
+import android.view.View;
 
 import androidx.viewbinding.ViewBinding;
 
@@ -22,7 +23,13 @@ public class HttpRequestBinding<T, B extends ViewBinding, V extends ViewBinding>
     }
 
     @Override
+    public void onLoading() {
+        this.httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.VISIBLE);
+    }
+
+    @Override
     public void onLoad(T data) {
+        this.httpRequestStatusBinding.loadIndicator.getRoot().setVisibility(View.GONE);
         this.httpRequestStatusBinding.view.addView(this.resultBinding.getRoot());
     }
 }
