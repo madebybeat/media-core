@@ -1,24 +1,23 @@
 package com.beatstreaming.media.item;
 
 import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.core.list.ListBinder;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.core.list.TypedListBinder;
-import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.R;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 
 import lombok.SneakyThrows;
 
-public class LibraryItemBinder<T extends MediaEntity, V extends LibraryItemEntity<T>> extends TypedListBinder<AppSourceListContext, T, V> {
+public class LibraryItemBinder<T extends ItemEntity, V extends LibraryItemEntity<T>> extends ListBinder<AppSourceListContext, V> {
     @Override
     @SneakyThrows
-    public void bind(AppSourceListContext context, ListViewHolder<T> holder, V item) {
+    public void bind(AppSourceListContext context, ListViewHolder<V> holder, V item) {
         super.bind(context, holder, item);
 
-        TypedListBinder<AppSourceListContext, T, ItemEntity> listBinder = (TypedListBinder<AppSourceListContext, T, ItemEntity>) item.getItemType().getBinder().getConstructor().newInstance();
+        ListBinder<AppSourceListContext, T> listBinder = (ListBinder<AppSourceListContext, T>) item.getItemType().getBinder().getConstructor().newInstance();
 
-        listBinder.bind(item.getAppSourceContext(), holder, item.getSerializableItemEntity().get());
+        listBinder.bind(item.getAppSourceContext(), (ListViewHolder<T>) holder, item.getSerializableItemEntity().get());
     }
 
     @Override

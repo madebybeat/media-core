@@ -12,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class LibraryItemEntity<T extends MediaEntity> extends ItemEntity {
+public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
     private final AppSourceListContext<?> appSourceContext;
     private final ItemType<T> itemType;
     private final SerializableItemEntity<T> serializableItemEntity;
@@ -29,11 +29,11 @@ public class LibraryItemEntity<T extends MediaEntity> extends ItemEntity {
 
     @Override
     public boolean equals(Object object) {
-        return this.getItem().equals(((LibraryItemEntity) object).getItem());
+        return ((MediaEntity) this.getItem()).getId().equals(((MediaEntity) ((LibraryItemEntity) object).getItem()).getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.getItem().getId());
+        return Objects.hash(((MediaEntity) this.getItem()).getId());
     }
 }
