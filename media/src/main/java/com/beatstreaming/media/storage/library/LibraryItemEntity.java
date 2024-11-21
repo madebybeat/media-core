@@ -29,7 +29,7 @@ public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
 
     @Override
     public boolean equals(Object object) {
-        return ((MediaEntity) this.getItem()).getId().equals(((MediaEntity) ((LibraryItemEntity) object).getItem()).getId());
+        return this.getItem().equals(((LibraryItemEntity) object).getItem());
     }
 
     @Override
