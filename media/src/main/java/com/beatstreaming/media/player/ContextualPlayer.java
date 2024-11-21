@@ -17,6 +17,8 @@ public class ContextualPlayer<T extends MediaEntity> extends BasePlayer {
 
         this.playerContext = playerContext;
 
+        this.player.addListener(new NotificationCallback(this));
+
         this.onInit();
     }
 

@@ -9,6 +9,9 @@ import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.R;
 import com.beatstreaming.media.entity.MediaEntity;
+import com.beatstreaming.media.player.BasePlayer;
+import com.beatstreaming.media.player.ContextualPlayer;
+import com.beatstreaming.media.player.ExoPlayerCallback;
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.PlayerCallback;
 
@@ -24,7 +27,7 @@ public class MediaListItemBinder<C extends ListContext, T extends MediaEntity, V
 
         TextView mediaTitle = holder.itemView.findViewById(R.id.media_title);
 
-        this.player.addListener(new PlayerCallback(this.player) {
+        this.player.addListener(new ExoPlayerCallback<ContextualPlayer>(this.player) {
             @Override
             public void onMediaItemTransition(MediaItem mediaItem, int reason) {
                 mediaTitle.setTextColor(holder.itemView.getContext().getColor(player.getCurrent().equals(media) ? com.beatstreaming.core.R.color.m3_sys_dark_primary : com.beatstreaming.core.R.color.m3_sys_dark_on_surface));

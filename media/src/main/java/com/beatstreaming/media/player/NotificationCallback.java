@@ -15,7 +15,7 @@ import androidx.media3.session.MediaStyleNotificationHelper;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
-public class NotificationCallback extends ExoPlayerCallback<ContextualPlayer> {
+public class NotificationCallback extends PlayerListener<ContextualPlayer> {
     private final NotificationManager notificationManager;
 
     @SuppressLint("NewApi")

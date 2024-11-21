@@ -2,12 +2,12 @@ package com.beatstreaming.media.player;
 
 import android.content.Context;
 
-import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 
 import lombok.Getter;
 
 @Getter
-public class HttpPlayer<T extends ItemEntity> extends ContextualPlayer<T> {
+public class HttpPlayer<T extends MediaEntity> extends ContextualPlayer<T> {
     public HttpPlayer(Context context, PlayerContext playerContext) {
         super(context, playerContext);
     }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class Listener<T, V extends Callback<T>> {
+public class Listener<T, V extends Callback> {
     private final Class<T> clazz;
     private final Class<V> callback;
 
