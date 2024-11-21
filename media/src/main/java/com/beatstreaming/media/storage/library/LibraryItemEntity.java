@@ -2,7 +2,10 @@ package com.beatstreaming.media.storage.library;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
+
+import java.util.Objects;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -22,5 +25,15 @@ public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
         String serializedItem = SerializableItemEntity.GSON.toJson(newItem);
 
         this.serializableItemEntity.setSerialize(serializedItem);
+    }
+
+    @Override
+    public boolean equals(Object object) {
+        return ((MediaEntity) this.getItem()).getId().equals(((MediaEntity) ((LibraryItemEntity) object).getItem()).getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(((MediaEntity) this.getItem()).getId());
     }
 }
