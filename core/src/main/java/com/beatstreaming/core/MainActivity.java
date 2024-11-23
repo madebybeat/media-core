@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity {
                                 .beginTransaction()
                                 .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_left, R.anim.slide_out_right)
                                 .replace(mainActivityBinding.fragment.getId(), page.getFragment())
-                                .addToBackStack(null)
                                 .commit());
 
                 return true;
