@@ -25,6 +25,8 @@ public class PlaylistPage extends CollectionPage<PlaylistEntity> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        this.collectionPageBinding.saveButton.has
+
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
 }
