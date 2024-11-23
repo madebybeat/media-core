@@ -3,14 +3,12 @@ package com.beatstreaming.core;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import androidx.activity.OnBackPressedCallback;
-import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.beatstreaming.core.databinding.MainActivityBinding;
+import com.beatstreaming.core.fragment.AnimatedFragmentManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -59,19 +57,11 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
 
-        OnBackPressedDispatcher onBackPressedDispatcher = this.getOnBackPressedDispatcher();
-        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
-            @Override
-            public void handleOnBackPressed() {
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
-                transaction.replace(R.id.fragment, new HomePage());
-                transaction.commit();
-            }
-        };
-
-        onBackPressedDispatcher.addCallback(this, callback);
+    @NonNull
+    @Override
+    public AnimatedFragmentManager getSupportFragmentManager() {
+        return (AnimatedFragmentManager) super.getSupportFragmentManager();
     }
 }
