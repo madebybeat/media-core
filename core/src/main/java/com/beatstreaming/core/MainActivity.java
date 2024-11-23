@@ -3,9 +3,11 @@ package com.beatstreaming.core;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.beatstreaming.core.databinding.MainActivityBinding;
 import com.beatstreaming.core.pages.HomePage;
@@ -54,6 +56,24 @@ public class MainActivity extends AppCompatActivity {
                                 .commit());
 
                 return true;
+            }
+        });
+
+        this.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                    transaction.setCustomAnimations(
+                            R.anim.slide_in_left,
+                            R.anim.slide_out_right
+                    );
+                    getSupportFragmentManager().popBackStack();
+                    transaction.commit();
+                } else {
+                    setEnabled(false);
+                    onBackPressed();
+                }
             }
         });
     }
