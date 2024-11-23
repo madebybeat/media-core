@@ -13,18 +13,18 @@ import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.google.android.material.snackbar.Snackbar;
 
-public class SaveToLibraryButton extends androidx.appcompat.widget.AppCompatButton implements ItemInit<Context>, ItemSetup<SaveToLibraryButton, SaveToLibraryContext> {
-    private SaveToLibraryContext saveToLibraryContext;
+public class AddToLibraryButton extends androidx.appcompat.widget.AppCompatButton implements ItemInit<Context>, ItemSetup<AddToLibraryButton, AddToLibraryContext> {
+    private AddToLibraryContext saveToLibraryContext;
 
-    public SaveToLibraryButton(Context context) {
+    public AddToLibraryButton(Context context) {
         super(context);
     }
 
-    public SaveToLibraryButton(Context context, AttributeSet attrs) {
+    public AddToLibraryButton(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public SaveToLibraryButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public AddToLibraryButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
 
@@ -44,7 +44,7 @@ public class SaveToLibraryButton extends androidx.appcompat.widget.AppCompatButt
     }
 
     @Override
-    public SaveToLibraryButton setup(SaveToLibraryContext saveToLibraryContext) {
+    public AddToLibraryButton setup(AddToLibraryContext saveToLibraryContext) {
         this.saveToLibraryContext = saveToLibraryContext;
 
         return this;

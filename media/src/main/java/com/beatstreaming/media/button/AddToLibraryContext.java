@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class SaveToLibraryContext {
+public class AddToLibraryContext {
     private final LibraryListStorageManager libraryListStorageManager;
     private final ItemType<?> itemType;
 
