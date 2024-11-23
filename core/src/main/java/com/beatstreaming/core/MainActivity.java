@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.beatstreaming.core.databinding.MainActivityBinding;
-import com.beatstreaming.core.fragment.AnimatedFragmentManager;
 import com.beatstreaming.core.pages.HomePage;
 import com.beatstreaming.core.pages.Pages;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -49,7 +48,9 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 Arrays.stream(pages)
                         .filter((target) -> target.getLayout() == menuItem.getItemId()).findAny()
-                        .ifPresent(page -> getSupportFragmentManager().beginTransaction()
+                        .ifPresent(page -> getSupportFragmentManager()
+                                .beginTransaction()
+                                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_left, R.anim.slide_out_right)
                                 .replace(mainActivityBinding.fragment.getId(), page.getFragment())
                                 .addToBackStack(null)
                                 .commit());
@@ -57,11 +58,5 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
-
-    @NonNull
-    @Override
-    public AnimatedFragmentManager getSupportFragmentManager() {
-        return new AnimatedFragmentManager(super.getSupportFragmentManager());
     }
 }
