@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import androidx.activity.OnBackPressedCallback;
+import androidx.activity.OnBackPressedDispatcher;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -59,22 +60,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        this.getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+        OnBackPressedDispatcher onBackPressedDispatcher = this.getOnBackPressedDispatcher();
+        OnBackPressedCallback callback = new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-                    transaction.setCustomAnimations(
-                            R.anim.slide_in_left,
-                            R.anim.slide_out_right
-                    );
-                    getSupportFragmentManager().popBackStack();
-                    transaction.commit();
-                } else {
-                    setEnabled(false);
-                    onBackPressed();
-                }
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                transaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+                transaction.replace(R.id.fragment, new HomePage());
+                transaction.commit();
             }
-        });
+        };
+
+        onBackPressedDispatcher.addCallback(this, callback);
     }
 }
