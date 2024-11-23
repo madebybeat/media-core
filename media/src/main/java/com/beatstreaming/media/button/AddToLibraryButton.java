@@ -11,9 +11,10 @@ import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AddToLibraryButton extends androidx.appcompat.widget.AppCompatButton implements ItemInit<Context>, ItemSetup<AddToLibraryButton, AddToLibraryContext> {
+public class AddToLibraryButton extends MaterialButton implements ItemInit<Context>, ItemSetup<AddToLibraryButton, AddToLibraryContext> {
     private AddToLibraryContext saveToLibraryContext;
 
     public AddToLibraryButton(Context context) {

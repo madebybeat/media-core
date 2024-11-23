@@ -41,6 +41,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal" />
 
+
             <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
         </LinearLayout>
 
