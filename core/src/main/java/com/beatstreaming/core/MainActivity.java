@@ -62,6 +62,6 @@ public class MainActivity extends AppCompatActivity {
     @NonNull
     @Override
     public AnimatedFragmentManager getSupportFragmentManager() {
-        return (AnimatedFragmentManager) super.getSupportFragmentManager();
+        return new AnimatedFragmentManager(super.getSupportFragmentManager());
     }
 }

@@ -4,26 +4,31 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.beatstreaming.core.R;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class AnimatedFragmentTransaction extends FragmentTransaction {
+    private final FragmentTransaction fragmentTransaction;
+
     @Override
     public int commit() {
-        this.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
+        this.fragmentTransaction.setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right);
 
-        return this.commit();
+        return this.fragmentTransaction.commit();
     }
 
     @Override
     public int commitAllowingStateLoss() {
-        return this.commitAllowingStateLoss();
+        return this.fragmentTransaction.commitAllowingStateLoss();
     }
 
     @Override
     public void commitNow() {
-        this.commitNow();
+        this.fragmentTransaction.commitNow();
     }
 
     @Override
     public void commitNowAllowingStateLoss() {
-        this.commitNowAllowingStateLoss();
+        this.fragmentTransaction.commitNowAllowingStateLoss();
     }
 }
