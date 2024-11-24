@@ -5,14 +5,18 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.appcompat.content.res.AppCompatResources;
+
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
+import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemSetup;
+import com.beatstreaming.media.R;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<AddToLibraryButton, AddToLibraryContext> {
+public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<AddToLibraryButton, AddToLibraryContext>, ItemRefresh {
     private AddToLibraryContext saveToLibraryContext;
 
     public AddToLibraryButton(Context context) {
@@ -42,10 +46,19 @@ public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<Ad
             public void onClick(View view) {
                 LibraryListStorage libraryListStorage = saveToLibraryContext.getLibraryListStorageManager().load(getContext());
 
-                libraryListStorage.getList().add(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
-                saveToLibraryContext.getLibraryListStorageManager().save(view.getContext(), libraryListStorage);
+                if (libraryListStorage.has(saveToLibraryContext.getImageItemEntity())) {
+                    libraryListStorage.getList().remove(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
 
-                Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_save_success, Toast.LENGTH_SHORT).show();
+                    Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_remove_from_library_success, Toast.LENGTH_SHORT).show();
+                } else {
+                    libraryListStorage.getList().add(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
+
+                    Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_add_to_library_success, Toast.LENGTH_SHORT).show();
+                }
+
+                saveToLibraryContext.getLibraryListStorageManager().save(getContext(), libraryListStorage);
+
+                refresh();
             }
         });
     }
@@ -54,6 +67,21 @@ public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<Ad
     public AddToLibraryButton setup(AddToLibraryContext saveToLibraryContext) {
         this.saveToLibraryContext = saveToLibraryContext;
 
+        this.refresh();
+
         return this;
+    }
+
+    @Override
+    public void refresh() {
+        LibraryListStorage libraryListStorage = saveToLibraryContext.getLibraryListStorageManager().load(getContext());
+
+        if (libraryListStorage.has(this.saveToLibraryContext.getImageItemEntity())) {
+            this.setText(R.string.page_collection_remove_from_library);
+            this.setIcon(AppCompatResources.getDrawable(this.getContext(), R.drawable.playlist_remove));
+        } else {
+            this.setText(R.string.page_collection_add_to_library);
+            this.setIcon(AppCompatResources.getDrawable(this.getContext(), R.drawable.playlist_add));
+        }
     }
 }

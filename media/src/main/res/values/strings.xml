@@ -11,6 +11,8 @@
     <string name="sheet_app_author_email_copy_success">Copied in the clipboard</string>
     <string name="sheet_share_copy">Copy text</string>
     <string name="page_collection_add_to_library">Add to library</string>
+    <string name="page_collection_remove_from_library">Remove from library</string>
     <string name="page_collection_start_playing">Play</string>
-    <string name="page_collection_save_success">Added to your library</string>
+    <string name="page_collection_add_to_library_success">Added to your library</string>
+    <string name="page_collection_remove_from_library_success">Removed from your library</string>
 </resources>

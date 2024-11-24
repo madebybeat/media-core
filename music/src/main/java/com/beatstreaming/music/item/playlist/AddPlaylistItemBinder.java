@@ -29,7 +29,7 @@ public class AddPlaylistItemBinder extends PlaylistItemBinder {
     public void bind(TrackListContext context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
         super.bind(context, holder, item);
 
-        LibraryListStorage libraryListStorage = libraryListStorageManager.load(holder.itemView.getContext());
+        LibraryListStorage<PlaylistEntity> libraryListStorage = libraryListStorageManager.load(holder.itemView.getContext());
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
