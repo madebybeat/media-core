@@ -10,6 +10,7 @@
     <string name="page_album_section_tracks_title">Tracks</string>
     <string name="sheet_track_title">Track</string>
     <string name="sheet_track_item_add_to_playlist">Add to playlist</string>
+    <string name="sheet_track_item_remove_from_playlist">Remove from this playlist</string>
     <string name="sheet_add_to_playlist_title">Add to playlist</string>
     <string name="sheet_track_view_album">View album</string>
     <string name="sheet_track_view_artist">View artist</string>
