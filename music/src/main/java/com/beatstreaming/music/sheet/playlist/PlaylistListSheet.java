@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.sheet.MediaSheetContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
@@ -36,6 +37,8 @@ public class PlaylistListSheet<T extends MediaSheetContext<?, LibraryItemEntity<
         super.setup(item);
 
         this.listSheetContext = new PlaylistSheetContext(this, item.getItem());
+
+        this.list.add(new RemovePlaylistContext((LibrarySheetContext<PlaylistEntity>) item));
 
         return this;
     }
