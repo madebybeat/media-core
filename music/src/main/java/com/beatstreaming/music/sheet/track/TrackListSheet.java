@@ -21,7 +21,7 @@ public class TrackListSheet extends MediaListSheet<TrackEntity> {
         this.init(context);
     }
 
-    protected TrackListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
+    public TrackListSheet(@NonNull Context context, boolean cancelable, OnCancelListener onCancelListener) {
         super(context, cancelable, onCancelListener);
 
         this.init(context);
