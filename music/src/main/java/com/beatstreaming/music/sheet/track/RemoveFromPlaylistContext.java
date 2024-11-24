@@ -5,6 +5,7 @@ import android.content.Context;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
 import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
+import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
 
@@ -19,5 +20,10 @@ public class RemoveFromPlaylistContext extends ListSheetItemContext<TrackEntity>
 
     @Override
     public void onCall(Context context, ListSheetContext<TrackEntity> listSheetContext) {
+        LibraryListStorage libraryListStorage = appPlaylistSheetContext.getLibraryListStorageManager().load(context);
+
+        libraryListStorage.remove(this.appPlaylistSheetContext.getContext().getPlayerSource().getItem());
+
+        appPlaylistSheetContext.getLibraryListStorageManager().save(context, libraryListStorage);
     }
 }
