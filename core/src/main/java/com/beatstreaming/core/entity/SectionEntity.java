@@ -14,7 +14,7 @@ public class SectionEntity<T> extends NameItemEntity {
         super(name);
     }
 
-    public <V> V getTyped(Class<V> clazz) {
+    public <V> V[] getTyped(Class<V[]> clazz) {
         return new Gson().fromJson(new Gson().toJson(this.list), clazz);
     }
 }

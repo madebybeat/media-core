@@ -31,6 +31,12 @@ public class BindModule {
 
     @Provides
     @Singleton
+    public Player provideGenericPlayer(MusicPlayer musicPlayer) {
+        return musicPlayer;
+    }
+    
+    @Provides
+    @Singleton
     public Player<?> providePlayer(MusicPlayer musicPlayer) {
         return musicPlayer;
     }

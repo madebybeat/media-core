@@ -28,8 +28,8 @@ public class AlbumPage extends CollectionPage<AlbumEntity> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.collectionPageBinding.collectionHeader.addView(AddToLibraryButtonBinding.inflate(this.getLayoutInflater()).getRoot().setup(new AddToLibraryContext(this.libraryListStorageManager, this.albumItemType, this.appSourceContext, this.imageItemEntity)));
         this.collectionPageBinding.collectionHeader.addView(StartPlayingButtonBinding.inflate(this.getLayoutInflater()).getRoot());
+        this.collectionPageBinding.collectionHeader.addView(AddToLibraryButtonBinding.inflate(this.getLayoutInflater()).getRoot().setup(new AddToLibraryContext(this.libraryListStorageManager, this.albumItemType, this.appSourceContext, this.imageItemEntity)));
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }
