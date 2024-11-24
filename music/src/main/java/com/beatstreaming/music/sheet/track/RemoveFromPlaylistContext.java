@@ -41,7 +41,7 @@ public class RemoveFromPlaylistContext extends ListSheetItemContext<LibraryItemE
             return;
         }
 
-        libraryListStorage.replace(playlistEntity);
+        libraryListStorage.findAndReplace(playlistEntity);
         libraryListStorageManager.save(context, libraryListStorage);
 
         Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.sheet_track_remove_from_playlist_item_success, Snackbar.LENGTH_SHORT).show();

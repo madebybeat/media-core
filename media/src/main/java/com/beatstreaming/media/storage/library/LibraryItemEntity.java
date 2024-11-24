@@ -1,8 +1,8 @@
 package com.beatstreaming.media.storage.library;
 
+import com.beatstreaming.core.entity.IdItemEntity;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.list.AppSourceListContext;
 
 import java.util.Objects;
@@ -34,6 +34,6 @@ public class LibraryItemEntity<T extends ItemEntity> extends ItemEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(((MediaEntity) this.getItem()).getId());
+        return Objects.hash(((IdItemEntity) this.getItem()).getId());
     }
 }

@@ -10,7 +10,7 @@ import lombok.Getter;
 
 @Getter
 public class ListStorage<T extends ItemEntity> {
-    private final List<T> list;
+    protected final List<T> list;
 
     public ListStorage() {
         this.list = new ArrayList<>();
