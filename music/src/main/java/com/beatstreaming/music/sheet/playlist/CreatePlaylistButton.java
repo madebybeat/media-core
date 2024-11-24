@@ -18,8 +18,8 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class CreatePlaylistButton extends SheetButton implements ItemInit<Context>, ItemSetup<CreatePlaylistButton, ListSheetContext<?, LibraryItemEntity<TrackEntity>>> {
-    private ListSheetContext<?, LibraryItemEntity<TrackEntity>> listSheetContext;
+public class CreatePlaylistButton extends SheetButton implements ItemInit<Context>, ItemSetup<CreatePlaylistButton, ListSheetContext<LibraryItemEntity<TrackEntity>>> {
+    private ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext;
 
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject PlaylistItemType playlistItemType;
@@ -54,7 +54,7 @@ public class CreatePlaylistButton extends SheetButton implements ItemInit<Contex
     }
 
     @Override
-    public CreatePlaylistButton setup(ListSheetContext<?, LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public CreatePlaylistButton setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
         this.listSheetContext = listSheetContext;
 
         return this;

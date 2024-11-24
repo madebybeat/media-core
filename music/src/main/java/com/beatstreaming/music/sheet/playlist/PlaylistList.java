@@ -21,7 +21,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<?, LibraryItemEntity<TrackEntity>>> {
+public class PlaylistList extends ListRecyclerView implements ItemInit<Context>, ItemSetup<PlaylistList, ListSheetContext<LibraryItemEntity<TrackEntity>>> {
     @Inject LibraryListStorageManager libraryListStorageManager;
     @Inject AddPlaylistItemBinder addPlaylistItemBind;
 
@@ -44,7 +44,7 @@ public class PlaylistList extends ListRecyclerView implements ItemInit<Context>,
     }
 
     @Override
-    public PlaylistList setup(ListSheetContext<?, LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public PlaylistList setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
         LibraryListStorage<PlaylistEntity> libraryListStorage = this.libraryListStorageManager.load(this.getContext());
 
         this.setAdapter(new ListRecyclerViewAdapter(new TrackListContext(listSheetContext.getItem()), libraryListStorage.getItemsByType(PlaylistEntity.class).toArray(new PlaylistEntity[]{}), this.addPlaylistItemBind));

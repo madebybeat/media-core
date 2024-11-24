@@ -9,7 +9,7 @@ import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.player.PlayContext;
 
-public class MediaListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<PlayContext, T>, MediaSheetContext<PlayContext, T>> {
+public class MediaListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<T>, MediaSheetContext<PlayContext, T>> {
     public MediaListSheet(@NonNull Context context) {
         super(context);
     }

@@ -18,7 +18,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class ListSheet<T extends ListSheetContext<?, ?>, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, V> {
+public class ListSheet<T extends ListSheetContext<?>, V extends ItemEntity> extends Sheet implements ItemInit<Context>, ItemSetup<ListSheet<T, V>, V> {
     protected ListSheetBinding listSheetBinding;
     protected T listSheetContext;
 

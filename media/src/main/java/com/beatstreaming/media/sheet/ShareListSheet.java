@@ -9,7 +9,7 @@ import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 
-public class ShareListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<?, T>, LibraryItemEntity<T>> {
+public class ShareListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<T>, LibraryItemEntity<T>> {
     public ShareListSheet(@NonNull Context context) {
         super(context);
     }

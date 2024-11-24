@@ -5,18 +5,17 @@ import android.content.Intent;
 
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
-import com.beatstreaming.media.player.PlayContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class ShareShareContext extends ListSheetItemContext<PlayContext, LibraryItemEntity<TrackEntity>> {
+public class ShareShareContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
     public ShareShareContext() {
         super(R.string.sheet_share_share, com.beatstreaming.core.R.drawable.copy);
     }
 
     @Override
-    public void onCall(Context context, ListSheetContext<PlayContext, LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public void onCall(Context context, ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
         context.startActivity(
                 new Intent()
                         .setAction(Intent.ACTION_SEND)
