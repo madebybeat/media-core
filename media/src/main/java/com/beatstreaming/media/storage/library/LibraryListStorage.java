@@ -23,4 +23,8 @@ public class LibraryListStorage<T extends ItemEntity> extends ListStorage<Librar
     public Optional<LibraryItemEntity<T>> find(T item) {
         return this.getList().stream().filter(target -> target.getItem().equals(item)).findFirst();
     }
+
+    public boolean findAndRemove(T item) {
+        return this.find(item).map(this::remove).orElse(false);
+    }
 }
