@@ -4,13 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 
-import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.core.view.ItemSetup;
-import com.beatstreaming.media.entity.MediaEntity;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Optional;
 
 public class StartPlayingButton extends PageHeaderButton implements  ItemSetup<StartPlayingButton, StartPlayingContext> {
     private StartPlayingContext startPlayingContext;
@@ -44,12 +38,8 @@ public class StartPlayingButton extends PageHeaderButton implements  ItemSetup<S
                     return;
                 }
 
-                Optional<SectionEntity<?>> section = Arrays.stream(startPlayingContext.getSections()).filter(item -> item.getId().equals(startPlayingContext.getMediaItemType().getId())).findFirst();
-
-                section.ifPresent(target -> {
-                    startPlayingContext.getPlayerContext().setList(target.getTyped((Class<MediaEntity[]>) Array.newInstance(startPlayingContext.getMediaItemType().getClazz(), 0).getClass()));
-                    startPlayingContext.getPlayer().queue(startPlayingContext.getPlayerContext());
-                });
+                startPlayingContext.getPlayerContext().setList(startPlayingContext.getList());
+                startPlayingContext.getPlayer().queue(startPlayingContext.getPlayerContext());
             }
         });
     }

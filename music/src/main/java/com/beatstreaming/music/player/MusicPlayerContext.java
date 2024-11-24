@@ -4,6 +4,7 @@ import androidx.media3.common.MediaItem;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.media.entity.AppSourceEntity;
+import com.beatstreaming.media.entity.MediaEntity;
 import com.beatstreaming.media.player.PlayContext;
 import com.beatstreaming.media.player.PlaySource;
 import com.beatstreaming.music.entity.TrackEntity;
@@ -11,8 +12,8 @@ import com.beatstreaming.music.entity.TrackEntity;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class MusicPlayerContext<T extends ItemEntity> extends PlayContext<T, TrackEntity> {
-    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlaySource<T, TrackEntity> playerSource) {
+public class MusicPlayerContext<T extends ItemEntity> extends PlayContext<T, MediaEntity> {
+    public MusicPlayerContext(AppSourceEntity appSourceEntity, PlaySource<T, MediaEntity> playerSource) {
         super(appSourceEntity, playerSource);
     }
 
@@ -20,7 +21,7 @@ public class MusicPlayerContext<T extends ItemEntity> extends PlayContext<T, Tra
     public List<MediaItem> getMediaItemList() {
         return this.getItemList()
                 .stream()
-                .map((TrackEntity trackEntity) -> MediaItem.fromUri(trackEntity.getPlayer().getUrl()))
+                .map((trackEntity) -> MediaItem.fromUri(((TrackEntity) trackEntity).getPlayer().getUrl()))
                 .collect(Collectors.toList());
     }
 }
