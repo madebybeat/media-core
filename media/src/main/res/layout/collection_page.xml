@@ -33,16 +33,25 @@
                     android:padding="@dimen/space_medium"
                     android:textColor="@color/m3_sys_dark_on_surface"
                     tools:ignore="SpUsage" />
+
+                <LinearLayout
+                    android:id="@+id/collection_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/space_normal"
+                    android:showDividers="middle"
+                    android:divider="@drawable/divider" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/collection_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal" />
+                android:orientation="vertical">
 
+                <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
+            </LinearLayout>
 
-            <include android:id="@+id/collection_list" layout="@layout/http_request_status" />
         </LinearLayout>
 
     </com.beatstreaming.core.component.list.ListNestedScrollView>

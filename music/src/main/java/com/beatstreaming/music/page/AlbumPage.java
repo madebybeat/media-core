@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.media.button.AddToLibraryContext;
 import com.beatstreaming.media.databinding.AddToLibraryButtonBinding;
+import com.beatstreaming.media.databinding.StartPlayingButtonBinding;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.page.CollectionPage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -27,7 +28,8 @@ public class AlbumPage extends CollectionPage<AlbumEntity> {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        this.collectionPageBinding.collectionHeader.addView(AddToLibraryButtonBinding.inflate(this.getLayoutInflater()).getRoot().setup(new AddToLibraryContext(this.libraryListStorageManager, this.albumItemType, this.appSourceContext, this.imageItemEntity)));
+        this.collectionPageBinding.collectionHeader.addView(AddToLibraryButtonBinding.inflate(this.getLayoutInflater()).getRoot());
+        this.collectionPageBinding.collectionHeader.addView(StartPlayingButtonBinding.inflate(this.getLayoutInflater()).getRoot());
 
         return super.onCreateView(layoutInflater, viewGroup, bundle);
     }

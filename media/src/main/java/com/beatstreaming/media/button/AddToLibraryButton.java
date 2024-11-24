@@ -7,30 +7,36 @@ import android.widget.Toast;
 
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
-import com.beatstreaming.core.view.ItemInit;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
-import com.google.android.material.button.MaterialButton;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AddToLibraryButton extends MaterialButton implements ItemInit<Context>, ItemSetup<AddToLibraryButton, AddToLibraryContext> {
+public class AddToLibraryButton extends PageHeaderButton implements  ItemSetup<AddToLibraryButton, AddToLibraryContext> {
     private AddToLibraryContext saveToLibraryContext;
 
     public AddToLibraryButton(Context context) {
         super(context);
+
+        this.init(context);
     }
 
     public AddToLibraryButton(Context context, AttributeSet attrs) {
         super(context, attrs);
+
+        this.init(context);
     }
 
     public AddToLibraryButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+        this.init(context);
     }
 
     @Override
     public void init(Context item) {
+        super.init(item);
+
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
