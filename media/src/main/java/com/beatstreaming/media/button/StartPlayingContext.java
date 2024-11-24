@@ -10,10 +10,10 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class StartPlayingContext {
+public class StartPlayingContext<T extends MediaEntity> {
     private final MediaEntity[] list;
 
     private final Player<MediaEntity> player;
     private final MediaItemType mediaItemType;
-    private final PlayContext<?, MediaEntity> playerContext;
+    private final PlayContext<?, T> playerContext;
 }
