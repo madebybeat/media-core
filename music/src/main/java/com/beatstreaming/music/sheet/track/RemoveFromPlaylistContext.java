@@ -2,12 +2,16 @@ package com.beatstreaming.music.sheet.track;
 
 import android.content.Context;
 
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
 import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.R;
+import com.beatstreaming.music.entity.PlaylistEntity;
 import com.beatstreaming.music.entity.TrackEntity;
+import com.google.android.material.snackbar.Snackbar;
 
 public class RemoveFromPlaylistContext extends ListSheetItemContext<TrackEntity> {
     private final AppPlaylistSheetContext<TrackEntity> appPlaylistSheetContext;
@@ -20,10 +24,24 @@ public class RemoveFromPlaylistContext extends ListSheetItemContext<TrackEntity>
 
     @Override
     public void onCall(Context context, ListSheetContext<TrackEntity> listSheetContext) {
-        LibraryListStorage libraryListStorage = appPlaylistSheetContext.getLibraryListStorageManager().load(context);
+        LibraryListStorageManager libraryListStorageManager = appPlaylistSheetContext.getLibraryListStorageManager();
+        LibraryListStorage libraryListStorage = libraryListStorageManager.load(context);
 
-        libraryListStorage.remove(this.appPlaylistSheetContext.getContext().getPlayerSource().getItem());
+        PlaylistEntity playlistEntity = (PlaylistEntity) this.appPlaylistSheetContext.getContext().getPlayerSource().getItem();
 
-        appPlaylistSheetContext.getLibraryListStorageManager().save(context, libraryListStorage);
+        playlistEntity.getTracks().removeIf(item -> item.getItem().equals(listSheetContext.getItem()));
+
+        if (playlistEntity.getTracks().isEmpty()) {
+            libraryListStorage.remove(playlistEntity);
+
+            Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.sheet_track_remove_from_playlist_playlist_success, Snackbar.LENGTH_SHORT).show();
+
+            return;
+        }
+
+        libraryListStorage.replace(playlistEntity);
+        libraryListStorageManager.save(context, libraryListStorage);
+
+        Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), R.string.sheet_track_remove_from_playlist_item_success, Snackbar.LENGTH_SHORT).show();
     }
 }

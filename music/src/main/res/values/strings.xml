@@ -29,4 +29,6 @@
     <string name="toast_playlist_added_success">Added track to playlist</string>
     <string name="sheet_share_message">Hey! I\'m listening %s of %s on Beat. Download it now for a premium music listening experience!</string>
     <string name="sheet_share_share">Share</string>
+    <string name="sheet_track_remove_from_playlist_item_success">The track was removed</string>
+    <string name="sheet_track_remove_from_playlist_playlist_success">The playlist was removed</string>
 </resources>
