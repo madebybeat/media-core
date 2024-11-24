@@ -8,11 +8,11 @@ import android.widget.Toast;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import com.beatstreaming.core.MainActivity;
-import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.R;
+import com.beatstreaming.media.entity.ImageItemEntity;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.google.android.material.snackbar.Snackbar;
@@ -45,10 +45,10 @@ public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<Ad
         this.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                LibraryListStorage libraryListStorage = saveToLibraryContext.getLibraryListStorageManager().load(getContext());
+                LibraryListStorage<ImageItemEntity> libraryListStorage = saveToLibraryContext.getLibraryListStorageManager().load(getContext());
 
                 if (libraryListStorage.has(saveToLibraryContext.getImageItemEntity())) {
-                    libraryListStorage.find(saveToLibraryContext.getImageItemEntity()).ifPresent(target -> libraryListStorage.remove((ItemEntity) target));
+                    libraryListStorage.find(saveToLibraryContext.getImageItemEntity()).ifPresent(libraryListStorage::remove);
 
                     Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_remove_from_library_success, Toast.LENGTH_SHORT).show();
                 } else {
