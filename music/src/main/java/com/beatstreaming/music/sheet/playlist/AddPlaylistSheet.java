@@ -11,8 +11,8 @@ import com.beatstreaming.music.R;
 import com.beatstreaming.music.databinding.AddPlaylistSheetBinding;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistSheet, ListSheetContext<LibraryItemEntity<TrackEntity>>> {
-    private ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext;
+public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistSheet, ListSheetContext<?, LibraryItemEntity<TrackEntity>>> {
+    private ListSheetContext<?, LibraryItemEntity<TrackEntity>> listSheetContext;
 
     private AddPlaylistSheetBinding addPlaylistSheetBinding;
 
@@ -41,7 +41,7 @@ public class AddPlaylistSheet extends Sheet implements ItemSetup<AddPlaylistShee
     }
 
     @Override
-    public AddPlaylistSheet setup(ListSheetContext<LibraryItemEntity<TrackEntity>> listSheetContext) {
+    public AddPlaylistSheet setup(ListSheetContext<?, LibraryItemEntity<TrackEntity>> listSheetContext) {
         this.listSheetContext = listSheetContext;
 
         this.listSheetContext.setSheet(this);

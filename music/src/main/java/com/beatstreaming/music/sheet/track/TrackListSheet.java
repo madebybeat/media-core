@@ -4,12 +4,13 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
+import com.beatstreaming.media.player.PlayContext;
 import com.beatstreaming.media.sheet.MediaListSheet;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.media.sheet.MediaSheetContext;
 
-public class TrackListSheet extends MediaListSheet<TrackEntity> {
+public class TrackListSheet extends MediaListSheet<LibraryItemEntity<TrackEntity>> {
     public TrackListSheet(@NonNull Context context) {
         super(context);
 
@@ -36,10 +37,10 @@ public class TrackListSheet extends MediaListSheet<TrackEntity> {
     }
 
     @Override
-    public TrackListSheet setup(MediaSheetContext<?, LibraryItemEntity<TrackEntity>> item) {
+    public TrackListSheet setup(MediaSheetContext<PlayContext, LibraryItemEntity<TrackEntity>> item) {
         super.setup(item);
 
-        this.listSheetContext = new TrackListSheetContext(this, item.getItem());
+        this.listSheetContext = new TrackListSheetContext(this, item.getContext(), item.getItem());
 
         return this;
     }

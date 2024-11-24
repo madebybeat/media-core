@@ -6,10 +6,10 @@ import androidx.annotation.NonNull;
 
 import com.beatstreaming.core.component.sheet.list.ListSheet;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
-import com.beatstreaming.media.entity.MediaEntity;
-import com.beatstreaming.media.storage.library.LibraryItemEntity;
+import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.media.player.PlayContext;
 
-public class MediaListSheet<T extends MediaEntity> extends ListSheet<ListSheetContext<T>, MediaSheetContext<?, LibraryItemEntity<T>>> {
+public class MediaListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<PlayContext, T>, MediaSheetContext<PlayContext, T>> {
     public MediaListSheet(@NonNull Context context) {
         super(context);
     }

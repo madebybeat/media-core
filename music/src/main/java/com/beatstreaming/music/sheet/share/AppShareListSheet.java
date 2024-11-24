@@ -39,7 +39,7 @@ public class AppShareListSheet extends ShareListSheet<TrackEntity> {
     public AppShareListSheet setup(LibraryItemEntity<TrackEntity> item) {
         super.setup(item);
 
-        this.listSheetContext = new ShareSheetContext(this, item);
+        this.listSheetContext = new ShareSheetContext(this, item.getItem());
 
         return this;
     }

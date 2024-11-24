@@ -10,7 +10,7 @@ import com.beatstreaming.core.R;
 import com.beatstreaming.core.list.ListBinder;
 import com.beatstreaming.core.list.ListViewHolder;
 
-public class ListSheetItemBinder<T extends ListSheetContext<V>, V extends ListSheetItemContext<V>> extends ListBinder<T, V> {
+public class ListSheetItemBinder<T extends ListSheetContext, V extends ListSheetItemContext> extends ListBinder<T, V> {
     @Override
     public void bind(T context, ListViewHolder<V> holder, V item) {
         ImageView icon = holder.itemView.findViewById(R.id.sheet_item_icon);
