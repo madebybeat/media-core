@@ -10,7 +10,7 @@ import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.media.sheet.MediaSheetContext;
 
-public class TrackListSheet extends MediaListSheet<LibraryItemEntity<TrackEntity>> {
+public class TrackListSheet<T extends MediaSheetContext<?, LibraryItemEntity<TrackEntity>>> extends MediaListSheet<T, LibraryItemEntity<TrackEntity>> {
     protected PlayContext playContext;
 
     public TrackListSheet(@NonNull Context context) {
@@ -39,7 +39,7 @@ public class TrackListSheet extends MediaListSheet<LibraryItemEntity<TrackEntity
     }
 
     @Override
-    public TrackListSheet setup(MediaSheetContext<PlayContext, LibraryItemEntity<TrackEntity>> item) {
+    public TrackListSheet setup(T item) {
         super.setup(item);
 
         this.playContext = item.getContext();

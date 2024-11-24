@@ -7,9 +7,8 @@ import androidx.annotation.NonNull;
 import com.beatstreaming.core.component.sheet.list.ListSheet;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.entity.ItemEntity;
-import com.beatstreaming.media.player.PlayContext;
 
-public class MediaListSheet<T extends ItemEntity> extends ListSheet<ListSheetContext<T>, MediaSheetContext<PlayContext, T>> {
+public class MediaListSheet<T extends MediaSheetContext, V extends ItemEntity> extends ListSheet<ListSheetContext<V>, T> {
     public MediaListSheet(@NonNull Context context) {
         super(context);
     }
