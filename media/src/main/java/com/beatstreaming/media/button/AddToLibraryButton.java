@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.appcompat.content.res.AppCompatResources;
 
 import com.beatstreaming.core.MainActivity;
+import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.entity.SerializableItemEntity;
 import com.beatstreaming.core.view.ItemRefresh;
 import com.beatstreaming.core.view.ItemSetup;
@@ -47,11 +48,11 @@ public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<Ad
                 LibraryListStorage libraryListStorage = saveToLibraryContext.getLibraryListStorageManager().load(getContext());
 
                 if (libraryListStorage.has(saveToLibraryContext.getImageItemEntity())) {
-                    libraryListStorage.getList().remove(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
+                    libraryListStorage.find(saveToLibraryContext.getImageItemEntity()).ifPresent(target -> libraryListStorage.remove((ItemEntity) target));
 
                     Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_remove_from_library_success, Toast.LENGTH_SHORT).show();
                 } else {
-                    libraryListStorage.getList().add(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
+                    libraryListStorage.add(new LibraryItemEntity(saveToLibraryContext.getAppSourceContext(), saveToLibraryContext.getItemType(), new SerializableItemEntity<>(saveToLibraryContext.getItemType().getClazz(), saveToLibraryContext.getImageItemEntity())));
 
                     Snackbar.make(MainActivity.mainActivity.getMainActivityBinding().getRoot(), com.beatstreaming.media.R.string.page_collection_add_to_library_success, Toast.LENGTH_SHORT).show();
                 }
