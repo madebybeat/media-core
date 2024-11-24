@@ -5,7 +5,7 @@ import android.content.Context;
 import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.component.sheet.list.ListSheetContext;
 import com.beatstreaming.core.component.sheet.list.ListSheetItemContext;
-import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.beatstreaming.media.storage.library.LibraryListStorageManager;
@@ -15,9 +15,9 @@ import com.beatstreaming.music.entity.TrackEntity;
 import com.google.android.material.snackbar.Snackbar;
 
 public class RemoveFromPlaylistContext extends ListSheetItemContext<LibraryItemEntity<TrackEntity>> {
-    private final AppPlaylistSheetContext<TrackEntity> appPlaylistSheetContext;
+    private final LibrarySheetContext<TrackEntity> appPlaylistSheetContext;
 
-    public RemoveFromPlaylistContext(AppPlaylistSheetContext<TrackEntity> appPlaylistSheetContext) {
+    public RemoveFromPlaylistContext(LibrarySheetContext<TrackEntity> appPlaylistSheetContext) {
         super(R.string.sheet_track_item_remove_from_playlist, R.drawable.playlist_remove);
 
         this.appPlaylistSheetContext = appPlaylistSheetContext;

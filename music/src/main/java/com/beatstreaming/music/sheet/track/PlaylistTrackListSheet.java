@@ -4,10 +4,10 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 
-import com.beatstreaming.media.sheet.AppPlaylistSheetContext;
+import com.beatstreaming.media.sheet.LibrarySheetContext;
 import com.beatstreaming.music.entity.TrackEntity;
 
-public class PlaylistTrackListSheet extends TrackListSheet<AppPlaylistSheetContext<TrackEntity>> {
+public class PlaylistTrackListSheet extends TrackListSheet<LibrarySheetContext<TrackEntity>> {
     public PlaylistTrackListSheet(@NonNull Context context) {
         super(context);
 

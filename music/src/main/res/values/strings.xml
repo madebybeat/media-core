@@ -31,4 +31,7 @@
     <string name="sheet_share_share">Share</string>
     <string name="sheet_track_remove_from_playlist_item_success">The track was removed</string>
     <string name="sheet_track_remove_from_playlist_playlist_success">The playlist was removed</string>
+    <string name="sheet_playlist_item_remove">Delete playlist</string>
+    <string name="sheet_playlist_remove_success">The playlist was removed</string>
+    <string name="sheet_playlist_title">Playlist</string>
 </resources>
