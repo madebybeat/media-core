@@ -5,6 +5,6 @@ import com.beatstreaming.music.entity.AlbumEntity;
 
 public class AlbumItemType extends ItemType<AlbumEntity> {
     public AlbumItemType(Class<AlbumEntity> clazz, Class<?> binder) {
-        super(clazz, binder);
+        super("album", clazz, binder);
     }
 }

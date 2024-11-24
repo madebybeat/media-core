@@ -44,7 +44,7 @@ public class StartPlayingButton extends PageHeaderButton implements  ItemSetup<S
                     return;
                 }
 
-                Optional<SectionEntity<?>> section = Arrays.stream(startPlayingContext.getSections()).filter(item -> item.getId().equals("track")).findFirst();
+                Optional<SectionEntity<?>> section = Arrays.stream(startPlayingContext.getSections()).filter(item -> item.getId().equals(startPlayingContext.getMediaItemType().getId())).findFirst();
 
                 section.ifPresent(target -> {
                     startPlayingContext.getPlayerContext().setList(target.getTyped((Class<MediaEntity[]>) Array.newInstance(startPlayingContext.getMediaItemType().getClazz(), 0).getClass()));

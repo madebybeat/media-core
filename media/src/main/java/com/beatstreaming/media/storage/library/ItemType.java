@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class ItemType<T extends ItemEntity> {
+    protected final String id;
     protected final Class<? extends T> clazz;
     protected final Class<?> binder;
 }

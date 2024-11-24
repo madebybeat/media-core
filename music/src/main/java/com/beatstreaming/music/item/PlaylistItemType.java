@@ -5,6 +5,6 @@ import com.beatstreaming.music.entity.PlaylistEntity;
 
 public class PlaylistItemType extends ItemType<PlaylistEntity> {
     public PlaylistItemType(Class<PlaylistEntity> clazz, Class<?> binder) {
-        super(clazz, binder);
+        super("playlist", clazz, binder);
     }
 }
