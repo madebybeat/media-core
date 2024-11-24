@@ -20,6 +20,6 @@ public class RemoveFromPlaylistContext extends ListSheetItemContext<PlayContext,
 
     @Override
     public void onCall(Context context, ListSheetContext<PlayContext, TrackEntity> listSheetContext) {
-        System.out.println(this.listSheetContext.getContext());
+
     }
 }
