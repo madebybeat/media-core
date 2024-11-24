@@ -12,7 +12,7 @@ import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.media.storage.library.LibraryListStorage;
 import com.google.android.material.snackbar.Snackbar;
 
-public class AddToLibraryButton extends PageHeaderButton implements  ItemSetup<AddToLibraryButton, AddToLibraryContext> {
+public class AddToLibraryButton extends PageHeaderButton implements ItemSetup<AddToLibraryButton, AddToLibraryContext> {
     private AddToLibraryContext saveToLibraryContext;
 
     public AddToLibraryButton(Context context) {
