@@ -1,10 +1,10 @@
 package com.beatstreaming.music.item;
 
-import com.beatstreaming.media.storage.library.ItemType;
-import com.beatstreaming.music.entity.TrackEntity;
+import com.beatstreaming.core.entity.ItemEntity;
+import com.beatstreaming.media.media.MediaItemType;
 
-public class TrackItemType extends ItemType<TrackEntity> {
-    public TrackItemType(Class<TrackEntity> clazz, Class<?> binder) {
+public class TrackItemType<T extends ItemEntity> extends MediaItemType<T> {
+    public TrackItemType(Class<T> clazz, Class<?> binder) {
         super(clazz, binder);
     }
 }

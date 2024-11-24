@@ -8,6 +8,7 @@ import com.beatstreaming.core.entity.SectionEntity;
 import com.beatstreaming.core.view.ItemSetup;
 import com.beatstreaming.media.entity.MediaEntity;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Optional;
 
@@ -46,8 +47,7 @@ public class StartPlayingButton extends PageHeaderButton implements  ItemSetup<S
                 Optional<SectionEntity<?>> section = Arrays.stream(startPlayingContext.getSections()).filter(item -> item.getId().equals("track")).findFirst();
 
                 section.ifPresent(target -> {
-                    startPlayingContext.getPlayerContext().setList(target.getTyped(MediaEntity[].class));
-                    startPlayingContext.getPlayerContext().setIndex(0);
+                    startPlayingContext.getPlayerContext().setList(target.getTyped((Class<MediaEntity[]>) Array.newInstance(startPlayingContext.getMediaItemType().getClazz(), 0).getClass()));
                     startPlayingContext.getPlayer().queue(startPlayingContext.getPlayerContext());
                 });
             }
