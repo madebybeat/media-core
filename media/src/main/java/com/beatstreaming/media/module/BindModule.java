@@ -2,7 +2,7 @@ package com.beatstreaming.media.module;
 
 import android.content.Context;
 
-import com.beatstreaming.core.pages.HomePage;
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
 import com.beatstreaming.media.list.MediaCardItemBinder;
 import com.beatstreaming.media.list.MediaListItemBinder;
@@ -32,8 +32,8 @@ public class BindModule {
 
     @Provides
     @Singleton
-    public AppSourcePageItemBinder provideAppSourcePageItemBinder(AppSourceStorageManager appSourceStorageManager, HomePage homePage) {
-        return new AppSourcePageItemBinder(appSourceStorageManager, homePage);
+    public AppSourcePageItemBinder provideAppSourcePageItemBinder(AppSourceStorageManager appSourceStorageManager, Class<? extends MainActivity> mainActivity) {
+        return new AppSourcePageItemBinder(appSourceStorageManager, mainActivity);
     }
 
     @Provides

@@ -1,11 +1,11 @@
 package com.beatstreaming.media.list;
 
+import android.content.Intent;
 import android.view.View;
 
+import com.beatstreaming.core.MainActivity;
 import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
-import com.beatstreaming.core.pages.HomePage;
-import com.beatstreaming.media.MediaMainActivity;
 import com.beatstreaming.media.entity.AppSourceEntity;
 import com.beatstreaming.media.storage.app.AppSourceStorageItem;
 import com.beatstreaming.media.storage.app.AppSourceStorageManager;
@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class AppSourcePageItemBinder extends AppSourceBinder {
     private final AppSourceStorageManager appSourceStorageManager;
-    private final HomePage homePage;
+    private final Class<? extends MainActivity> mainActivity;
 
     @Override
     public void bind(ListContext context, ListViewHolder<AppSourceEntity> holder, AppSourceEntity item) {
@@ -26,10 +26,7 @@ public class AppSourcePageItemBinder extends AppSourceBinder {
             public void onClick(View view) {
                 appSourceStorageManager.save(view.getContext(), new AppSourceStorageItem(item));
 
-                MediaMainActivity.mainActivity.getSupportFragmentManager().beginTransaction()
-                        .replace(MediaMainActivity.mainActivity.getMainActivityBinding().fragment.getId(), homePage)
-                        .addToBackStack(null)
-                        .commit();
+                holder.itemView.getContext().startActivity(new Intent(holder.itemView.getContext(), mainActivity));
             }
         });
     }
