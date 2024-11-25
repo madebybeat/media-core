@@ -17,6 +17,7 @@ import java.util.Arrays;
 import javax.inject.Inject;
 
 import lombok.Getter;
+import lombok.SneakyThrows;
 
 @Getter
 public class MainActivity extends AppCompatActivity {
@@ -24,10 +25,11 @@ public class MainActivity extends AppCompatActivity {
 
     protected MainActivityBinding mainActivityBinding;
 
-    @Inject HomePage homePage;
+    @Inject Class<? extends HomePage> homePage;
     @Inject Pages[] pages;
 
     @Override
+    @SneakyThrows
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
 
         this.getSupportFragmentManager().beginTransaction()
-                .replace(mainActivityBinding.fragment.getId(), this.homePage)
+                .replace(mainActivityBinding.fragment.getId(), this.homePage.newInstance())
                 .addToBackStack(null)
                 .commit();
 
