@@ -11,4 +11,5 @@ import lombok.Getter;
 public class PlayerContext {
     private final ItemType itemType;
     private final HistoryListStorageManager historyListStorageManager;
+    private final int icLauncher;
 }
