@@ -9,13 +9,13 @@ import com.beatstreaming.media.R;
 import com.beatstreaming.media.entity.AppSourceEntity;
 
 public class AppSourceBinder extends ListBinder<ListContext, AppSourceEntity> {
-    protected TextView appName;
-
     @Override
     public void bind(ListContext context, ListViewHolder<AppSourceEntity> holder, AppSourceEntity item) {
-        this.appName = holder.itemView.findViewById(R.id.app_name);
+        TextView appName = holder.itemView.findViewById(R.id.app_name);
+        TextView appBody = holder.itemView.findViewById(R.id.app_body);
 
-        this.appName.setText(item.getName());
+        appName.setText(item.getName());
+        appBody.setText(item.getDescription());
     }
 
     public int getItemLayout() {
