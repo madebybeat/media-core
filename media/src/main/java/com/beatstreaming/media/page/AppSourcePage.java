@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.beatstreaming.core.databinding.ListBinding;
 import com.beatstreaming.media.databinding.AppSourcePageBinding;
 import com.beatstreaming.media.http.AppSourceListRequest;
 import com.beatstreaming.media.list.AppSourcePageItemBinder;
@@ -27,6 +28,6 @@ public class AppSourcePage extends AppCompatActivity {
         this.appSourcePageBinding = AppSourcePageBinding.inflate(this.getLayoutInflater());
         this.setContentView(this.appSourcePageBinding.getRoot());
 
-        new AppSourceListRequest(getLayoutInflater().getContext(), this.appSourcePageBinding, this.appServerManager.getAppServer(), this.appSourceBinder);
+        new AppSourceListRequest(getLayoutInflater().getContext(), this.appSourcePageBinding, ListBinding.inflate(this.getLayoutInflater()), this.appServerManager.getAppServer(), this.appSourceBinder);
     }
 }
