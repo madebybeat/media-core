@@ -13,6 +13,7 @@ import androidx.media3.common.MediaItem;
 import androidx.media3.common.util.UnstableApi;
 import androidx.media3.session.MediaStyleNotificationHelper;
 
+import com.beatstreaming.core.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -39,7 +40,7 @@ public class PlayerNotificationListener extends PlayerListener<ContextualPlayer>
                     public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom loadedFrom) {
                         @OptIn(markerClass = UnstableApi.class) NotificationCompat.Builder notification = new NotificationCompat.Builder(player.getContext(), "beat")
                                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-                                .setSmallIcon(player.playerContext.getIcLauncher())
+                                .setSmallIcon(R.drawable.ic_launcher_foreground)
                                 .setStyle(
                                         new MediaStyleNotificationHelper.MediaStyle(player.mediaSession)
                                                 .setShowActionsInCompactView(1)

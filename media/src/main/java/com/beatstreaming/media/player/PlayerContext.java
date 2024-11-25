@@ -1,5 +1,7 @@
 package com.beatstreaming.media.player;
 
+import android.graphics.drawable.Drawable;
+
 import com.beatstreaming.media.storage.history.HistoryListStorageManager;
 import com.beatstreaming.media.storage.library.ItemType;
 
@@ -11,5 +13,4 @@ import lombok.Getter;
 public class PlayerContext {
     private final ItemType itemType;
     private final HistoryListStorageManager historyListStorageManager;
-    private final int icLauncher;
 }
