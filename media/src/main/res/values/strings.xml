@@ -15,4 +15,5 @@
     <string name="page_collection_start_playing">Play</string>
     <string name="page_collection_add_to_library_success">Added to your library</string>
     <string name="page_collection_remove_from_library_success">Removed from your library</string>
+    <string name="page_app_source_title">Select an app to start</string>
 </resources>

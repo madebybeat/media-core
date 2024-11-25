@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@drawable/ripple_with_border"
     android:paddingVertical="@dimen/space_big"
-    android:paddingHorizontal="@dimen/space_normal">
+    android:paddingHorizontal="@dimen/space_medium">
 
     <TextView
         android:id="@+id/app_name"
