@@ -38,7 +38,7 @@ public class AppTitlePage<T extends TitleEntity> extends HomePage {
 
         Picasso.get().load(this.item.getImage().getUrl()).into(this.titlePageBinding.mediaImage);
 
-        new PlatformListRequest(this.getContext(), this.titlePageBinding, this.appSourceListContext.getItem(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.platformListItemBinder);
+        new PlatformListRequest(this.getContext(), this.titlePageBinding, this.appSourceListContext.getContext(), this.item, HomeSectionBinding.inflate(this.getLayoutInflater()), this.platformListItemBinder);
 
         return this.titlePageBinding.getRoot();
     }

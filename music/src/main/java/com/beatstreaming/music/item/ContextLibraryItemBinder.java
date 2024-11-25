@@ -18,7 +18,7 @@ public class ContextLibraryItemBinder<T extends SectionRegistryListContext, V ex
     public void bind(T context, ListViewHolder<V> holder, V item) {
         super.bind(context, holder, item);
 
-        SectionPlayerContext sectionPlayerContext = new SectionPlayerContext((AppSourceEntity) item.getAppSourceContext().getItem(), new HomePlayerSource(null));
+        SectionPlayerContext sectionPlayerContext = new SectionPlayerContext((AppSourceEntity) item.getAppSourceContext().getContext(), new HomePlayerSource(null));
 
         sectionPlayerContext.init(Arrays.stream(context.getList()).map(target -> ((MediaEntity) ((LibraryItemEntity) target).getItem())).toArray(MediaEntity[]::new), context.getIndex());
 

@@ -8,5 +8,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public class ItemListContext<T extends ItemEntity, V extends ItemEntity> extends ListContext<V> {
-    protected final T item;
+    protected final T context;
 }
