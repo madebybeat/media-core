@@ -4,15 +4,17 @@ import android.view.LayoutInflater;
 
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.databinding.MediaCoverImageBinding;
+import com.beatstreaming.media.item.LibraryItemContext;
 import com.beatstreaming.media.list.ItemListItemBinder;
+import com.beatstreaming.media.storage.library.LibraryItemEntity;
 import com.beatstreaming.music.R;
 import com.beatstreaming.music.entity.PlaylistEntity;
-import com.beatstreaming.music.list.TrackListContext;
+import com.beatstreaming.music.entity.TrackEntity;
 import com.squareup.picasso.Picasso;
 
-public class PlaylistItemBinder extends ItemListItemBinder<TrackListContext, PlaylistEntity> {
+public class PlaylistItemBinder extends ItemListItemBinder<LibraryItemContext<LibraryItemEntity<TrackEntity>>, PlaylistEntity> {
     @Override
-    public void bind(TrackListContext context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
+    public void bind(LibraryItemContext<LibraryItemEntity<TrackEntity>> context, ListViewHolder<PlaylistEntity> holder, PlaylistEntity item) {
         super.bind(context, holder, item);
 
         this.mediaTitle.setText(item.getName());

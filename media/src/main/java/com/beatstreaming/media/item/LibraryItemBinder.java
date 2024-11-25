@@ -2,6 +2,7 @@ package com.beatstreaming.media.item;
 
 import com.beatstreaming.core.entity.ItemEntity;
 import com.beatstreaming.core.list.ListBinder;
+import com.beatstreaming.core.list.ListContext;
 import com.beatstreaming.core.list.ListViewHolder;
 import com.beatstreaming.media.list.AppSourceListContext;
 import com.beatstreaming.media.R;
@@ -15,9 +16,9 @@ public class LibraryItemBinder<T extends ItemEntity, V extends LibraryItemEntity
     public void bind(AppSourceListContext context, ListViewHolder<V> holder, V item) {
         super.bind(context, holder, item);
 
-        ListBinder<AppSourceListContext, T> listBinder = (ListBinder<AppSourceListContext, T>) item.getItemType().getBinder().getConstructor().newInstance();
+        ListBinder<ListContext, T> listBinder = (ListBinder<ListContext, T>) item.getItemType().getBinder().getConstructor().newInstance();
 
-        listBinder.bind(item.getAppSourceContext(), (ListViewHolder<T>) holder, item.getSerializableItemEntity().get());
+        listBinder.bind(new LibraryItemContext(item.getAppSourceContext().getItem(), null, item), (ListViewHolder<T>) holder, item.getSerializableItemEntity().get());
     }
 
     @Override
