@@ -2,6 +2,7 @@ package com.beatstreaming.music.module;
 
 import com.beatstreaming.media.player.Player;
 import com.beatstreaming.media.player.ui.PlayerBar;
+import com.beatstreaming.media.storage.library.LibraryListStorageManager;
 import com.beatstreaming.music.entity.TrackEntity;
 import com.beatstreaming.music.item.AbstractLibraryItemBinder;
 import com.beatstreaming.music.player.MusicPlayer;
@@ -19,8 +20,8 @@ import dagger.hilt.components.SingletonComponent;
 public class BindModule {
     @Provides
     @Singleton
-    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder() {
-        return new AbstractLibraryItemBinder();
+    public AbstractLibraryItemBinder provideAbstractLibraryItemBinder(LibraryListStorageManager libraryListStorageManager) {
+        return new AbstractLibraryItemBinder(libraryListStorageManager);
     }
 
     @Provides
