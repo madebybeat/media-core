@@ -13,17 +13,17 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 
 @RequiredArgsConstructor
-public class LibraryItemBinder<T extends ItemEntity, V extends LibraryItemEntity<T>> extends ListBinder<AppSourceListContext<LibraryItemEntity<?>>, V> {
+public class LibraryItemBinder<T extends ItemEntity, V extends LibraryItemEntity<T>> extends ListBinder<AppSourceListContext, V> {
     private final LibraryListStorageManager libraryListStorageManager;
 
     @Override
     @SneakyThrows
-    public void bind(AppSourceListContext<LibraryItemEntity<?>> context, ListViewHolder<V> holder, V item) {
+    public void bind(AppSourceListContext context, ListViewHolder<V> holder, V item) {
         super.bind(context, holder, item);
 
         ListBinder<ListContext, T> listBinder = (ListBinder<ListContext, T>) item.getItemType().getBinder().getConstructor().newInstance();
 
-        listBinder.bind(new LibraryItemContext(libraryListStorageManager, context.getContext(), item.getItem(), item), (ListViewHolder<T>) holder, item.getItem());
+        listBinder.bind(new LibraryItemContext(libraryListStorageManager, item.getAppSourceContext().getContext(), item.getItem(), item), (ListViewHolder<T>) holder, item.getItem());
     }
 
     @Override
