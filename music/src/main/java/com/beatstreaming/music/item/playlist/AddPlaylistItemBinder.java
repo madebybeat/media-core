@@ -39,7 +39,7 @@ public class AddPlaylistItemBinder extends PlaylistItemBinder {
                 libraryListStorage.getByType(PlaylistEntity.class).stream().filter(target -> target.getItem().getUuid().equals(item.getUuid())).findFirst().ifPresent(target -> {
                     PlaylistEntity item = target.getItem();
 
-                    item.getTracks().add(context.getItem());
+                    item.getTracks().add((LibraryItemEntity<TrackEntity>) context.getLibraryItemEntity());
                     target.setItem(item);
                 });
 
