@@ -1,0 +1,21 @@
+[submodule "core"]
+	path = core
+	url = https://github.com/activmediaplay/core
+[submodule "media"]
+	path = media
+	url = https://github.com/activmediaplay/media
+[submodule "music"]
+	path = music
+	url = https://github.com/activmediaplay/music
+[submodule "beat"]
+	path = beat
+	url = https://github.com/activmediaplay/beat
+[submodule "video"]
+	path = video
+	url = https://github.com/activmediaplay/video
+[submodule "show"]
+	path = show
+	url = https://github.com/activmediaplay/show
+[submodule "youtube"]
+	path = youtube
+	url = https://github.com/activmediaplay/youtube
