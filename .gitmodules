@@ -22,3 +22,6 @@
 [submodule "bluetube"]
 	path = bluetube
 	url = https://github.com/activmediacorp/bluetube-android
+[submodule ".husky"]
+	path = .husky
+	url = https://github.com/activmediacorp/husky-submodule-recursive-commit-hook
