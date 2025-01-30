@@ -19,3 +19,6 @@
 [submodule "youtube"]
 	path = youtube
 	url = https://github.com/activmediaplay/youtube
+[submodule "bluetube"]
+	path = bluetube
+	url = https://github.com/activmediacorp/bluetube-android

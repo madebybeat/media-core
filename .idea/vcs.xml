@@ -2,5 +2,13 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/beat" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/bluetube" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/core" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/media" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/music" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/show" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/video" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/youtube" vcs="Git" />
   </component>
 </project>
